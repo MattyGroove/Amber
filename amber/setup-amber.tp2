@@ -1,5 +1,6 @@
-BACKUP ~amber_eet/backup~
-VERSION ~v5.03~
+BACKUP ~amber/backup~
+AUTHOR ~not available~
+VERSION ~v5.04~
 
 
 ALWAYS
@@ -19,44 +20,44 @@ ACTION_DEFINE_ARRAY fl#reload BEGIN setup END
     INT_VAR
       infer_charset = 1
     STR_VAR
-      tra_path = ~Amber_EET/tra~
+      tra_path = ~amber/tra~
       reload_array = fl#reload
       default_language = ~English~
   END
 END
 
-LANGUAGE ~English~ ~english~ ~amber_eet/tra/english/setup.tra~
-LANGUAGE ~Deutsch~ ~german~  ~amber_eet/tra/german/setup.tra~
-LANGUAGE ~Spanish~ ~spanish~ ~amber_eet/tra/spanish/setup.tra~
+LANGUAGE ~English~ ~english~ ~amber/tra/english/setup.tra~
+LANGUAGE ~Deutsch~ ~german~  ~amber/tra/german/setup.tra~
+LANGUAGE ~Spanish~ ~spanish~ ~amber/tra/spanish/setup.tra~
 
 BEGIN @150 
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @151  
 
 // audio installation
-LAF HANDLE_AUDIO STR_VAR audio_path = ~amber_eet/sounds/ambient~ oggdec_path = ~amber_eet/sounds~ sox_path = ~amber_eet/sounds~ END // ambient area sounds
-ACTION_IF FILE_EXISTS ~amber_eet/sounds/%LANGUAGE%/m#amb001.ogg~ THEN BEGIN
-  LAF HANDLE_AUDIO STR_VAR audio_path = EVAL ~amber_eet/sounds/%LANGUAGE%~ oggdec_path = ~amber_eet/sounds~ sox_path = ~amber_eet/sounds~ END 
+LAF HANDLE_AUDIO STR_VAR audio_path = ~amber/sounds/ambient~ oggdec_path = ~amber/sounds~ sox_path = ~amber/sounds~ END // ambient area sounds
+ACTION_IF FILE_EXISTS ~amber/sounds/%LANGUAGE%/m#amb001.ogg~ THEN BEGIN
+  LAF HANDLE_AUDIO STR_VAR audio_path = EVAL ~amber/sounds/%LANGUAGE%~ oggdec_path = ~amber/sounds~ sox_path = ~amber/sounds~ END 
 END
 
-COPY ~amber_eet/tis~			~override~
+COPY ~amber/tis~			~override~
 MKDIR ~music/mxm#am~
-COPY ~amber_eet/graphics~			~override~
-COPY ~amber_eet/areas~			~override~
-COPY ~amber_eet/2da/lum#a.2da~		~override~
-COPY ~amber_eet/mus~ 		        ~music~
-COPY ~amber_eet/song~ 		        ~music/mxm#am~
+COPY ~amber/graphics~			~override~
+COPY ~amber/areas~			~override~
+COPY ~amber/2da/lum#a.2da~		~override~
+COPY ~amber/mus~ 		        ~music~
+COPY ~amber/song~ 		        ~music/mxm#am~
 COPY_EXISTING ~songlist.2da~ 		~override~
 SET_2DA_ENTRY 0 2 3 ~m#blank.mus~
 ADD_MUSIC  ~Amber~    ~music/mxm#am.mus~
 
-  COPY ~amber_eet/ee~ ~override~ // ee-sized portraits, item description images
-  LOAD_TRA ~amber_eet/tra/%LANGUAGE%/setup_ee.tra~
+  COPY ~amber/ee~ ~override~ // ee-sized portraits, item description images
+  LOAD_TRA ~amber/tra/%LANGUAGE%/setup_ee.tra~
 
-  ADD_JOURNAL @1 @4 @5 @10                            USING ~amber_eet/tra/%s/dialogs.tra~
-  ADD_JOURNAL @11 @12 @13 @14 @15 @16 @17 @18 @19 @20 USING ~amber_eet/tra/%s/dialogs.tra~
-  ADD_JOURNAL @23 @24 @25 @26 @50 @51 @54             USING ~amber_eet/tra/%s/dialogs.tra~
-  ADD_JOURNAL @52 @53                                 USING ~amber_eet/tra/%s/dialogs.tra~
-  ADD_JOURNAL EXISTING TITLE (#74337) @55             USING ~amber_eet/tra/%s/dialogs.tra~
+  ADD_JOURNAL @1 @4 @5 @10                            USING ~amber/tra/%s/dialogs.tra~
+  ADD_JOURNAL @11 @12 @13 @14 @15 @16 @17 @18 @19 @20 USING ~amber/tra/%s/dialogs.tra~
+  ADD_JOURNAL @23 @24 @25 @26 @50 @51 @54             USING ~amber/tra/%s/dialogs.tra~
+  ADD_JOURNAL @52 @53                                 USING ~amber/tra/%s/dialogs.tra~
+  ADD_JOURNAL EXISTING TITLE (#74337) @55             USING ~amber/tra/%s/dialogs.tra~
 
 // Appending state.ids for combat AI (Use numerical values for shout.ids)
 
@@ -90,7 +91,7 @@ ADD_KIT ~m#ambkit~
  // appended to DUALCLAS.2da
  ~m#ambkit                0       1       1       1       1       0~
  // path to your CLAB-style 2da file
- ~amber_eet/2da/m#ambkit.2da~
+ ~amber/2da/m#ambkit.2da~
  // PC races and classes allowed to use this kit, from KITTABLE.2da
  ~~
  // usability flags, added to the end of the KITLIST.2da entry
@@ -104,7 +105,7 @@ ADD_KIT ~m#ambkit~
  SAY @152 
  SAY @153 
 
-INCLUDE ~amber_eet/lib/fl#add_kit_ee.tpa~
+INCLUDE ~amber/lib/fl#add_kit_ee.tpa~
 LAF fl#add_kit_ee
 STR_VAR
 kit_name = m#ambkit
@@ -113,8 +114,8 @@ END
 
 // Compiling scripts and dialogs
 
-COMPILE EVALUATE_BUFFER ~amber_eet/dialogs~ USING ~amber_eet/tra/%s/dialogs.tra~
-COMPILE EVALUATE_BUFFER ~amber_eet/scripts~ USING ~amber_eet/tra/%s/dialogs.tra~
+COMPILE EVALUATE_BUFFER ~amber/dialogs~ USING ~amber/tra/%s/dialogs.tra~
+COMPILE EVALUATE_BUFFER ~amber/scripts~ USING ~amber/tra/%s/dialogs.tra~
 COPY_EXISTING ~m#amber.bcs~ ~override/m#amber.bcs~
 REPLACE_TEXTUALLY 999997 ~%Amber%~
 COPY_EXISTING ~m#amberd.bcs~ ~override/m#amberd.bcs~
@@ -256,19 +257,19 @@ BUT_ONLY_IF_IT_CHANGES
 
 // Areas
 
-COPY ~amber_eet/areas/m#ar01.are~             ~override/m#ar01.are~         
+COPY ~amber/areas/m#ar01.are~             ~override/m#ar01.are~         
   SAY 0x9b4 @156 
-COPY ~amber_eet/areas/m#ar02.are~             ~override/m#ar02.are~         
-COPY ~amber_eet/areas/m#ar03.are~             ~override/m#ar03.are~         
-COPY ~amber_eet/areas/m#ar04.are~             ~override/m#ar04.are~         
-COPY ~amber_eet/areas/m#ar05.are~             ~override/m#ar05.are~         
+COPY ~amber/areas/m#ar02.are~             ~override/m#ar02.are~         
+COPY ~amber/areas/m#ar03.are~             ~override/m#ar03.are~         
+COPY ~amber/areas/m#ar04.are~             ~override/m#ar04.are~         
+COPY ~amber/areas/m#ar05.are~             ~override/m#ar05.are~         
   SAY 0x308 @157 
   SAY 0x3cc @158 
-COPY ~amber_eet/areas/m#ar06.are~             ~override/m#ar06.are~ 
+COPY ~amber/areas/m#ar06.are~             ~override/m#ar06.are~ 
 
 // Creatures
 
-COPY ~amber_eet/creatures/m#ambr10.cre~           ~override/m#ambr10.cre~ 
+COPY ~amber/creatures/m#ambr10.cre~           ~override/m#ambr10.cre~ 
   SAY NAME1 @100
   SAY NAME2 @100
   SAY INITIAL_MEETING @101
@@ -319,7 +320,7 @@ COPY ~amber_eet/creatures/m#ambr10.cre~           ~override/m#ambr10.cre~
   WRITE_SHORT 0x244 0 // doesn't change
   WRITE_SHORT 0x246 0x4000 + ~%m#ambkit%~ 
 
-COPY ~amber_eet/creatures/m#ambr12.cre~           ~override/m#ambr12.cre~ 
+COPY ~amber/creatures/m#ambr12.cre~           ~override/m#ambr12.cre~ 
   SAY NAME1 @100
   SAY NAME2 @100
   SAY INITIAL_MEETING @101
@@ -370,7 +371,7 @@ COPY ~amber_eet/creatures/m#ambr12.cre~           ~override/m#ambr12.cre~
   WRITE_SHORT 0x244 0 // doesn't change
   WRITE_SHORT 0x246 0x4000 + ~%m#ambkit%~ 
 
-COPY ~amber_eet/creatures/m#ambr14.cre~           ~override/m#ambr14.cre~
+COPY ~amber/creatures/m#ambr14.cre~           ~override/m#ambr14.cre~
   SAY NAME1 @100
   SAY NAME2 @100
   SAY INITIAL_MEETING @101
@@ -421,7 +422,7 @@ COPY ~amber_eet/creatures/m#ambr14.cre~           ~override/m#ambr14.cre~
   WRITE_SHORT 0x244 0 // doesn't change
   WRITE_SHORT 0x246 0x4000 + ~%m#ambkit%~ 
 
-COPY ~amber_eet/creatures/m#ambr15.cre~           ~override/m#ambr15.cre~
+COPY ~amber/creatures/m#ambr15.cre~           ~override/m#ambr15.cre~
   SAY NAME1 @100
   SAY NAME2 @100
   SAY INITIAL_MEETING @101
@@ -472,29 +473,29 @@ COPY ~amber_eet/creatures/m#ambr15.cre~           ~override/m#ambr15.cre~
   WRITE_SHORT 0x244 0 // doesn't change
   WRITE_SHORT 0x246 0x4000 + ~%m#ambkit%~ 
 
-COPY ~amber_eet/creatures/m#vamber.cre~           ~override/m#vamber.cre~       
+COPY ~amber/creatures/m#vamber.cre~           ~override/m#vamber.cre~       
   SAY NAME1 @159 /* @159 = ~Amber~ */ 
   SAY NAME2 @159 /* @159 = ~Amber~ */ 
 
-COPY ~amber_eet/creatures/m#boy1.cre~             ~override/m#boy1.cre~
-COPY ~amber_eet/creatures/m#girl1.cre~            ~override/m#girl1.cre~
-COPY ~amber_eet/creatures/m#edtg.cre~             ~override/m#edtg.cre~         
+COPY ~amber/creatures/m#boy1.cre~             ~override/m#boy1.cre~
+COPY ~amber/creatures/m#girl1.cre~            ~override/m#girl1.cre~
+COPY ~amber/creatures/m#edtg.cre~             ~override/m#edtg.cre~         
   SAY NAME1 @160 /* @160 = ~Ed~ */ 
   SAY NAME2 @160 /* @160 = ~Ed~ */ 
-COPY ~amber_eet/creatures/m#maxtg.cre~            ~override/m#maxtg.cre~        
+COPY ~amber/creatures/m#maxtg.cre~            ~override/m#maxtg.cre~        
   SAY NAME1 @161 /* @161 = ~Max~ */ 
   SAY NAME2 @161 /* @161 = ~Max~ */ 
-COPY ~amber_eet/creatures/m#nicktg.cre~           ~override/m#nicktg.cre~       
+COPY ~amber/creatures/m#nicktg.cre~           ~override/m#nicktg.cre~       
   SAY NAME1 @162 /* @162 = ~Nick~ */ 
   SAY NAME2 @162 /* @162 = ~Nick~ */ 
-COPY ~amber_eet/creatures/m#prisg1.cre~           ~override/m#prisg1.cre~       
-COPY ~amber_eet/creatures/m#prisg2.cre~           ~override/m#prisg2.cre~
+COPY ~amber/creatures/m#prisg1.cre~           ~override/m#prisg1.cre~       
+COPY ~amber/creatures/m#prisg2.cre~           ~override/m#prisg2.cre~
 
-COPY ~amber_eet/creatures/m#corin.cre~            ~override/m#corin.cre~        
+COPY ~amber/creatures/m#corin.cre~            ~override/m#corin.cre~        
   SAY NAME1 @163 /* @163 = ~Captain Corin~ */ 
   SAY NAME2 @163 /* @163 = ~Captain Corin~ */ 
 
-COPY ~amber_eet/creatures/m#ymm12.cre~            ~override/m#ymm12.cre~        
+COPY ~amber/creatures/m#ymm12.cre~            ~override/m#ymm12.cre~        
   SAY NAME1 @164 /* @164 = ~Ymmyrt~ */ 
   SAY NAME2 @164 /* @164 = ~Ymmyrt~ */ 
   SAY INITIAL_MEETING @165 /* @165 = ~What is that noise?~ */ 
@@ -510,7 +511,7 @@ COPY ~amber_eet/creatures/m#ymm12.cre~            ~override/m#ymm12.cre~
   SAY CRITICAL_MISS @175 /* @175 = ~That was intentional.~ */ 
   SAY TARGET_IMMUNE @176 /* @176 = ~Your petty magic will not be enough to protect you from my might!~ */ 
   SAY SPELL_DISRUPTED @177 /* @177 = ~I cannot concentrate!~ */  
-COPY ~amber_eet/creatures/m#ymm16.cre~            ~override/m#ymm16.cre~        
+COPY ~amber/creatures/m#ymm16.cre~            ~override/m#ymm16.cre~        
   SAY NAME1 @164 /* @164 = ~Ymmyrt~ */ 
   SAY NAME2 @164 /* @164 = ~Ymmyrt~ */ 
   SAY INITIAL_MEETING @165 /* @165 = ~What is that noise?~ */ 
@@ -526,7 +527,7 @@ COPY ~amber_eet/creatures/m#ymm16.cre~            ~override/m#ymm16.cre~
   SAY CRITICAL_MISS @175 /* @175 = ~That was intentional.~ */ 
   SAY TARGET_IMMUNE @176 /* @176 = ~Your petty magic will not be enough to protect you from my might!~ */ 
   SAY SPELL_DISRUPTED @177 /* @177 = ~I cannot concentrate!~ */  
-COPY ~amber_eet/creatures/m#ymm19.cre~            ~override/m#ymm19.cre~        
+COPY ~amber/creatures/m#ymm19.cre~            ~override/m#ymm19.cre~        
   SAY NAME1 @164 /* @164 = ~Ymmyrt~ */ 
   SAY NAME2 @164 /* @164 = ~Ymmyrt~ */
   SAY INITIAL_MEETING @165 /* @165 = ~What is that noise?~ */ 
@@ -543,7 +544,7 @@ COPY ~amber_eet/creatures/m#ymm19.cre~            ~override/m#ymm19.cre~
   SAY TARGET_IMMUNE @176 /* @176 = ~Your petty magic will not be enough to protect you from my might!~ */ 
   SAY SPELL_DISRUPTED @177 /* @177 = ~I cannot concentrate!~ */ 
 
-COPY ~amber_eet/creatures/m#lorr10.cre~           ~override/m#lorr10.cre~       
+COPY ~amber/creatures/m#lorr10.cre~           ~override/m#lorr10.cre~       
   SAY NAME1 @178 /* @178 = ~Lorraine~ */ 
   SAY NAME2 @178 /* @178 = ~Lorraine~ */
   SAY INITIAL_MEETING @179 /* @179 = ~You have no business here, stranger.~ */ 
@@ -560,7 +561,7 @@ COPY ~amber_eet/creatures/m#lorr10.cre~           ~override/m#lorr10.cre~
   SAY CRITICAL_MISS @190 /* @190 = ~What folly on my part!~ */ 
   SAY TARGET_IMMUNE @191 /* @191 = ~Foul magic!~ */ 
   SAY SPELL_DISRUPTED @192 /* @192 = ~No! Mielikki, please hear me!~ */ 
-COPY ~amber_eet/creatures/m#lorr13.cre~           ~override/m#lorr13.cre~       
+COPY ~amber/creatures/m#lorr13.cre~           ~override/m#lorr13.cre~       
   SAY NAME1 @178 /* @178 = ~Lorraine~ */ 
   SAY NAME2 @178 /* @178 = ~Lorraine~ */
   SAY INITIAL_MEETING @179 /* @179 = ~You have no business here, stranger.~ */ 
@@ -577,7 +578,7 @@ COPY ~amber_eet/creatures/m#lorr13.cre~           ~override/m#lorr13.cre~
   SAY CRITICAL_MISS @190 /* @190 = ~What folly on my part!~ */ 
   SAY TARGET_IMMUNE @191 /* @191 = ~Foul magic!~ */ 
   SAY SPELL_DISRUPTED @192 /* @192 = ~No! Mielikki, please hear me!~ */   
-COPY ~amber_eet/creatures/m#lorr17.cre~           ~override/m#lorr17.cre~       
+COPY ~amber/creatures/m#lorr17.cre~           ~override/m#lorr17.cre~       
   SAY NAME1 @178 /* @178 = ~Lorraine~ */ 
   SAY NAME2 @178 /* @178 = ~Lorraine~ */
   SAY INITIAL_MEETING @179 /* @179 = ~You have no business here, stranger.~ */ 
@@ -595,330 +596,330 @@ COPY ~amber_eet/creatures/m#lorr17.cre~           ~override/m#lorr17.cre~
   SAY TARGET_IMMUNE @191 /* @191 = ~Foul magic!~ */ 
   SAY SPELL_DISRUPTED @192 /* @192 = ~No! Mielikki, please hear me!~ */   
 
-COPY ~amber_eet/creatures/m#lorson.cre~           ~override/m#lorson.cre~       
+COPY ~amber/creatures/m#lorson.cre~           ~override/m#lorson.cre~       
   SAY NAME1 @193 /* @193 = ~Ghost of Lorraine's Son~ */ 
   SAY NAME2 @193 /* @193 = ~Ghost of Lorraine's Son~ */ 
-COPY ~amber_eet/creatures/m#wcsoul.cre~           ~override/m#wcsoul.cre~
-COPY ~amber_eet/creatures/m#ymmurd.cre~           ~override/m#ymmurd.cre~       
+COPY ~amber/creatures/m#wcsoul.cre~           ~override/m#wcsoul.cre~
+COPY ~amber/creatures/m#ymmurd.cre~           ~override/m#ymmurd.cre~       
   SAY NAME1 @194 /* @194 = ~Black Soul~ */ 
   SAY NAME2 @194 /* @194 = ~Black Soul~ */ 
-COPY ~amber_eet/creatures/m#ympyro.cre~           ~override/m#ympyro.cre~       
+COPY ~amber/creatures/m#ympyro.cre~           ~override/m#ympyro.cre~       
   SAY NAME1 @195 /* @195 = ~Fiery Soul~ */ 
   SAY NAME2 @195 /* @195 = ~Fiery Soul~ */ 
 
-COPY ~amber_eet/creatures/m#yimp.cre~             ~override/m#yimp.cre~         
+COPY ~amber/creatures/m#yimp.cre~             ~override/m#yimp.cre~         
   SAY NAME1 @196 /* @196 = ~Gabriel~ */ 
   SAY NAME2 @196 /* @196 = ~Gabriel~ */ 
   SAY INITIAL_MEETING @197 /* @197 = ~Atchooo!~ */ 
 
-COPY ~amber_eet/creatures/m#ynymp1.cre~           ~override/m#ynymp1.cre~       
-COPY ~amber_eet/creatures/m#ynymp2.cre~           ~override/m#ynymp2.cre~       
-COPY ~amber_eet/creatures/m#ynymp3.cre~           ~override/m#ynymp3.cre~ 
-COPY ~amber_eet/creatures/m#ydemon.cre~           ~override/m#ydemon.cre~       
-COPY ~amber_eet/creatures/m#ymacre.cre~           ~override/m#ymacre.cre~  
-COPY ~amber_eet/creatures/m#ygcook.cre~           ~override/m#ygcook.cre~       
-COPY ~amber_eet/creatures/m#ygswen.cre~           ~override/m#ygswen.cre~       
+COPY ~amber/creatures/m#ynymp1.cre~           ~override/m#ynymp1.cre~       
+COPY ~amber/creatures/m#ynymp2.cre~           ~override/m#ynymp2.cre~       
+COPY ~amber/creatures/m#ynymp3.cre~           ~override/m#ynymp3.cre~ 
+COPY ~amber/creatures/m#ydemon.cre~           ~override/m#ydemon.cre~       
+COPY ~amber/creatures/m#ymacre.cre~           ~override/m#ymacre.cre~  
+COPY ~amber/creatures/m#ygcook.cre~           ~override/m#ygcook.cre~       
+COPY ~amber/creatures/m#ygswen.cre~           ~override/m#ygswen.cre~       
   SAY NAME1 @198 /* @198 = ~Serving Girl~ */ 
   SAY NAME2 @198 /* @198 = ~Serving Girl~ */
-COPY ~amber_eet/creatures/m#yclbm1.cre~           ~override/m#yclbm1.cre~       
+COPY ~amber/creatures/m#yclbm1.cre~           ~override/m#yclbm1.cre~       
   SAY NAME1 @199 /* @199 = ~Ymmyrt's Lieutenant~ */ 
   SAY NAME2 @199 /* @199 = ~Ymmyrt's Lieutenant~ */ 
-COPY ~amber_eet/creatures/m#ycmcm1.cre~           ~override/m#ycmcm1.cre~       
+COPY ~amber/creatures/m#ycmcm1.cre~           ~override/m#ycmcm1.cre~       
   SAY NAME1 @200 /* @200 = ~Ymmyrt's Captain~ */ 
   SAY NAME2 @200 /* @200 = ~Ymmyrt's Captain~ */ 
-COPY ~amber_eet/creatures/m#ygsbm1.cre~           ~override/m#ygsbm1.cre~       
+COPY ~amber/creatures/m#ygsbm1.cre~           ~override/m#ygsbm1.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
-COPY ~amber_eet/creatures/m#ygsbm2.cre~           ~override/m#ygsbm2.cre~       
+COPY ~amber/creatures/m#ygsbm2.cre~           ~override/m#ygsbm2.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
-COPY ~amber_eet/creatures/m#ygsbm3.cre~           ~override/m#ygsbm3.cre~       
+COPY ~amber/creatures/m#ygsbm3.cre~           ~override/m#ygsbm3.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
-COPY ~amber_eet/creatures/m#ygsbm4.cre~           ~override/m#ygsbm4.cre~       
+COPY ~amber/creatures/m#ygsbm4.cre~           ~override/m#ygsbm4.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
-COPY ~amber_eet/creatures/m#ygspm1.cre~           ~override/m#ygspm1.cre~       
+COPY ~amber/creatures/m#ygspm1.cre~           ~override/m#ygspm1.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
-COPY ~amber_eet/creatures/m#ygspm2.cre~           ~override/m#ygspm2.cre~       
+COPY ~amber/creatures/m#ygspm2.cre~           ~override/m#ygspm2.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
-COPY ~amber_eet/creatures/m#ygspm3.cre~           ~override/m#ygspm3.cre~       
+COPY ~amber/creatures/m#ygspm3.cre~           ~override/m#ygspm3.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
-COPY ~amber_eet/creatures/m#ygspm4.cre~           ~override/m#ygspm4.cre~       
+COPY ~amber/creatures/m#ygspm4.cre~           ~override/m#ygspm4.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
-COPY ~amber_eet/creatures/m#ygspm5.cre~           ~override/m#ygspm5.cre~       
+COPY ~amber/creatures/m#ygspm5.cre~           ~override/m#ygspm5.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
-COPY ~amber_eet/creatures/m#ygswm1.cre~           ~override/m#ygswm1.cre~       
+COPY ~amber/creatures/m#ygswm1.cre~           ~override/m#ygswm1.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
-COPY ~amber_eet/creatures/m#yguna1.cre~           ~override/m#yguna1.cre~       
+COPY ~amber/creatures/m#yguna1.cre~           ~override/m#yguna1.cre~       
   SAY NAME1 @201 /* @201 = ~Ymmyrt's Guard~ */ 
   SAY NAME2 @201 /* @201 = ~Ymmyrt's Guard~ */ 
 
-COPY ~amber_eet/creatures/m#rashry.cre~            ~override/m#rashry.cre~        
+COPY ~amber/creatures/m#rashry.cre~            ~override/m#rashry.cre~        
   SAY NAME1 @202 /* @202 = ~Tailor~ */ 
   SAY NAME2 @202 /* @202 = ~Tailor~ */     
 
-COPY ~amber_eet/creatures/m#reveal.cre~           ~override/m#reveal.cre~  
+COPY ~amber/creatures/m#reveal.cre~           ~override/m#reveal.cre~  
 
 // Items
 
-COPY ~amber_eet/items/m#abpipe.itm~           ~override/m#abpipe.itm~       
+COPY ~amber/items/m#abpipe.itm~           ~override/m#abpipe.itm~       
   SAY NAME2 @203 /* @203 = ~Abyssal Pipe~ */ 
   SAY UNIDENTIFIED_DESC @204
   SAY DESC @205 
 
-COPY ~amber_eet/items/m#asleat.itm~           ~override/m#asleat.itm~       
+COPY ~amber/items/m#asleat.itm~           ~override/m#asleat.itm~       
   SAY NAME2 @206 /* @206 = ~Apprentice Shadow Armor~ */ 
   SAY DESC @207
 
-COPY ~amber_eet/items/m#bchide.itm~           ~override/m#bchide.itm~       
+COPY ~amber/items/m#bchide.itm~           ~override/m#bchide.itm~       
   SAY NAME2 @208 /* @208 = ~Snow Leopard Hide~ */ 
   SAY UNIDENTIFIED_DESC @209
   SAY DESC @210 
 
-COPY ~amber_eet/items/m#bkey.itm~             ~override/m#bkey.itm~         
+COPY ~amber/items/m#bkey.itm~             ~override/m#bkey.itm~         
   SAY NAME2 @211 /* @211 = ~Nymph Key~ */ 
   SAY DESC @212 
 
-COPY ~amber_eet/items/m#bkit.itm~             ~override/m#bkit.itm~         
+COPY ~amber/items/m#bkit.itm~             ~override/m#bkit.itm~         
   SAY NAME1 @213 /* @213 = ~Beauty Kit~ */ 
   SAY NAME2 @213 /* @213 = ~Beauty Kit~ */ 
   SAY UNIDENTIFIED_DESC @214
   SAY DESC @215 
 
-COPY ~amber_eet/items/m#botele.itm~           ~override/m#botele.itm~       
+COPY ~amber/items/m#botele.itm~           ~override/m#botele.itm~       
   SAY NAME1 @216 /* @216 = ~Pair of Bottles~ */ 
   SAY NAME2 @217 /* @217 = ~Bottled Elements~ */ 
   SAY UNIDENTIFIED_DESC @218 
   SAY DESC @219 
 
-COPY ~amber_eet/items/m#brose2.itm~           ~override/m#brose2.itm~       
+COPY ~amber/items/m#brose2.itm~           ~override/m#brose2.itm~       
   SAY NAME2 @220 /* @220 = ~Blade of Roses +4~ */ 
   SAY DESC @221 
 
-COPY ~amber_eet/items/m#bsgem.itm~            ~override/m#bsgem.itm~
+COPY ~amber/items/m#bsgem.itm~            ~override/m#bsgem.itm~
   SAY NAME1 @222 /* @222 = ~Black Gem~ */ 
   SAY NAME2 @223 /* @223 = ~Black Soul Gem~ */ 
   SAY UNIDENTIFIED_DESC @224  
   SAY DESC @225 
 
-COPY ~amber_eet/items/m#buck2.itm~            ~override/m#buck2.itm~        
+COPY ~amber/items/m#buck2.itm~            ~override/m#buck2.itm~        
   SAY NAME2 @226 /* @226 = ~Buckler +2~ */ 
   SAY DESC @227 
 
-COPY ~amber_eet/items/m#spear2.itm~            ~override/m#spear2.itm~        
+COPY ~amber/items/m#spear2.itm~            ~override/m#spear2.itm~        
   SAY NAME1 @228 /* @228 = ~Spear~ */
   SAY NAME2 @229 /* @229 = ~Spear +2~ */ 
   SAY DESC @230 
   SAY UNIDENTIFIED_DESC @231 
 
-COPY ~amber_eet/items/m#bundle.itm~           ~override/m#bundle.itm~       
+COPY ~amber/items/m#bundle.itm~           ~override/m#bundle.itm~       
   SAY NAME1 @232 /* @232 = ~Bundle of Stuff~ */ 
   SAY NAME2 @232 /* @232 = ~Bundle of Stuff~ */ 
   SAY UNIDENTIFIED_DESC @233 
   SAY DESC @233 
 
-COPY ~amber_eet/items/m#ckey1.itm~            ~override/m#ckey1.itm~        
+COPY ~amber/items/m#ckey1.itm~            ~override/m#ckey1.itm~        
   SAY NAME1 @234 /* @234 = ~Cell Key~ */ 
   SAY NAME2 @234 /* @234 = ~Cell Key~ */ 
   SAY UNIDENTIFIED_DESC @235 
   SAY DESC @235 
 
-COPY ~amber_eet/items/m#clearf.itm~           ~override/m#clearf.itm~       
+COPY ~amber/items/m#clearf.itm~           ~override/m#clearf.itm~       
 
-COPY ~amber_eet/items/m#club2.itm~            ~override/m#club2.itm~        
+COPY ~amber/items/m#club2.itm~            ~override/m#club2.itm~        
   SAY NAME2 @236 /* @236 = ~Club +2~ */ 
   SAY DESC @237 
   
-COPY ~amber_eet/items/m#empoti.itm~           ~override/m#empoti.itm~       
+COPY ~amber/items/m#empoti.itm~           ~override/m#empoti.itm~       
 
-COPY ~amber_eet/items/m#form1.itm~            ~override/m#form1.itm~        
+COPY ~amber/items/m#form1.itm~            ~override/m#form1.itm~        
   SAY NAME1 @238 /* @238 = ~Form #1567~ */ 
   SAY NAME2 @238 /* @238 = ~Form #1567~ */ 
   SAY UNIDENTIFIED_DESC @239
 
-COPY ~amber_eet/items/m#form2.itm~            ~override/m#form2.itm~        
+COPY ~amber/items/m#form2.itm~            ~override/m#form2.itm~        
   SAY NAME1 @240 /* @240 = ~Form #1567 missing Appendix B135~ */ 
   SAY NAME2 @240 /* @240 = ~Form #1567 missing Appendix B135~ */ 
   SAY UNIDENTIFIED_DESC @241 
 
-COPY ~amber_eet/items/m#form3.itm~            ~override/m#form3.itm~        
+COPY ~amber/items/m#form3.itm~            ~override/m#form3.itm~        
   SAY NAME1 @242 /* @242 = ~Form #1567 with Appendix B135~ */ 
   SAY NAME2 @242 /* @242 = ~Form #1567 with Appendix B135~ */ 
   SAY UNIDENTIFIED_DESC @243 
 
-COPY ~amber_eet/items/m#form4.itm~            ~override/m#form4.itm~        
+COPY ~amber/items/m#form4.itm~            ~override/m#form4.itm~        
   SAY NAME1 @244 /* @244 = ~Filled Form 1567 with Appendix B135~ */ 
   SAY NAME2 @244 /* @244 = ~Filled Form 1567 with Appendix B135~ */ 
   SAY UNIDENTIFIED_DESC @245
 
-COPY ~amber_eet/items/m#form5.itm~            ~override/m#form5.itm~        
+COPY ~amber/items/m#form5.itm~            ~override/m#form5.itm~        
   SAY NAME1 @246 /* @246 = ~Filled form #1567 with Appendix B135 without stamp~ */ 
   SAY NAME2 @246 /* @246 = ~Filled form #1567 with Appendix B135 without stamp~ */ 
   SAY UNIDENTIFIED_DESC @247 
 
-COPY ~amber_eet/items/m#form6.itm~            ~override/m#form6.itm~        
+COPY ~amber/items/m#form6.itm~            ~override/m#form6.itm~        
   SAY NAME1 @248 /* @248 = ~Filled form #1567 with Appendix B135 with a stamp~ */ 
   SAY NAME2 @248 /* @248 = ~Filled form #1567 with Appendix B135 with a stamp~ */ 
   SAY UNIDENTIFIED_DESC @249 
 
-COPY ~amber_eet/items/m#form7.itm~            ~override/m#form7.itm~        
+COPY ~amber/items/m#form7.itm~            ~override/m#form7.itm~        
   SAY NAME1 @250 /* @250 = ~Complete Form #1567~ */ 
   SAY NAME2 @250 /* @250 = ~Complete Form #1567~ */ 
   SAY UNIDENTIFIED_DESC @251 
 
-COPY ~amber_eet/items/m#jbrace.itm~           ~override/m#jbrace.itm~       
+COPY ~amber/items/m#jbrace.itm~           ~override/m#jbrace.itm~       
   SAY NAME1 @252 /* @252 = ~Bracelet~ */ 
   SAY NAME2 @253 /* @253 = ~Gillian's Bracelet~ */ 
   SAY UNIDENTIFIED_DESC @254
   SAY DESC @255 
 
-COPY ~amber_eet/items/m#kring.itm~            ~override/m#kring.itm~        
+COPY ~amber/items/m#kring.itm~            ~override/m#kring.itm~        
   SAY NAME1 @256 /* @256 = ~Key Ring~ */ 
   SAY NAME2 @256 /* @256 = ~Key Ring~ */ 
   SAY UNIDENTIFIED_DESC @257 
   SAY DESC @257 
 
-COPY ~amber_eet/items/m#lkey.itm~             ~override/m#lkey.itm~         
+COPY ~amber/items/m#lkey.itm~             ~override/m#lkey.itm~         
   SAY NAME1 @258 /* @258 = ~Laboratory Key~ */ 
   SAY NAME2 @258 /* @258 = ~Laboratory Key~ */ 
   SAY UNIDENTIFIED_DESC @259 /* @259 = ~This is the key to the door of Ymmyrt's laboratory, where you hope to find the sorcerer, along with Amber.~ */ 
   SAY DESC @260 
 
-COPY ~amber_eet/items/m#lockp.itm~            ~override/m#lockp.itm~        
+COPY ~amber/items/m#lockp.itm~            ~override/m#lockp.itm~        
   SAY NAME1 @261 /* @261 = ~Set of Lock Picks~ */ 
   SAY NAME2 @261 /* @261 = ~Set of Lock Picks~ */ 
   SAY UNIDENTIFIED_DESC @262
   SAY DESC @262
   SAY 0xde @263 /* @263 = ~You managed to break the set of lock picks by hitting someone with it. Nice work.~ */ 
 
-COPY ~amber_eet/items/m#lsgem.itm~            ~override/m#lsgem.itm~        
+COPY ~amber/items/m#lsgem.itm~            ~override/m#lsgem.itm~        
   SAY NAME1 @264 /* @264 = ~Green Gem~ */ 
   SAY NAME2 @265 /* @265 = ~Soul Gem of Lorraine's Son~ */ 
   SAY UNIDENTIFIED_DESC @266 
   SAY DESC @267 
 
-COPY ~amber_eet/items/m#mgift.itm~            ~override/m#mgift.itm~        
+COPY ~amber/items/m#mgift.itm~            ~override/m#mgift.itm~        
   SAY NAME2 @268 /* @268 = ~Mielikki's Gift~ */ 
   SAY DESC @269 
 
-COPY ~amber_eet/items/m#mgift2.itm~           ~override/m#mgift2.itm~       
+COPY ~amber/items/m#mgift2.itm~           ~override/m#mgift2.itm~       
   SAY NAME2 @268 /* @268 = ~Mielikki's Gift~ */ 
   SAY DESC @270 
 
-COPY ~amber_eet/items/m#mgiftl.itm~           ~override/m#mgiftl.itm~       
+COPY ~amber/items/m#mgiftl.itm~           ~override/m#mgiftl.itm~       
   SAY NAME2 @268 /* @268 = ~Mielikki's Gift~ */ 
   SAY DESC @269 
 
-COPY ~amber_eet/items/m#oaneck.itm~           ~override/m#oaneck.itm~       
+COPY ~amber/items/m#oaneck.itm~           ~override/m#oaneck.itm~       
   SAY NAME2 @271 /* @271 = ~Necklace of Opposite Alignment~ */ 
   SAY DESC @272 
 
-COPY ~amber_eet/items/m#offscr.itm~           ~override/m#offscr.itm~       
+COPY ~amber/items/m#offscr.itm~           ~override/m#offscr.itm~       
 
-COPY ~amber_eet/items/m#pdust.itm~            ~override/m#pdust.itm~        
+COPY ~amber/items/m#pdust.itm~            ~override/m#pdust.itm~        
   SAY NAME1 @273 /* @273 = ~Box of Dust~ */ 
   SAY NAME2 @274 /* @274 = ~Box of Pixie Dust~ */ 
   SAY UNIDENTIFIED_DESC @275 /* @275 = ~This strangely shaped earthenware container seems to be full of fine, glittery dust.~ */ 
   SAY DESC @276
 
-COPY ~amber_eet/items/m#ringb.itm~            ~override/m#ringb.itm~        
+COPY ~amber/items/m#ringb.itm~            ~override/m#ringb.itm~        
   SAY NAME1 @277 /* @277 = ~Book of Rings~ */ 
   SAY NAME2 @277 /* @277 = ~Book of Rings~ */ 
   SAY UNIDENTIFIED_DESC @278 
   SAY DESC @278 
 
-COPY ~amber_eet/items/m#rsgem.itm~            ~override/m#rsgem.itm~        
+COPY ~amber/items/m#rsgem.itm~            ~override/m#rsgem.itm~        
   SAY NAME1 @279 /* @279 = ~Red Gem~ */ 
   SAY NAME2 @280 /* @280 = ~Red Soul Gem~ */ 
   SAY UNIDENTIFIED_DESC @281 
   SAY DESC @282  
 
-COPY ~amber_eet/items/m#slepot.itm~           ~override/m#slepot.itm~       
+COPY ~amber/items/m#slepot.itm~           ~override/m#slepot.itm~       
   SAY NAME2 @283 /* @283 = ~Soporific Potion~ */ 
   SAY DESC @284 
 
-COPY ~amber_eet/items/m#wsgem.itm~            ~override/m#wsgem.itm~        
+COPY ~amber/items/m#wsgem.itm~            ~override/m#wsgem.itm~        
   SAY NAME1 @285 /* @285 = ~White Gem~ */ 
   SAY NAME2 @286 /* @286 = ~White Soul Gem~ */ 
   SAY UNIDENTIFIED_DESC @287 
   SAY DESC @288 
 
-COPY ~amber_eet/items/m#wskin.itm~            ~override/m#wskin.itm~        
+COPY ~amber/items/m#wskin.itm~            ~override/m#wskin.itm~        
   SAY NAME2 @289 /* @289 = ~Wyvern's Hide~ */ 
   SAY UNIDENTIFIED_DESC @290 
   SAY DESC @291 
 
-COPY ~amber_eet/items/m#yjourn.itm~           ~override/m#yjourn.itm~       
+COPY ~amber/items/m#yjourn.itm~           ~override/m#yjourn.itm~       
   SAY NAME1 @292 /* @292 = ~Ymmyrt's Journal~ */ 
   SAY NAME2 @292 /* @292 = ~Ymmyrt's Journal~ */ 
   SAY UNIDENTIFIED_DESC @293 
   SAY DESC @294 
 
-COPY ~amber_eet/items/m#ymmap.itm~            ~override/m#ymmap.itm~        
+COPY ~amber/items/m#ymmap.itm~            ~override/m#ymmap.itm~        
   SAY NAME1 @295 /* @295 = ~Strange Map~ */ 
   SAY NAME2 @296 /* @296 = ~Map to Ymmyrt's House~ */ 
   SAY UNIDENTIFIED_DESC @297 
   SAY DESC @298 
 
-COPY ~amber_eet/items/m#ymmle2.itm~           ~override/m#ymmle2.itm~       
+COPY ~amber/items/m#ymmle2.itm~           ~override/m#ymmle2.itm~       
   SAY UNIDENTIFIED_DESC @299 
   SAY DESC @299
 
-COPY ~amber_eet/items/m#ymmlet.itm~           ~override/m#ymmlet.itm~       
+COPY ~amber/items/m#ymmlet.itm~           ~override/m#ymmlet.itm~       
   SAY UNIDENTIFIED_DESC @300
   SAY DESC @300
 
-COPY ~amber_eet/items/m#yring.itm~            ~override/m#yring.itm~        
+COPY ~amber/items/m#yring.itm~            ~override/m#yring.itm~        
   SAY NAME2 @301 /* @301 = ~Ymmyrt's Ring~ */ 
   SAY DESC @302 
 
-COPY ~amber_eet/items/m#yrobe.itm~            ~override/m#yrobe.itm~        
+COPY ~amber/items/m#yrobe.itm~            ~override/m#yrobe.itm~        
   SAY NAME2 @303 /* @303 = ~Ymmyrt's Robe~ */ 
   SAY DESC @304 
 
-COPY ~amber_eet/items/m#yward.itm~            ~override/m#yward.itm~        
+COPY ~amber/items/m#yward.itm~            ~override/m#yward.itm~        
   SAY NAME2 @305 /* @305 = ~Wardstone to Ymmyrt's House~ */ 
   SAY DESC @306 
 
-COPY ~amber_eet/items/m#ywardl.itm~           ~override/m#ywardl.itm~       
+COPY ~amber/items/m#ywardl.itm~           ~override/m#ywardl.itm~       
   SAY NAME2 @305 /* @305 = ~Wardstone to Ymmyrt's House~ */ 
   SAY DESC @306  
 
-COPY ~amber_eet/items/m#ambody.itm~           ~override/m#ambody.itm~       
+COPY ~amber/items/m#ambody.itm~           ~override/m#ambody.itm~       
   SAY NAME1 @307 /* @307 = ~Amber's Body~ */ 
   SAY NAME2 @307 /* @307 = ~Amber's Body~ */ 
   SAY UNIDENTIFIED_DESC @308 
 
-COPY ~amber_eet/items/m#avamp.itm~            ~override/m#avamp.itm~        
+COPY ~amber/items/m#avamp.itm~            ~override/m#avamp.itm~        
 
-COPY ~amber_eet/items/m#pirban.itm~           ~override/m#pirban.itm~       
+COPY ~amber/items/m#pirban.itm~           ~override/m#pirban.itm~       
   SAY NAME1 @309 /* @309 = ~Pirate's Bandanna~ */ 
   SAY NAME2 @309 /* @309 = ~Pirate's Bandanna~ */ 
   SAY UNIDENTIFIED_DESC @310 
   SAY DESC @311 
   
-COPY ~amber_eet/items/m#gfeat.itm~           ~override/m#gfeat.itm~       
+COPY ~amber/items/m#gfeat.itm~           ~override/m#gfeat.itm~       
   SAY NAME1 @312 /* @312 = ~Gloves of Feather Touch~ */ 
   SAY NAME2 @312 /* @312 = ~Gloves of Feather Touch~ */ 
   SAY UNIDENTIFIED_DESC @313 
 SAY DESC @313 
 
-COPY ~amber_eet/items/m#wrobe1.itm~           ~override/m#wrobe1.itm~
+COPY ~amber/items/m#wrobe1.itm~           ~override/m#wrobe1.itm~
   SAY NAME2 @314 /* @314 = ~Wyvern Leather Robe +1~ */
   SAY DESC @315
 
-COPY ~amber_eet/items/m#wrobe2.itm~           ~override/m#wrobe2.itm~
+COPY ~amber/items/m#wrobe2.itm~           ~override/m#wrobe2.itm~
   SAY NAME2 @316 /* @316 = ~Wyvern Leather Robe +2~ */
   SAY DESC @317 
 
-COPY ~amber_eet/items/m#bcclk.itm~            ~override/m#bcclk.itm~        
+COPY ~amber/items/m#bcclk.itm~            ~override/m#bcclk.itm~        
   SAY NAME2 @318 /* @318 = ~Feline Fur Cloak~ */ 
   SAY DESC @319 
 
@@ -928,44 +929,44 @@ COPY_EXISTING ~npsw05.itm~		~override/npsw05.itm~
 COPY_EXISTING ~npsw06.itm~		~override/npsw06.itm~
   SAY DESC @321 
 
-COPY ~amber_eet/items/m#ear.itm~           ~override/m#ear.itm~
+COPY ~amber/items/m#ear.itm~           ~override/m#ear.itm~
   SAY NAME2 @322 /* @322 = ~Amber's Earrings~ */
   SAY DESC @323
 
-COPY ~amber_eet/spells/m#contag.spl~           ~override/m#contag.spl~       
+COPY ~amber/spells/m#contag.spl~           ~override/m#contag.spl~       
   SAY 8 @324 /* @324 = ~Contagious Eye~ */
   SAY 12 @324 /* @324 = ~Contagious Eye~ */ 
   SAY 80 @324 /* @324 = ~Contagious Eye~ */ 
-COPY ~amber_eet/spells/m#disint.spl~           ~override/m#disint.spl~       
+COPY ~amber/spells/m#disint.spl~           ~override/m#disint.spl~       
   SAY 8 @325 /* @325 = ~Undoing Eye~ */
   SAY 12 @325 /* @325 = ~Undoing Eye~ */ 
   SAY 80 @325 /* @325 = ~Undoing Eye~ */ 
-COPY ~amber_eet/spells/m#blind.spl~            ~override/m#blind.spl~
+COPY ~amber/spells/m#blind.spl~            ~override/m#blind.spl~
   SAY 8 @326 /* @326 = ~Blinding Eye~ */
   SAY 12 @326 /* @326 = ~Blinding Eye~ */ 
   SAY 80 @326 /* @326 = ~Blinding Eye~ */ 
-COPY ~amber_eet/spells/m#chunk.spl~           ~override/m#chunk.spl~       
+COPY ~amber/spells/m#chunk.spl~           ~override/m#chunk.spl~       
   SAY 8 @327 /* @327 = ~Chunked Death~ */
   SAY 12 @327 /* @327 = ~Chunked Death~ */ 
   SAY 80 @327 /* @327 = ~Chunked Death~ */ 
-COPY ~amber_eet/spells/m#dropwp.spl~           ~override/m#dropwp.spl~  
-COPY ~amber_eet/spells/m#green.spl~            ~override/m#green.spl~        
-COPY ~amber_eet/spells/m#heaven.spl~           ~override/m#heaven.spl~       
-COPY ~amber_eet/spells/m#incfr.spl~            ~override/m#incfr.spl~
-COPY ~amber_eet/spells/m#jbrace.spl~           ~override/m#jbrace.spl~
-COPY ~amber_eet/spells/m#black.spl~            ~override/m#black.spl~
-COPY ~amber_eet/spells/m#makeup.spl~           ~override/m#makeup.spl~ 
-COPY ~amber_eet/spells/m#red.spl~              ~override/m#red.spl~ 
-COPY ~amber_eet/spells/m#lore10.spl~           ~override/m#lore10.spl~ 
-COPY ~amber_eet/spells/m#lore13.spl~           ~override/m#lore13.spl~ 
-COPY ~amber_eet/spells/m#lore17.spl~           ~override/m#lore17.spl~ 
+COPY ~amber/spells/m#dropwp.spl~           ~override/m#dropwp.spl~  
+COPY ~amber/spells/m#green.spl~            ~override/m#green.spl~        
+COPY ~amber/spells/m#heaven.spl~           ~override/m#heaven.spl~       
+COPY ~amber/spells/m#incfr.spl~            ~override/m#incfr.spl~
+COPY ~amber/spells/m#jbrace.spl~           ~override/m#jbrace.spl~
+COPY ~amber/spells/m#black.spl~            ~override/m#black.spl~
+COPY ~amber/spells/m#makeup.spl~           ~override/m#makeup.spl~ 
+COPY ~amber/spells/m#red.spl~              ~override/m#red.spl~ 
+COPY ~amber/spells/m#lore10.spl~           ~override/m#lore10.spl~ 
+COPY ~amber/spells/m#lore13.spl~           ~override/m#lore13.spl~ 
+COPY ~amber/spells/m#lore17.spl~           ~override/m#lore17.spl~ 
 
 // Stores & Containers
 
-COPY ~amber_eet/items/m#bmthi2.sto~           ~override/m#bmthi2.sto~
-COPY ~amber_eet/items/m#kring.sto~            ~override/m#kring.sto~        
+COPY ~amber/items/m#bmthi2.sto~           ~override/m#bmthi2.sto~
+COPY ~amber/items/m#kring.sto~            ~override/m#kring.sto~        
   SAY NAME2 @256 /* @256 = ~Key Ring~ */
-COPY ~amber_eet/items/m#ringb.sto~            ~override/m#ringb.sto~        
+COPY ~amber/items/m#ringb.sto~            ~override/m#ringb.sto~        
   SAY NAME2 @277 /* @277 = ~Book of Rings~ */ 
 
 // WeiDU magic for Amber's weapon and armour restrictions. Thanks Cam!  
@@ -1066,27 +1067,24 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   END
   BUT_ONLY_IF_IT_CHANGES
   
-  COPY ~amber_eet/tra/english/dialogs.tra~ ~amber/tra/english/dialogs.tra~
-  COPY ~amber_eet/tra/spanish/dialogs.tra~ ~amber/tra/spanish/dialogs.tra~
-  COPY ~amber_eet/tra/german/dialogs.tra~ ~amber/tra/german/dialogs.tra~
 
-BEGIN ~Amber ToB New Content (English Only)~ 
+BEGIN ~Amber ToB Content (English Only)~ 
 
-REQUIRE_COMPONENT ~Amber_eet.tp2~ 0 ~Main component required.~
+REQUIRE_COMPONENT ~Amber.tp2~ 0 ~Main component required.~
 
-COMPILE ~amber_eet/ToB/AmberToB.d~ USING ~amber/tra/english/dialogs.tra~
-EXTEND_BOTTOM ~M#AMBER.bcs~ ~amber_eet/ToB/AmberToB.baf~
-COMPILE ~amber_eet/ToB/M#Jill.baf~
+COMPILE ~amber/ToB/AmberToB.d~ USING ~amber/tra/english/dialogs.tra~
+EXTEND_BOTTOM ~M#AMBER.bcs~ ~amber/ToB/AmberToB.baf~
+COMPILE ~amber/ToB/M#Jill.baf~
 
-COPY ~amber_eet/creatures/m#Jill.cre~    ~override~ 
+COPY ~amber/creatures/m#Jill.cre~    ~override~ 
   SAY NAME1 ~Gillian~
   SAY NAME2 ~Gillian~
   
 COMPILE 
-~amber_eet/ToB/Stronghold.d~  
-~amber_eet/ToB/Ambersolar.d~
+~amber/ToB/Stronghold.d~  
+~amber/ToB/Ambersolar.d~
 
-COPY ~amber_eet/scripts/EEAmbEP.2da~ ~override~
+COPY ~amber/scripts/EEAmbEP.2da~ ~override~
 REPLACE ~99991~ @333
 
-EXTEND_TOP ~ar6200.bcs~ ~amber_eet/scripts/ar6200end.baf~
+EXTEND_TOP ~ar6200.bcs~ ~amber/scripts/ar6200end.baf~
