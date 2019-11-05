@@ -1,0 +1,21 @@
+IF
+	See([PC])
+	Range([PC],5)
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+	Dialog(LastSeenBy(Myself))
+END
+
+IF
+	OR(2)
+	  !NumTimesTalkedTo(0)
+	  !Range([PC],5)
+THEN
+	RESPONSE #100
+	MoveToPoint([185.590])
+	Wait(3)
+	RandomWalk()
+	Wait(5)
+	RandomWalk()
+END

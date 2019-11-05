@@ -1,0 +1,74 @@
+IF
+	Global("M#AmberKidnap","GLOBAL",4)
+	CombatCounter(0)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	See(Player1)
+	Global("M#AerieKidnapResponse","GLOBAL",1)
+THEN
+	RESPONSE #100
+	Dialog(Player1)	
+END
+
+IF
+	Global("M#AskAboutAerie","GLOBAL",0)
+	Global("LoveTalk","Locals",9)
+	!Global("AerieRomanceActive","GLOBAL",3)
+	InParty("M#Amber")
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAerie","GLOBAL",1)
+END
+
+IF
+	GlobalLT("M#AskAboutAerie","GLOBAL",2)
+	Global("LoveTalk","Locals",13)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAerie","GLOBAL",2)
+END
+
+IF
+	GlobalLT("M#AskAboutAerie","GLOBAL",3)
+	Global("LoveTalk","Locals",19)
+	!Global("AerieRomanceActive","GLOBAL",3)
+	InParty("M#Amber")
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAerie","GLOBAL",3)
+END
+
+IF
+	GlobalLT("M#AskAboutAerie","GLOBAL",4)
+	Global("LoveTalk","Locals",21)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAerie","GLOBAL",4)
+END
+
+IF
+	GlobalLT("M#AskAboutAerie","GLOBAL",5)
+	Global("LoveTalk","Locals",27)
+	!Global("AerieRomanceAerie","GLOBAL",3)
+	InParty("M#Amber")
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAerie","GLOBAL",5)
+END
+
+IF
+	GlobalLT("M#AskAboutAerie","GLOBAL",6)
+	Global("LoveTalk","Locals",29)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAerie","GLOBAL",6)
+END
+
+IF
+	GlobalLT("M#AskAboutAerie","GLOBAL",7)
+	GlobalGT("LoveTalk","Locals",47)
+	Global("sleptAerie","GLOBAL",1)
+	InParty("M#Amber")
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAerie","GLOBAL",7)
+END

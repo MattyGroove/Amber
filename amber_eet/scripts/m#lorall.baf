@@ -1,0 +1,65 @@
+IF
+	HPPercentLT(Myself,25)
+	HasItem("SCRL61",Myself) // Cure Critical Wounds Scroll
+THEN
+	RESPONSE #100
+	UseItem("SCRL61",Myself) // Cure Critical Wounds Scroll
+END
+
+IF
+	HPPercentLT(Myself,50)
+	!GlobalTimerNotExpired("DrankPotionTimer","Locals")
+	HasItem("TTPOT",Myself) // Potion of Extra Healing
+THEN
+	RESPONSE #100
+	SetGlobalTimer("DrankPotionTimer","Locals",6)
+	DisplayStringHead(Myself,46150) // quaffs a potion
+	UseItem("TTPOT",Myself) // Potion of Extra Healing
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!GlobalTimerNotExpired("HLATimer","Locals")
+	Range(NearestEnemyOf(Myself),2)
+	HaveSpellRES("SPCL901")
+THEN
+	RESPONSE #100
+	SpellRES("SPCL901",Myself)
+	SetGlobal("HLATimer","Locals",14)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!GlobalTimerNotExpired("HLATimer","Locals")
+	Range(NearestEnemyOf(Myself),2)
+	HaveSpellRES("SPCL900")
+THEN
+	RESPONSE #100
+	SpellRES("SPCL900",Myself)
+	SetGlobal("HLATimer","Locals",14)
+END
+
+IF
+	!Dead("m#ymmyrt")
+	See("m#ymmyrt")
+	Allegiance("m#ymmyrt",ENEMY)
+THEN
+	RESPONSE #100
+		AttackReevaluate("m#ymmyrt",30)
+END
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+	Range(LastAttackerOf(Myself),4)
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Range(LastSeenBy(Myself),4)
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),30)
+END

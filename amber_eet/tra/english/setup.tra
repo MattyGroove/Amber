@@ -1,0 +1,536 @@
+@100 = ~Amber~ 
+@101 = ~Who are you?~ [m#amb001]
+@102 = ~By the Nine Hells! This would be my cue to exit.~ [m#amb000]
+@103 = ~I guess that coming with you wasn't such a bad idea after all.~ [m#amb003]
+@104 = ~I don't approve of this at all.~ [m#amb004]
+@105 = ~You're such an ass, did you know that?~ [m#amb005]
+@106 = ~That's it. I've had it - I will take no more of this stupidity.~ [m#amb000]
+@107 = ~Me? A leader? You must be out of your mind.~ [m#amb007]
+@108 = ~You don't suppose that we could stop for a while?~ [m#amb008]
+@109 = ~I can't believe we're wasting our precious time like this.~ [m#amb009]
+@110 = ~You had this coming, scum!~ [m#amb010]
+@111 = ~I'll give you a sting you'll never forget!~ [m#amb000]
+@112 = ~Only one of us will leave this place alive!~ [m#amb000]
+@113 = ~Think you can catch me? You'd better think again!~ [m#amb013]
+@114 = ~~ [m#amb014]
+@115 = ~~ [m#amb015]
+@116 = ~Aach! Where... *Is* that potion?~ [m#amb016]
+@117 = ~I've spent nearly my whole life in cities... But in a way, I like it here.~ [m#amb017] 
+@118 = ~You should watch your back here; I know what sort of folk inhabit places like this.~ [m#amb018]
+@119 = ~Dark and damp, lovely. Whatever we're after here better be worth it.~ [m#amb019]
+@120 = ~Hmphh... I'd prefer it to be night. So much cooler and quieter then.~ [m#amb020]
+@121 = ~Ahh... Just look at the stars, they're so bright tonight.~ [m#amb021]
+@122 = ~What do you want?~ [m#amb022]
+@123 = ~I'm listening... for now.~ [m#amb023]
+@124 = ~You need something again?~ [m#amb024]
+@125 = ~Well, speak up then.~ [m#amb025]
+@126 = ~Yes, I'm still here.~ [m#amb026]
+@127 = ~Come on, give me a break.~ [m#amb027]
+@128 = ~If you insist.~ [m#amb028]
+@129 = ~Are you sure?~[m#amb029]
+@130 = ~Whatever...~ [m#amb080]
+@131 = ~All right, then.~ [m#amb000]
+@132 = ~I suppose you're right.~ [m#amb031]
+@133 = ~Must I?~ [m#amb032]
+@134 = ~That's easy.~ [m#amb000]
+@135 = ~Don't you have something better to do than pick on me?~ [m#amb034]
+@136 = ~Stop poking me!~ [m#amb000]
+@137 = ~Hah... Never saw that coming, did you?~ [m#amb036] 
+@138 = ~Damn it!~  [m#amb037]
+@139 = ~What? This can't be!~ [m#amb038]
+@140 = ~I've already got more than enough. *You* carry that.~ [m#amb039]
+@141 = ~Hmm... I don't think you'll be needing this.~ [m#amb000]
+@142 = ~Ack! Where did that come from?~ [m#amb000]
+@143 = ~This should teach them a lesson.~  [m#amb042]
+@144 = ~When asked about her past AMBER claims that she has no memories of her childhood. She remembers nothing of her parents or of the place she grew up. Hesitantly she tells you that she lived years in the streets of Waterdeep until some unfortunate incident involving the local thieves' guild and city guard forced her to move to Luskan. There she only barely escaped an angry mob with the help of a young bard called Jill. As she speaks warmly of Jill and respectfully of the bard's brother Tristan, Amber's expression lightens somewhat. You can clearly understand that the two girls were close, but there is sadness in her eyes that tells you that her friend is long gone. As Amber's story goes on, you begin to wonder how old this exotic creature really is. She has visited lands so far away - from the frozen north to the heat of the southern deserts, travelled years with a circus group and yet her face betrays no signs of age. When you try to ask her about her age, she responds that it does not matter as the people around her never change, no matter how much time passes by. Prejudices die hard if ever.~ 
+@145 = ~~
+
+// Rest of the tp2
+
+@150  = ~Amber the NPC MOD for BG2EE and EET~
+@151  = ~Amber the NPC MOD for BG2EE and EET~
+@152  = ~Fighter~
+@153  = ~FIGHTER:  The fighter is a champion, swordsman, soldier, and brawler.  He lives or dies by his knowledge of weapons and tactics.  Fighters can be found at the front of any battle, contesting toe-to-toe with monsters and villains.  A good fighter needs to be strong and healthy if he hopes to survive.~
+@154  = ~M#AmbeAI : ~
+@155  = ~Amber's combat AI script.~
+@156  = ~This alleyway is blocked by tall piles of broken crates and assorted debris.~
+@157  = ~The lock of this chest has been broken - obviously in a hurry - with a heavy silver candelabra. Whatever it contained is now gone.~
+@158  = ~This man's face and body are twisted and contorted. He must have been in enormous amounts of pain before death offered its merciful release. At first you wonder what has caused the death of this guard, but upon closer examination you spot a sharp shard of glass sticking out of the man's neck. The skin around the cut has turned a nasty purplish-green colour and developed some vile-looking boils.~
+@159  = ~Amber~
+@160  = ~Ed~
+@161  = ~Max~
+@162  = ~Nick~
+@163  = ~Captain Corin~
+@164  = ~Ymmyrt~
+@165  = ~What is that noise?~ [m#ymm001]
+@166  = ~Maggots! Die, you scum!~ [m#ymm002]
+@167  = ~You will not withstand my powers!~ [m#ymm003]
+@168  = ~My pets will take care of you!~ [m#ymm004]
+
+@170  = ~Noooooooooo! You will all fall with me!~ [m#ymm006]
+@171  = ~You're a fool if you think Ymmyrt will be beaten this easily.~ [m#ymm007]
+@172  = ~Do not disturb me.~ [m#ymm008]
+@173  = ~I don't have time for this.~ [m#ymm009]
+@174  = ~Taste the pain of death!~ [m#ymm010]
+@175  = ~That was intentional.~ [m#ymm011]
+@176  = ~Your petty magic will not be enough to protect you from my might!~ [m#ymm012]
+@177  = ~I cannot concentrate!~ [m#ymm013]
+@178  = ~Lorraine~
+@179  = ~You have no business here, stranger.~ [m#lor001]
+@180  = ~This will be over sooner than you think!~ [m#lor002]
+@181  = ~I hope your soul is prepared!~ [m#lor003]
+@182  = ~You have not the strength to defeat me!~ [m#lor004]
+
+@184  = ~No! I cannot die now! No, not yet...~ [m#lor006]
+@185  = ~Ynghh... You will not take me down!~ [m#lor007]
+@186  = ~You risk a lot by staying here.~ [m#lor008]
+@187  = ~What is your business?~ [m#lor009]
+@188  = ~This is a dangerous place. You must leave at once.~ [m#lor010]
+@189  = ~Learn from that!~ [m#lor011]
+@190  = ~What folly on my part!~ [m#lor012]
+@191  = ~Foul magic!~ [m#lor013]
+@192  = ~No! Mielikki, please hear me!~ [m#lor014]
+@193  = ~Ghost of Lorraine's Son~
+@194  = ~Black Soul~
+@195  = ~Fiery Soul~
+@196  = ~Gabriel~
+@197  = ~Atchooo!~ [m#gabr01]
+@198  = ~Serving Girl~
+@199  = ~Ymmyrt's Lieutenant~
+@200  = ~Ymmyrt's Captain~
+@201  = ~Ymmyrt's Guard~
+@202  = ~Tailor~
+@203  = ~Abyssal Pipe~
+@204  = ~This is a small wooden pipe, carved to resemble the head of a demon.~
+@205  = ~This is a small wooden pipe, carved to resemble the head of a demon. When used, this pipe billows forth great gouts of deadly fumes from the planes of the Abyss.
+
+STATISTICS:
+
+Effect: Invokes "Cloud Kill" twice per day
+
+~
+@206  = ~Apprentice Shadow Armor~
+@207  = ~Apprentice shadow armor is a studded leather armor created for the use of the proteges and apprentices of the Shadowmasters of Amn, the highest order within the Shadow Thief hierarchy.  It is a +1 studded leather armour that helps its wearer meld into the shadows.
+
+STATISTICS:
+
+Armor Class: 6
+Special: +5% Hide in Shadows
+Weight: 12
+Requires: 6 Strength
+Only Usable By:
+Thief (single, multi and dual class)~
+@208  = ~Snow Leopard Hide~
+@209  = ~This hide that probably came off some large and exotic feline is simply the softest and most luxurious thing you remember having touched. The tanner must have been a master in his or her craft, as furs are much trickier to handle than plain leathers. This would make a wonderful cloak even for the most demanding nobleman.      ~
+@210  = ~This snow leopard hide is simply the softest and most luxurious thing you remember having touched. The tanner must have been a master in his or her craft, as furs are much trickier to handle than plain leathers. This would make a wonderful cloak even for the most demanding nobleman.~
+@211  = ~Nymph Key~
+@212  = ~This strange key, shaped like a stylised nymph, opens the door to Ymmyrt's study and bedchambers.~
+@213  = ~Beauty Kit~
+@214  = ~This pouch contains little combs and laces along with some belladonna,  lead white, aloe, powdered henna and other assorted cosmetics. In short, everything you would need for beautification.
+
+STATISTICS:
+
+Charisma: +4 
+Duration: 12 hours
+Side Effect: 1-6 poison damage once the effects wear off~
+@215  = ~This pouch contains little combs and laces, along with some belladonna,  lead white, aloe, henna powder and other assorted cosmetics. In short, everything you would need for beautification.
+
+STATISTICS:
+
+Charisma: +4 
+Duration: 12 hours
+Side Effect: 1-6 poison damage once the effects wear off~
+@216  = ~Pair of Bottles~
+@217  = ~Bottled Elements~
+@218  = ~You found these strange bottles in the collections of the evil sorcerer Ymmyrt. The red bottle seems to possess a warm fiery glow, but the bluish bottle seems empty.~
+@219  = ~You found these strange bottles in the collecions of the evil sorcerer Ymmyrt. Apparently he had tried to create a collection of bottled elemental spirits, but only managed air and fire before his demise. Perhaps coaxing an earth elemental into a bottle had proved more difficult than he had anticipated.
+
+STATISTICS:
+
+Effect: Summons an elemental servant of air or fire.~
+@220  = ~Blade of Roses +4~
+@221  = ~Blade of Roses, Long Sword +4
+This blade possesses an unearthly splendour, and it is likely that Sune, the goddess of beauty and passion, had a hand in its creation.  The effect it has on the wielder is immediate, and more than once in its history has this sword has been the secret behind a lacklustre soldier's sudden elevation at court.
+When you first came upon this blade, it was missing an enchanted ruby from its pommel. You might not ever have noticed this defect, but the dwarven smith Cromwell pointed it out and repaired the blade. In addition to the swordâ€™s basic enchantment, the ruby - although not especially large - perfects the blade's balance, making it even more effective a weapon. How the pommel gem found its way to Amber's bracelet, formerly owned by Jill the bard, remains a mystery. 
+
+STATISTICS:
+
+Equipped Abilities:
+ Charisma: +2 bonus
+ Protection from fear
+ Luck
+THAC0: +4 bonus
+Damage: 2D4 + 4
+Damage type: slashing
+Weight: 3
+Speed Factor: 2
+Proficiency Type: Long sword
+Type: 1-handed
+Requires: 6 Strength
+~
+@222  = ~Black Gem~
+@223  = ~Black Soul Gem~
+@224  = ~This strange, jet black gem, roughly the size and shape of a large egg, pulsates with a hollow semblance of light. Touching the gem sends shivers down your spine and fills you with a simultaneous sense of rage and dread.~
+@225  = ~This strange, jet black gem, roughly the size and shape of a large egg, contains a soul of purest evil. You have no idea what this vile creature could be, but the gem pulsates with a hollow semblance of light and touching it sends shivers down your spine and fills you with a simultaneous sense of rage and dread.~
+@226  = ~Buckler +2~
+@227  = ~Buckler +2, Thorard's Saucer
+A buckler is usually a small shield of wood or metal that fastens to the forearm.  Because of its size, it is light and can be worn with very little restriction to movement. This buckler has been crafted by a skilful dwarven smith and is constructed of metal and hardened leather. An inscription wrought in dwarven runes inlaid in copper circles the metal hub, its bright lettering proudly  proclaiming: 'For the Glory of Moradin made by the hand of Thorard'. The buckler itself is of good, solid quality, but its real value lies in the protective enchantments that make it more resistant to blows.        
+
+STATISTICS:
+
+Armor Class Bonus: 3
+Special: No Missile/Piercing Attack Protection
+Weight: 2
+Requires: 4 Strength
+~
+@228  = ~Spear~
+@229  = ~Spear +2~
+@230  = ~One of man's earliest weapons, dating back to the most primitive of times, the first spears were simply wooden poles or sticks sharpened at one end.  When man mastered metals, spearheads were made from iron and steel.  Having reached this end, weaponers began experimenting with different types of spear heads, thus leading to the development of certain polearm types.  Another line of tinkering led to the integration of magic with spears.  Tribal shaman would enchant the spears so that they would hit more often and do greater damage to their wielder's opponents.
+This particular spear is consists of an ashen shaft and a sharpened head that bears the look of dwarven craftsmanship. It is interesting to note that although the head, and likely the shaft as well, seem to be of dwarven manufacture, the enchanted runes on both the shaft and the head are carved in elvish letters. A work such as this, the product of the combined efforts of two peoples, is a very uncommon thing. This simple, yet effective weapon is a rare testament to the potential held by such an alliance.
+
+STATISTICS:
+  
+THAC0: +2 bonus
+Damage: 1D6 + 2
+Damage type: piercing
+Weight: 3
+Speed Factor: 4
+Proficiency Type: Spear 
+Type: 2-handed
+Requires: 5 Strength
+~
+@231  = ~One of man's earliest weapons, dating back to the most primitive of times, the first spears were simply wooden poles or sticks sharpened at one end.  When man mastered metals, spearheads were made from iron and steel.  Having reached this end, weaponers began experimenting with different types of spear heads, thus leading to the development of certain polearm types.
+
+STATISTICS:
+
+Damage: 1D6
+Damage type: piercing
+Weight: 5
+Speed Factor: 6
+Proficiency Type: Spear 
+Type: 2-handed
+Requires: 5 Strength
+~
+@232  = ~Bundle of Stuff~
+@233  = ~This sack contains a bundle of miscellaneous stuff belonging to the creature that has been released into your custody.~
+@234  = ~Cell Key~
+@235  = ~This is a key to the Athkatlan prison cell that is supposed to hold a demon.~
+@236  = ~Club +2~
+@237  = ~Most clubs are stout, hardwood sticks, narrow at the grip and wider at the end.  This simple weapon has been used since mankind first began using tools.  Anyone can find a good stout piece of wood and swing it; hence the club's widespread use. This particular club has been magically enhanced.
+
+STATISTICS:
+
+THAC0: +2 bonus
+Damage: 1D6 +2
+Damage type: crushing
+Weight: 1
+Speed Factor: 1
+Proficiency Type: Club
+Type: 1-handed
+Requires: 5 Strength
+~
+@238  = ~Form #1567~
+@239  = ~This is the official Athkatla Administrative Form #1567 you got from the clerk.~
+@240  = ~Form #1567 missing Appendix B135~
+@241  = ~This the official Athkatla Administrative Form #1567, which is apparently missing Appendix B135. You have to see the clerk again to get the Appendix.~
+@242  = ~Form #1567 with Appendix B135~
+@243  = ~This the official Athkatla Administrative Form #1567 with the Appendix B135. Next they will probably ask you to fill out the pet licence for fiends.~
+@244  = ~Filled Form 1567 with Appendix B135~
+@245  = ~This the official Athkatla Administrative Form #1567 complete with Appendix B135, filled out and signed by the Civil Servant.~
+@246  = ~Filled form #1567 with Appendix B135 without stamp~
+@247  = ~This the official Athkatla Administrative Form #1567 with the Appendix B135, filled out and signed by the Civil Servant. It's still missing the stamp that indicates that the event has been duly recorded to the Council of Six records.~
+@248  = ~Filled form #1567 with Appendix B135 with a stamp~
+@249  = ~This the official Athkatla Administrative Form #1567 with the Appendix B135, filled out, signed and, yes, stamped by the Civil Servant.~
+@250  = ~Complete Form #1567~
+@251  = ~This the official Athkatla Administrative Form #1567 with the Appendix B135, filled out, signed and stamped by the Civil Servant and complete with the final seal from Chief Investigator Brega.~
+@252  = ~Bracelet~
+@253  = ~Gillian's Bracelet~
+@254  = ~This wide silver bracelet is set with a large ruby that seems out of place in such a humble setting.~
+@255  = ~This rather plain and cheap-looking silver bracelet inset with a contrastingly large ruby used to belong to Amber's long-lost friend, a bard named Gillian "Jill" Featherstonehaugh. As of her past in general, Amber has never told you much of anything about her friend, but the bracelet seems to carry great importance to her and you suspect this is the last memento of a dear friend long since departed.
+
+When questioned about the bracelet she simply replies that she "wears it for luck", and after a while adds in a quiet voice "and for comfort".
+
+STATISTICS:
+
+Equipped Abilities:
+Luck
+Protection from Fear~
+@256  = ~Key Ring~
+@257  = ~This large metal ring can be opened to allow for the insertion of keys into it and closed into a solid hoop again. It is large enough to hold around three dozen normal-sized keys.~
+@258  = ~Laboratory Key~
+@259  = ~This is the key to the door of Ymmyrt's laboratory, where you hope to find the sorcerer, along with Amber.~
+@260  = ~This is the key to the door of Ymmyrt's laboratory, where you hope to find the sorcerer, along with Amber. ~
+@261  = ~Set of Lock Picks~
+@262  = ~This set of exquisitely crafted lock picks and other tools complements the skills of the serious burglar or locksmith. With this set of tools, many of the simpler locks can be opened even by those with little experience, and in the hands of a skilled user they can help persuade even the most complicated of locks to open.
+
+STATISTICS:
+
+Equipped Ability: +20% Open Locks~
+@263  = ~You managed to break the set of lock picks by hitting someone with it. Nice work.~
+@264  = ~Green Gem~
+@265  = ~Soul Gem of Lorraine's Son~
+@266  = ~This strange bright green gem is the size and shape of a large egg and filled with flickering light. It feels warm to the touch, but touching it also fills you with an inexplicable feeling of sadness.~
+@267  = ~This bright green gem the size and shape of a large egg, filled with flickering light, holds the soul of Lorraine's son. It is warm to the touch, but it also fills your heart with an unexplained feeling of sadness that slowly vanishes as you take your hand off the stone.~
+@268  = ~Mielikki's Gift~
+@269  = ~Mielikki's Gift, Scimitar +3
+
+Mielikki is the goddess of forests, all forest creatures, dryads and the autumn season. She is also called the Lady of the Forest, and like many other gods and goddesses, she sometimes bestows special gifts to her faithful followers. This elegantly curved blade that shimmers with soft pale green glow is one of those gifts. Masterfully balanced and blessed with both protective and offensive spells, this blade is truly a beauty to look at and wield.  
+
+This scimitar was originally given to the half-elven ranger and cleric Lorraine that you encountered while rescuing Amber from the clutches of the sorcerer Ymmyrt. When Lorraine fell in battle, you stripped this blade from her lifeless corpse.
+  
+STATISTICS:
+
+Equipped Ability: Armour of Faith twice per day
+Combat Ability: Entangle target on successful hit
+Damage: 1D8 +3
+THAC0: +3
+Damage type: slashing
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
+Type: 1-handed
+Requires: 6 Strength
+Not Usable By:
+ Cleric
+ Mage~
+@270  = ~Mielikki's Gift, Scimitar +4
+
+Mielikki is the goddess of forests, all forest creatures, dryads and the autumn season. She is also called the Lady of the Forest, and like many other gods and goddesses, she sometimes bestows special gifts to her faithful followers. This elegantly curved blade that shimmers with soft pale green glow is one of those gifts. Masterfully balanced and blessed with both protective and offensive spells, this blade is truly a beauty to look at and wield.  
+
+This scimitar was originally given to the half-elven ranger and cleric Lorraine that you encountered while rescuing Amber from the clutches of the sorcerer Ymmyrt. When Lorraine fell in battle, you stripped this blade from her lifeless corpse. Since then, your butler and personal weaponsmith Cespenar has improved on the blade's enchantments, making it even more formidable a weapon.
+  
+STATISTICS:
+
+Equipped Ability: Armour of Faith twice per day
+Combat Ability: Entangle target on successful hit
+Damage: 1D8 +4
+THAC0: +4
+Damage type: slashing
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
+Type: 1-handed
+Requires: 6 Strength
+~
+@271  = ~Necklace of Opposite Alignment~
+@272  = ~This golden necklace changes the wearer's alignment as perceived in his or her magical aura into its opposite. While wearing the necklace, a lawful good character will seem chaotic evil and a chaotic evil being will seem lawful good. The necklace does not influence true neutral characters.
+
+STATISTICS
+
+Abilities: Inverts the wearer's alignment.~
+@273  = ~Box of Dust~
+@274  = ~Box of Pixie Dust~
+@275  = ~This strangely shaped earthenware container seems to be full of fine, glittery dust.~
+@276  = ~This strangely shaped earthenware container is full of pixie dust. The fine, shimmering dust has been carefully harvested from live pixies and magically preserved in this box.
+
+It is common knowledge that the dust of pixies has the ability to turn one invisible when it is sprinkled upon them. There seems to be enough of the dust for several such sprinklings.
+
+STATISTICS:
+
+Special Ability (one use):  All creatures within 10' will become invisible for 12 hours.
+Usable by:
+ All~
+@277  = ~Book of Rings~
+@278  = ~On the outside, this ingenious all-leather container for the demanding professional closely resembles a pocket-sized book. On the inside are 16 protruding folds of soft leather, between which 60 rings up to one inch in diameter could nestle securely. The cover of the book is fastened with a leather strap ensuring silent operation, while the inner structure keeps its precious contents both silent and secure.~
+@279  = ~Red Gem~
+@280  = ~Red Soul Gem~
+@281  = ~This strange, fiery red gem, roughly the size and shape of a large egg, radiates with a hellish flickering red light and undulating heat. Touching the gem feels like touching a hot coal, although it seems to do no damage.~
+@282  = ~This strange, fiery red gem, roughly the size and shape of a large egg, seems to contain the soul of someone or something. You have no idea what the creature is, but as the gem radiates with a hellish flickering red light and undulating heat, you guess that the soul must be on fire. Touching the gem feels like touching a hot coal, although it seems to do no damage to anything touching it. ~
+@283  = ~Soporific Potion~
+@284  = ~When thrown, this potion will break upon impact and release a cloud of soporific vapour that will induce deep sleep in anyone unfortunate enough to be caught in its area of effect. 
+
+STATISTICS:
+
+Effect: Sleep unless victim saves vs. breath weapons
+Range: 40 ft
+Area: 20 ft radius
+Duration: 2 turns
+Not usable by:~
+@285  = ~White Gem~
+@286  = ~White Soul Gem~
+@287  = ~This strange, milky white gem, roughly the size and shape of a large egg, feels smooth and cool, yet seems to pulse with warmth as though lit from within by a radiant force. For some reason, touching the gem causes subtle, caressing waves to spread within your being, something like immersing yourself in a cool, soothing liquid.~
+@288  = ~This strange, milky white gem, roughly the size and shape of a large egg, seems to contain the soul of something as pure and innocent as new fallen snow. The gem feels smooth and cool, yet seems to pulse with warmth as though lit from within by a radiant force. An opaque glow emanates from its core, along with a sense of newness and beginnings. Touching the gem causes subtle waves of light and innocence renewed to spread within your being, something like immersion in a cool, soothing liquid.~
+@289  = ~Wyvern's Hide~
+@290  = ~This thick and tough hide is of greenish brown hue and probably came off a large reptile, although you cannot quite figure out what. Properly treated, it could probably be made into an armour or clothing of some kind.~
+@291  = ~This thick and resilient hide is from a mature wyvern. If treated properly and with the right enchantments, it could retain some of the properties of the beast itself.~
+@292  = ~Ymmyrt's Journal~
+@293  = ~This handsome tome seems to be a journal of some kind. The entries within are not clearly dated and you are not certain whether they are ordered chronologically or otherwise. The following entries manage to attract your interest:
+
+"The device seems to be working flawlessly and there are no obvious glitches in the process. Now I will only have to find specimens worthy of the effort, since all of my test specimens have given out only dull browns and grays. I suspect that this is a result of a cross-contamination between their various mundane and uninteresting emotions and desires. It would seem that satisfactory results would demand specimens that are either sufficiently single-minded (preferably possessing extreme emotions or urges) or in some other manner unadulterated."
+
+"Ah ha, success at last. I have at last produced the first specimen worth keeping. The subject was a human male in his early thirties, characterised by an extraordinarily single-minded obsession with murder. Judging from the reports of my hunters, he had caused quite a bloodbath before my men caught him. With him, the result was a deep, bluish black hue with only the slightest of impurities. In the future I will give out orders to concentrate on similar obsessive anomalies in different varieties."
+
+"I seem to have hit upon another success. My hypothesis seems to have been correct; an obsession in fire in the specimen manifested itself in a deep, flickering red - very pleasing. Other colours may prove more difficult, but this is turning out to be a very amusing exercise of my imagination."
+
+"It seems that pure colours are harder to come by than I would have imagined; people seem to be less imaginative and passionate than I would like. I'm beginning to doubt that I will ever manage to collect the full spectrum, or that one even exists on this plane. Creatures of the elemental planes could prove of use here; I will need to look into it."
+
+"It seems that fortune is not entirely against me. Through a windfall quite unrelated to the present endeavour, I have managed to enlarge my collection with a rather handsome sample of a deep forest-green hue. The colour is most probably due to the arboreal habitat and upbringing of the sample, with the freshness of the sample contributing the flawless quality of the result. I will have to do some more experimentation on these fresh samples."
+
+"The pattern I surmised seems stronger by every new experiment. Today I managed to create a specimen of very pure white hue; there were practically no blemishes and the colour is a beautiful milky white. The subject was a newborn, only minutes old. I kept his mother on hand until she went into labour; the specimen was practically delivered directly into the device and I doubt it possible to obtain any cleaner results with the technology currently available." 
+
+"It seems that I have more or less exhausted this avenue of research; there are only so many pure colours. Besides, my mind has of late been fascinated by the thought of combining different colours and textures. On a theoretical level, the best way to go about this would probably be to acquire natural hybrids, in which two or more distinct and preferably powerful essences appear together in a single sample. Analysing these samples and the resultant products would probably give clues as to the best way of artificially combining essences."
+
+"My informants have finally reported of a suitable hybrid specimen. Their reports indicate that a demon hybrid, commonly referred to as a "tiefling", has recently been released from the city jail. They have managed to locate the creature and I have instructed them to acquire it at the first convenient opportunity. I will have to remember to clean and calibrate by equipment; it is imperative that the results of the first tentative sample be as reliable as possible."
+
+"The creature is finally in my possession. I have to say that I am slightly disappointed; the creature is a mere human with only slight visible signs of demonic taint. A true half-breed could have been more interesting, but I am confident that even the slight taint will manifest itself somehow in the result. In order to avoid any stress-induced alterations to her psyche, I have accommodated the creature as I would a guest instead of holding it as a prisoner. As soon as I get the equipment prepared, I will proceed to take the necessary samples and administer the tests."~
+@294  = ~This handsome tome seems to be a journal of some kind. The entries within are not clearly dated and you are not certain whether they are ordered chronologically or otherwise. The following entries manage to attract your interest:
+
+"The device seems to be working flawlessly and there are no obvious glitches in the process. Now I will only have to find specimens worthy of the effort, since all of my test specimens have given out only dull browns and grays. I suspect that this is a result of a cross-contamination between their various mundane and uninteresting emotions and desires. It would seem that satisfactory results would demand specimens that are either sufficiently single-minded (preferably possessing extreme emotions or urges) or in some other manner unadulterated."
+
+"Ah ha, success at last. I have at last produced the first specimen worth keeping. The subject was a human male in his early thirties, characterised by an extraordinarily single-minded obsession with murder. Judging from the reports of my hunters, he had caused quite a bloodbath before my men caught him. With him, the result was a deep, bluish black hue with only the slightest of impurities. In the future I will give out orders to concentrate on similar obsessive anomalies in different varieties."
+
+"I seem to have hit upon another success. My hypothesis seems to have been correct; the specimen's obsession with fire manifested itself in a deep, flickering red - very pleasing. Other colours may prove more difficult, but this is turning out to be a very amusing exercise of my imagination."
+
+"It seems that pure colours are harder to come by than I would have imagined; people seem to be less imaginative and passionate than I would like. I'm beginning to doubt that I will ever manage to collect the full spectrum, or that one even exists on this plane. Creatures of the elemental planes could prove of use here; I will need to look into it."
+
+"It seems that fortune is not entirely against me. Through a windfall quite unrelated to the present endeavour, I have managed to enlarge my collection with a rather handsome sample of a deep forest-green hue. The colour is most probably due to the arboreal habitat and upbringing of the sample, with the freshness of the sample contributing the flawless quality of the result. I will have to do some more experimentation on these fresh samples."
+
+"The pattern I surmised seems stronger with every new experiment. Today I managed to create a specimen of very pure white hue; there were practically no blemishes and the colour is a beautiful milky white. The subject was a newborn, only minutes old. I kept his mother on hand until she went into labour; the specimen was practically delivered directly into the device and I doubt it possible to obtain any cleaner results with the technology currently available." 
+
+"It seems that I have more or less exhausted this avenue of research; there are only so many pure colours. Besides, my mind has of late been fascinated by the thought of combining different colours and textures. On a theoretical level, the best way to go about this would probably be to acquire natural hybrids, in which two or more distinct and preferably powerful essences appear together in a single sample. Analysing these samples and the resultant products would probably give clues as to the best way of artificially combining essences."
+
+"My informants have finally reported of a suitable hybrid specimen. Their reports indicate that a demon hybrid, commonly referred to as a "tiefling", has recently been released from the city jail. They have managed to locate the creature and I have instructed them to acquire it at the first convenient opportunity. I will have to remember to clean and calibrate my equipment; it is imperative that the results of the first tentative sample be as reliable as possible."
+
+"The creature is finally in my possession. I have to say that I am slightly disappointed; the creature is a mere human with only slight visible signs of demonic taint. A true half-breed could have been more interesting, but I am confident that even the slight taint will manifest itself somehow in the result. In order to avoid any stress-induced alterations to her psyche, I have accommodated the creature as I would a guest instead of holding it as a prisoner. As soon as I get the equipment prepared, I will proceed to take the necessary samples and administer the tests."~
+@295  = ~Strange Map~
+@296  = ~Map to Ymmyrt's House~
+@297  = ~This roll of parchment looks like a map of some part of Athkatla, but you have no idea where the area depicted by the map might be located. If you figured out the location of some landmark on the map, you might be able to use it.~
+@298  = ~The map seems to indicate the location of a house belonging to someone named Ymmyrt deep within the maze-like streets of central Athkatla. You now recognise that the route starts from the Slums, but you are not quite sure that all of the streets shown on the map actually exist. If you wish, you may try to use the map in the Slums of Athkatla and follow the route shown.~
+@299  = ~Captain Corin,
+I have another extraction assignment that needs to be taken care of. The individual in question is a female demi-human who goes by the name of 'Amber'. She was recently released from the Athkatlan jail where she was held by the Cowled Wizards for being a deviant. According to my sources, she should be of slight build, have a rather tan complexion with tattooed markings on her body and a long, fiery-red hair. She may be accompanied by a party of ruffians with regards to whom you are free to act as you please. This assignment is of utter importance, so you should put your best men to the task. When you have located her, I will send my men to wait for her at your headquarters. Do not disappoint me like your predecessor did.
+
+Y.~
+@300  = ~Captain Haegan,
+I have another extraction assignment that needs to be taken care of. The individual in question is a female demi-human who goes by the name of 'Amber'. She was recently released from the Athkatlan jail where she was held by the Cowled Wizards for being a deviant. According to my sources, she should be of slight build, have a rather tan complexion with tattooed markings on her body and long, fiery-red hair. She may be accompanied by a party of ruffians with regards to whom you are free to act as you please. This assignment is of utter importance, so you should put your best men to the task. When you have located her, I will send my men to wait for her at your headquarters. Do not disappoint me.
+
+Y.~
+@301  = ~Ymmyrt's Ring~
+@302  = ~This magical ring has been created by Ymmyrt to facilitate the handling of the exotic and often rather reluctant creatures used as subjects of his experimentations.
+
+STATISTICS:
+
+Special Abilities: Charm Monster once per day
+~
+@303  = ~Ymmyrt's Robe~
+@304  = ~This robe of has been specially designed by Ymmyrt and provided with assorted minor enchantments needed in his craft of handling various exotic creatures. Aside from protecting the wearer from various forms of physical damage, it also provides some protection from hostile magic and contains various protective spells. Due to its unusual specialized nature, it can only be worn by wizards not themselves specialized in any particular school of magic.
+
+STATISTICS:
+
+Armor Class Bonus: +1
+Magic Resistance: +5%
+Weight: 4
+Special Abilities: Protection from Evil, Protection from Petrification and Shield once per day
+~
+@305  = ~Wardstone to Ymmyrt's House~
+@306  = ~This wardstone dispels the wards preventing entrance to Ymmyrt the Sorcerer's private apartment in Athkatla.~
+@307  = ~Amber's Body~
+@308  = ~Amber was captured by Bodhi and infected with vampirism, forcing you to slay her. There may be some way to revive her, though you don't know what it would be.~
+@309  = ~Pirate's Bandanna~
+@310  = ~Stylish bandannas like this are favoured by pirates and rogues everywhere. It is an essential part of their unique charm and appeal. It also provides the necessary flair for escaping truly grievous injuries with aplomb.
+  
+STATISTICS:
+  
+Equipped Ability: +1 Charisma
+Special:  Protects Against Critical Hits
+~
+@311  = ~Stylish bandannas like this are favoured by pirates and rogues everywhere. It is an essential part of their unique charm and appeal. It also provides the necessary flair for escaping truly grievous injuries with aplomb.
+  
+STATISTICS:
+  
+Equipped Ability: +1 Charisma
+Special: Protects Against Critical Hits
+~
+@312  = ~Gloves of Feather Touch~
+@313  = ~These exquisite gloves are made of the thinnest kidskin suede and enchanted to make the feel of the wearer's touch light and soft as a feather. No one knows the original purpose of these gloves, but members of the underworld soon found that they are an excellent aid in facilitating difficult property transfers.
+
+STATISTICS:
+
+Equipped Ability: +15% Pick Pockets
+Usable by:
+Anyone~
+@314  = ~Wyvern Leather Robe +1~
+@315  = ~Wyvern hides are not easy to work with, but this time the poisonous beast's hide has yielded to Rashryn's superb skill and produced a stylish and highly functional leather robe. Even after its death, something of the wyvern's nature remains in this robe. It may not have the soft rustle of a fine woollen or silken robe, or be of a particularly attractive hue of green, but its wearer will be significantly better protected from both acid and poison. The leather, though worked into an amazing softness, has also been enchanted with protective spells that offer protection from the blows of the enemy.
+
+STATISTICS:
+
+Equipped Abilities:
+Armour Class: +1
+Acid Resistance: +20% bonus
+Poison Resistance: +20% bonus
+
+Only usable by:
+Mage (single, dual, & multi-class)~
+@316  = ~Wyvern Leather Robe +2~
+@317  = ~Wyvern hides are not easy to work with, but this time the poisonous beast's hide has yielded to Rashryn's superb skill and produced a stylish and highly functional leather robe. Even after its death, something of the wyvern's nature remains in this robe. It may not have the soft rustle of a fine woollen or silken robe, or be of a particularly attractive hue of green, but its wearer will be significantly better protected from both acid and poison. The leather, though worked into an amazing softness, has also been enchanted with protective spells that offer protection from the blows of the enemy.
+
+The emeralds sewn to the leather serve to amplify its protective magic, improving its effect considerably. 
+
+STATISTICS:
+
+Equipped Abilities:
+Armour Class: +2
+Acid Resistance: +20% bonus
+Poison Resistance: +20% bonus
+
+~
+@318  = ~Feline Fur Cloak~
+@319  = ~In the skilful hands of the tailor Rashryn, the soft fur you found in Ymmyrt's vault has been transformed into an even more luxurious cloak. The elaborate silk lining and fine silver clasp perfectly complement the thick and shiny fur. In addition to feeling extremely pleasant, the cloak also offers a solid protection against the freezing cold.
+
+STATISTICS:
+
+Protection from Cold: +50%
+Charisma: +1
+
+~
+@320  = ~Entropy
+This +2 abyssal greensteel blade is one of Haer'Dalis' favorite weapons.  This shortsword is capable of inflicting an additional three points of poison damage if the target fails a saving throw. This blade may only be used by Haer'Dalis.
+
+STATISTICS:
+
+Special Abilities: 3 points of poison damage if target fails Save Vs. Death
+THAC0: +2 bonus
+Damage: 1D6 + 2
+Damage type: piercing
+Weight: 2
+Speed Factor: 0
+Proficiency Type: Short Sword
+Type: 1-handed
+Usable By:
+  Haer'Dalis~
+@321  = ~Chaos Blade
+Chaos is a +2 short-sword usable only by Haer'Dalis. Every time it strikes an opponent, he or she loses 2 points of dexterity (for 30 seconds). Haer'Dalis prefers using Chaos with its partner -- Entropy. When dual-wielding these two blades, Haer'Dalis is a dangerous opponent.
+
+STATISTICS:
+
+Special Abilities: Target loses 2 points of dexterity each hit (duration: 30 seconds)
+THAC0: +2 bonus
+Damage: 1D6 + 2
+Damage type:  piercing
+Weight: 2
+Speed Factor: 0
+Proficiency Type: Short Sword
+Type: 1-handed
+Usable By:
+  Haer'Dalis~
+@322  = ~Amber's Earrings~
+@323  = ~Amber wears three large hoop earrings on her right ear and two on her left. They are made of plain gold with neither ornaments nor gemstones, and resemble those often worn by sailors for good luck. Amber seems reluctant to take them off, calling them her 'emergency gold reserve'. You cannot help wondering how dire things would have to get before she would be willing to give them up. 
+
+STATISTICS:
+
+Protection from critical hits
+
+Usable only by Amber~
+@324  = ~Contagious Eye~
+@325  = ~Undoing Eye~
+@326  = ~Blinding Eye~
+@327  = ~Chunked Death~
+@328  = ~Amber refuses to wear armor heavier than studded leather.~
+@329  = ~Amber refuses to use helmets.~
+@330  = ~Amber refuses to use shields larger than bucklers.~
+@331  = ~Amber refuses to use two-handed swords.~
+@332  = ~Amber refuses to use halberds.~
+@333  = ~Multiplayer-friendly flirting for Amber~
+@334  = ~Please install Amber NPC before installing multiplayer-friendly flirting.~
+@335  = ~The audio and graphic files have just been unpacked to 
+your game. You shouldn't see any error messages above. 
+However, if you do, please report back to amber@welho.net~

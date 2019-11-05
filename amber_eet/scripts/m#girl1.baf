@@ -1,0 +1,27 @@
+IF
+	Range([PC],12)
+	NumTimesTalkedTo(0)
+	See([PC])
+	Global("M#BoyGirl","GLOBAL",1)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("M#BoyGirl","GLOBAL",1)
+	!TimeOfDay(Day)
+THEN
+	RESPONSE #100
+		EscapeAreaDestroy(30)
+		SetGlobal("M#BoyGirl","GLOBAL",0)
+END
+
+IF
+	Global("M#BoyGirl","GLOBAL",2)
+THEN
+	RESPONSE #100
+		Wait(7)
+		DisplayStringHead(Myself,@3)
+		EscapeAreaDestroy(30)
+END

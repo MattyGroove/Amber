@@ -1,0 +1,49 @@
+IF
+	OR(7)
+	  StateCheck(Player1,STATE_INVISIBLE)
+	  StateCheck(Player2,STATE_INVISIBLE)
+	  StateCheck(Player3,STATE_INVISIBLE)
+	  StateCheck(Player4,STATE_INVISIBLE)
+	  StateCheck(Player5,STATE_INVISIBLE)
+	  StateCheck(Player6,STATE_INVISIBLE)
+	  StateCheck("M#Lorraine",STATE_INVISIBLE)
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+	UseItem("scrl7m",Myself)
+END
+
+IF
+	See("M#Lorraine")
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+	StartDialogNoSet("M#Lorraine")
+END
+
+IF
+	!InActiveArea("M#Lorraine")
+	See([PC])
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+	StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	Global("M#YmmCellDoors","M#AR06",0)
+THEN
+	RESPONSE #100
+	DisplayStringHead(Myself,@47)
+	ActionOverride("Wyvern",CreateItem("m#offscr",1,0,0))
+	ActionOverride("Wyvern",FillSlot(0))
+	ActionOverride("Wyvern",MoveToObject("m#ymmyrt"))
+	ActionOverride("kpyuan01",CreateItem("m#offscr",1,0,0))
+	ActionOverride("kpyuan01",FillSlot(0))
+	ActionOverride("kpyuan01",MoveToObject("m#ymmyrt"))
+	ActionOverride("udumber",CreateItem("m#offscr",1,0,0))
+	ActionOverride("udumber",FillSlot(0))
+	ActionOverride("udumber",MoveToObject("m#ymmyrt"))
+	SetGlobal("M#YmmCellDoors","M#AR06",1)
+END

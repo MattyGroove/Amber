@@ -1,0 +1,12 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+	CutSceneId("m#yimp")
+	Wait(2)
+	DisplayStringHead("m#yimp",@73)
+	Wait(5)
+	CreateVisualEffect("spuseany",[869.341])
+	DestroySelf()
+	EndCutSceneMode()
+END

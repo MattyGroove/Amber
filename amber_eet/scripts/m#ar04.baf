@@ -1,0 +1,10 @@
+IF
+	!InActiveArea("m#lorraine")
+	GlobalLT("M#AmberKidnap","GLOBAL",7)
+	!Dead("m#lorraine")
+	Global("M#LorraineMoved","GLOBAL",0)
+THEN
+	RESPONSE #100
+	MoveGlobal("M#AR04","m#lorraine",[530.610])
+	SetGlobal("M#LorraineMoved","GLOBAL",1)
+END

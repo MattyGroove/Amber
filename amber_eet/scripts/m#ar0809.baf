@@ -1,0 +1,8 @@
+//This is Bodhi abduction stuff, extends ar0809.bcs
+IF
+  Global("M#AmberVampire","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("M#AmberVampire","GLOBAL",2)
+    CreateCreature("m#vamber",[1473.332],2)
+END

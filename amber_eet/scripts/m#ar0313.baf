@@ -1,0 +1,19 @@
+IF
+	Global("M#JillBracelet","GLOBAL",5)
+	Global("M#NickTGSpawn","AR0313",0)
+	!Dead("M#NickTG")
+THEN
+	RESPONSE #100
+	CreateCreature("M#NickTG",[448.547],6)
+	SetGlobal("M#NickTGSpawn","AR0313",1)
+END
+
+IF
+	Global("M#JillBracelet","GLOBAL",8)
+	Global("M#NickTGSpawn","AR0313",1)
+	!Dead("M#NickTG")
+THEN
+	RESPONSE #100
+	ActionOverride("M#NickTG",DestroySelf())
+	SetGlobal("M#NickTGSpawn","AR0313",2)
+END

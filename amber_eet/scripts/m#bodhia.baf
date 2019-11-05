@@ -1,0 +1,30 @@
+//This is Bodhi abduction stuff, cutscene 53  
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId("M#Amber")
+        CreateCreatureObject("VAMPAMB","M#Amber",0,0,0)
+        SetGlobal("M#AmberVampire","GLOBAL",1)
+        Wait(1)
+        CreateVisualEffectObject("SPDISPMA",Myself)
+        DropInventory()
+        SetLeavePartyDialogFile()
+        ChangeAIScript("VAMPAMB",OVERRIDE)
+        ChangeAIScript("",DEFAULT)
+        DialogInterrupt(FALSE)
+        LeaveParty()
+        EndCutSceneMode()
+END
+
+IF
+    True()
+THEN
+    RESPONSE #100
+        CutSceneId("bodhiamb")
+        DialogInterrupt(FALSE)
+        CreateCreatureObject("VAMPIM01",Myself,0,0,0) // Vampire
+        CreateCreatureObject("VAMPIM01",Myself,0,0,0) // Vampire
+        CreateCreatureObject("VAMPIM01",Myself,0,0,0) // Vampire
+        CreateCreatureObject("VAMPIM01",Myself,0,0,0) // Vampire
+END

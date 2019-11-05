@@ -1,0 +1,156 @@
+// Setting the Amber match variable
+IF
+	Global("M#AmberMatch","GLOBAL",0)
+	Gender(Player1,MALE)
+	CheckStatGT(Player1,11,CHR)
+	CheckStatGT(Player1,11,INT)
+THEN 
+	RESPONSE #100
+	SetGlobal("M#AmberMatch","GLOBAL",1)
+	HideAreaOnMap("ar3000")
+END
+
+IF
+	Global("M#AmberMatch","GLOBAL",0)
+	OR(3)
+	  !Gender(Player1,MALE)
+	  !CheckStatGT(Player1,11,CHR)
+	  !CheckStatGT(Player1,11,INT)
+	
+THEN 
+	RESPONSE #100
+	SetGlobal("M#AmberMatch","GLOBAL",2)
+	HideAreaOnMap("ar3000")
+END
+
+IF
+Global("CbPartyGotThisFar","AR0020",1)
+THEN 
+	RESPONSE #100
+SetGlobal("CbPartyGotThisFar","AR0020",2)
+HideAreaOnMap("ar3000")
+END
+
+// Setting Amber Romance timeout variables in case Amber is kicked out of party
+IF
+	OR(2)
+	  Global("M#AmberRomanceActive","GLOBAL",1)
+	  Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberRomanceOut","GLOBAL",0)
+	OR(2)
+	  GlobalLT("M#AmberKidnap","GLOBAL",2)
+	  GlobalGT("M#AmberKidnap","GLOBAL",8)
+	!InPartyAllowDead("M#Amber")
+	!Dead("M#Amber")
+THEN
+	RESPONSE #100
+		SetGlobal("M#AmberRomanceOut","GLOBAL",1)
+		SetGlobalTimer("M#AmberOutOfParty","GLOBAL",25920)
+END
+
+IF
+	OR(2)
+	  Global("M#AmberRomanceActive","GLOBAL",1)
+	  Global("M#AmberRomanceActive","GLOBAL",2)
+	OR(2)
+	  GlobalLT("M#AmberKidnap","GLOBAL",2)
+	  GlobalGT("M#AmberKidnap","GLOBAL",8)  
+	Global("M#AmberRomanceOut","GLOBAL",1)
+	Global("M#AmberRomanceWaiting","GLOBAL",0)
+	GlobalTimerExpired("M#AmberOutOfParty","GLOBAL")
+	!InPartyAllowDead("M#Amber")
+	!Dead("M#Amber")
+THEN
+	RESPONSE #100
+		SetGlobal("M#AmberRomanceActive","GLOBAL",3)
+END
+
+IF
+	OR(2)
+	  Global("M#AmberRomanceActive","GLOBAL",1)
+	  Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberRomanceOut","GLOBAL",1)
+	InPartyAllowDead("M#Amber")
+THEN
+	RESPONSE #100
+		SetGlobal("M#AmberRomanceOut","GLOBAL",0)
+		SetGlobal("M#AmberRomanceWaiting","GLOBAL",0)
+		RealSetGlobalTimer("M#AmberRomanceTime","GLOBAL",3600)
+END
+
+// Amber returns after getting her bracelet back
+IF
+	Global("M#JillBracelet","GLOBAL",2)
+	GlobalTimerExpired("M#AmberQuestTime","GLOBAL")
+	!InParty("M#Amber")
+	
+THEN
+	RESPONSE #100
+	SetGlobal("M#JillBracelet","GLOBAL",4)	
+	MoveGlobalObjectOffScreen("M#Amber",Player1)
+	AddXPObject("M#Amber",1500)
+	ActionOverride("M#Amber",ApplySpellRES("M#JBRACE",Myself))
+	RealSetGlobalTimer("M#AmberRomanceTime","GLOBAL",1200)
+	ActionOverride("M#Amber",MoveToObject(Player1))
+	ActionOverride("M#Amber",Dialog(Player1))
+END
+
+// Amber gets her bracelet back, helped by the protagonist
+IF
+	Global("M#JillBracelet","GLOBAL",8)
+THEN
+	RESPONSE #100
+	ActionOverride("M#Amber",ApplySpellRES("M#JBRACE",Myself))
+	SetGlobal("M#JillBracelet","GLOBAL",9)
+	RealSetGlobalTimer("M#AmberRomanceTime","GLOBAL",1200)
+END
+
+// The slavers appear to kidnap Amber
+IF
+	Global("M#AmberKidnap","GLOBAL",1)
+	RealGlobalTimerExpired("M#AmberQuestTime","GLOBAL")
+	InParty("M#Amber")
+	OR(7)
+	  AreaCheck("ar0020") // City Gates
+	  AreaCheck("ar0300") // Docks
+	  AreaCheck("ar0400") // Slums
+	  AreaCheck("ar0500") // Bridge
+	  AreaCheck("ar0700") // Waukeen's Promenade
+	  AreaCheck("ar0800") // Graveyard
+	  AreaCheck("ar2000") // Trademeet
+THEN
+	RESPONSE #100
+	Wait(10)
+	CreateCreatureObjectOffScreen("remage02","M#Amber",0,0,0)
+	ChangeEnemyAlly("remage02",NEUTRAL)
+	ActionOverride("remage02",SetDialogue("m#kcut"))
+	ActionOverride("remage02",ChangeAIScript("m#remage",OVERRIDE))
+	ActionOverride("remage02",ChangeAIScript("MAGE8A",CLASS))
+	CreateCreatureObject("refigh01","remage02",0,0,0)
+	ChangeEnemyAlly("refigh01",NEUTRAL)
+	ActionOverride("refigh01",ChangeAIScript("m#reatta",OVERRIDE))
+	CreateCreatureObject("recler01","remage02",0,0,0)
+	ChangeEnemyAlly("recler01",NEUTRAL)
+	ActionOverride("recler01",ChangeAIScript("m#reatta",OVERRIDE))
+	ActionOverride("recler01",ChangeAIScript("PRIES8A",CLASS))
+	CreateCreatureObject("rethie01","remage02",0,0,0)
+	ChangeEnemyAlly("rethie01",NEUTRAL)
+	ActionOverride("rethie01",ChangeAIScript("m#reatta",OVERRIDE))
+	ActionOverride("rethie01",CreateItem("sw1h07",1,0,0))
+	ActionOverride("rethie01",FillSlot(SLOT_WEAPON1))
+	CreateCreatureObject("rethie03","remage02",0,0,0)
+	ChangeEnemyAlly("rethie03",NEUTRAL)
+	ActionOverride("rethie03",ChangeAIScript("m#reatta",OVERRIDE))
+	SetGlobal("M#AmberKidnap","GLOBAL",2)
+	StartCutSceneMode()
+        StartCutScene("m#kcut01")
+END
+
+// Amber is petrified
+IF
+	StateCheck("M#Amber",STATE_STONE_DEATH)
+	Global("M#AmberStoned","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AmberStoned","GLOBAL",1)
+END

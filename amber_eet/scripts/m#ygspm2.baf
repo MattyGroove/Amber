@@ -1,0 +1,11 @@
+IF
+	AreaCheck("m#ar01")
+	HPLT("M#Lorraine",25)
+	Global("M#Alert","Locals",0)
+THEN
+	RESPONSE #100
+	DisplayStringHead(Myself,@30)
+	MoveToPoint([504.332])
+	EscapeAreaMove("m#ar02",379,519,0)
+	SetGlobal("M#Alert","Locals",1)
+END

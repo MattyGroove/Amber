@@ -1,0 +1,28 @@
+IF
+	Global("M#RashrynMakingCloak","Locals",1)
+	GlobalTimerExpired("M#RashrynMakingCloakTime","Locals")
+THEN
+	RESPONSE #100
+	SetGlobal("M#RashrynMakingCloak","Locals",2)
+	CreateItem("m#bcclk",0,0,0)
+END
+
+IF
+	Global("M#RashrynMakingRobe","Locals",1)
+	GlobalTimerExpired("M#RashrynMakingRobeTime","Locals")
+	!Global("M#RashrynMakingJeweledRobe","Locals",1)
+THEN
+	RESPONSE #100
+	SetGlobal("M#RashrynMakingRobe","Locals",2)
+	CreateItem("m#wrobe1",0,0,0)
+END
+
+IF
+	Global("M#RashrynMakingRobe","Locals",1)
+	GlobalTimerExpired("M#RashrynMakingRobeTime","Locals")
+	Global("M#RashrynMakingJeweledRobe","Locals",1)
+THEN
+	RESPONSE #100
+	SetGlobal("M#RashrynMakingRobe","Locals",2)
+	CreateItem("m#wrobe2",0,0,0)
+END

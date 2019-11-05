@@ -1,0 +1,94 @@
+IF
+	GlobalLT("M#AmberKidnap","GLOBAL",7)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AmberKidnap","GLOBAL",7)
+END
+
+IF
+	Global("M#YmmyrtCreated","m#ar06",0)
+	XPLT(Player1,330001)
+THEN
+	RESPONSE #100
+	CreateCreature("m#ymm12",[869.752],15)
+	SetGlobal("M#YmmyrtCreated","m#ar06",1)
+END
+
+IF
+	Global("M#YmmyrtCreated","m#ar06",0)
+	XPLT(Player1,900001)
+	XPGT(Player1,330000)
+THEN
+	RESPONSE #100
+	CreateCreature("m#ymm16",[869.752],15)
+	SetGlobal("M#YmmyrtCreated","m#ar06",1)
+END
+
+IF
+	Global("M#YmmyrtCreated","m#ar06",0)
+	XPGT(Player1,900000)
+THEN
+	RESPONSE #100
+	CreateCreature("m#ymm19",[869.752],15)
+	SetGlobal("M#YmmyrtCreated","m#ar06",1)
+END
+
+IF
+	Global("M#YmmCellDoors","M#AR06",1)
+THEN
+	RESPONSE #100
+	OpenDoor("CellDoor01")
+	OpenDoor("CellDoor02")
+	OpenDoor("CellDoor03")
+	ActionOverride("wyvbab01",Enemy())
+	ActionOverride("wyvbab01",MoveToPoint([706.369]))
+	ActionOverride("udumber",Enemy())
+	ActionOverride("udumber",MoveToPoint([853.450]))
+	ActionOverride("kpyuan01",Enemy())
+	ActionOverride("kpyuan01",MoveToPoint([975.534]))
+	SetGlobal("M#YmmCellDoors","M#AR06",2)
+END
+
+IF
+	Global("M#GreenGem","M#AR06",1)	
+THEN
+	RESPONSE #100
+	CreateVisualEffect("m#tank",[644.703])
+	Wait(2)
+	CreateCreature("m#lorson",[724.724],10)
+	ActionOverride("m#lorson",ApplySpellRES("m#green",Myself))
+	SetGlobal("M#GreenGem","M#AR06",0)
+END
+
+IF
+	Global("M#RedGem","M#AR06",1)	
+THEN
+	RESPONSE #100
+	CreateVisualEffect("m#tank",[644.703])
+	Wait(2)
+	CreateCreature("m#ympyro",[724.724],10)
+	ActionOverride("m#ympyro",ApplySpellRES("m#red",Myself))
+	SetGlobal("M#RedGem","M#AR06",0)
+END
+
+IF
+	Global("M#BlackGem","M#AR06",1)	
+THEN
+	RESPONSE #100
+	CreateVisualEffect("m#tank",[644.703])
+	Wait(2)
+	CreateCreature("m#ymmurd",[724.724],10)
+	ActionOverride("m#ymmurd",ApplySpellRES("m#black",Myself))
+	SetGlobal("M#BlackGem","M#AR06",0)
+END
+
+IF
+	Global("M#WhiteGem","M#AR06",1)	
+THEN
+	RESPONSE #100
+	CreateVisualEffect("m#tank",[644.703])
+	Wait(2)
+	CreateCreature("m#wcsoul",[724.714],10)
+	ActionOverride("m#wcsoul",ApplySpellRES("m#heaven",Myself))
+	SetGlobal("M#WhiteGem","M#AR06",0)
+END

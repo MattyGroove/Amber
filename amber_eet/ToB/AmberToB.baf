@@ -1,0 +1,56 @@
+IF
+Global("M#Amb4500","ar4500",0)
+AreaCheck("ar4500")
+Delay(240)
+THEN
+RESPONSE #100
+SetGlobal("M#Amb4500","ar4500",1)
+END
+
+IF
+Global("M#Ambparent","Global",1)
+!AreaCheck("ar3006")
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!See([ENEMY])
+CombatCounter(0)
+THEN
+RESPONSE #100
+SetGlobal("M#Ambparent","Global",2)
+END
+
+IF
+Global("M#AmbJill","GLOBAL",1)
+PartyRested()
+!AreaCheck("ar5202")
+THEN
+RESPONSE #100
+SetGlobal("M#AmbJill","GLOBAL",2)
+END
+
+IF
+OR(3)
+Global("M#Amb4500","ar4500",1)
+Global("M#Ambparent","Global",2)
+Global("M#AmbJill","GLOBAL",2)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+THEN
+RESPONSE #100
+Dialog(Player1)
+END
+
+IF
+Global("M#Ambparent","Global",3)
+InParty("CVSandr")
+RealGlobalTimerExpired("M#ParentDel","LOCALS")
+AreaType(OUTDOOR)
+!StateCheck("CVSandr",CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+!See([ENEMY])
+CombatCounter(0)
+THEN
+RESPONSE #100
+SetGlobal("M#Ambparent","Global",4)
+Interact("CVSandr")
+END

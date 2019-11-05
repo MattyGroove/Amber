@@ -1,0 +1,28 @@
+//This is Bodhi abduction stuff, extends clanse.baf 
+IF
+  Contains("m#ambody",Myself)
+  Global("CleanseVampire","AR1401",0)
+THEN
+  RESPONSE #100
+    SetGlobal("CleanseVampire","AR1401",1)
+END
+
+IF
+  Contains("m#ambody",Myself)
+  Contains("MISCBP",Myself)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("CleanseVampire","AR1401",2)
+    DestroyItem("m#ambody")  // ~Amber's Body~
+    DestroyItem("MISCBP")  // ~Bodhi's Black Heart~
+    CreateVisualEffect("SPMETSW2",[2592.1701])
+    CreateVisualEffect("SPMETSW2",[2645.1742])
+    Wait(1)
+    CreateVisualEffect("SPFLESHS",[2565.1677])
+    Wait(1)
+    MoveGlobal("AR1401","m#amber",[2565.1677])
+    Wait(1)
+    ChangeEnemyAlly("m#amber",NEUTRAL)	
+    SetInterrupt(TRUE)
+END

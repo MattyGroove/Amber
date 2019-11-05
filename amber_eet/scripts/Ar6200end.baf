@@ -1,0 +1,9 @@
+IF
+Global("StartEndBios","AR6200",1)
+InParty("m#amber")
+Global("AmberBio","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("AmberBio","GLOBAL",1)
+TextScreen("EEAmbEP")
+END

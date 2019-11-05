@@ -1,0 +1,89 @@
+IF
+	OR(2)
+	  AttackedBy([GOODCUTOFF],DEFAULT)
+	  Heard([ANYONE],99)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+	Shout(99)
+	Enemy()
+	Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	!GlobalTimerNotExpired("DrankPotionTimer","LOCALS")
+	HasItem("POTN14",Myself) // Oil of Speed
+	See(NearestEnemyOfType([GOODCUTOFF]))
+THEN
+	RESPONSE #100
+	SetGlobalTimer("DrankPotionTimer","LOCALS",30)
+	DisplayStringHead(Myself,46150) // quaffs a potion
+	UseItem("POTN14",Myself) // Oil of Speed
+END
+
+IF
+	!Range(NearestEnemyOfType([GOODCUTOFF]),5)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE]))
+	!CheckStatGT(LastSeenBy(Myself),0,SHIELDGLOBE)
+THEN
+	RESPONSE #100
+	EquipRanged()
+	AttackReevaluate(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE]),30)
+END
+
+IF
+	!Range(NearestEnemyOf(Myself),5)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC]))
+	!CheckStatGT(LastSeenBy(Myself),0,SHIELDGLOBE)
+THEN
+	RESPONSE #100
+	EquipRanged()
+	AttackReevaluate(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC]),30)
+END
+
+IF
+	!Range(NearestEnemyOf(Myself),5)
+	See(NearestEnemyOfType([GOODCUTOFF]))
+	!CheckStatGT(LastSeenBy(Myself),0,SHIELDGLOBE)
+THEN
+	RESPONSE #100
+	EquipRanged()
+	AttackReevaluate(NearestEnemyOfType([GOODCUTOFF]),30)
+END
+
+IF
+	!Range(NearestEnemyOf(Myself),5)
+	See(NearestEnemyOfType([GOODCUTOFF]))
+	!CheckStatGT(LastSeenBy(Myself),0,SHIELDGLOBE)
+THEN
+	RESPONSE #100
+	EquipRanged()
+	AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+	See(NearestEnemyOfType([GOODCUTOFF]))
+	CheckStatGT(LastSeenBy(Myself),0,SHIELDGLOBE)
+THEN
+	RESPONSE #100
+	EquipMostDamagingMelee()
+	AttackReevaluate(NearestEnemyOfType([GOODCUTOFF]),30)
+END
+
+IF
+	Range(NearestEnemyOfType([GOODCUTOFF]),5)
+	!Range(NearestEnemyOfType([GOODCUTOFF]),2)
+THEN
+	RESPONSE #100
+	RunAwayFrom(NearestEnemyOfType([GOODCUTOFF]),30)
+END
+
+IF
+	Range(NearestEnemyOfType([GOODCUTOFF]),2)
+	See(NearestEnemyOfType([GOODCUTOFF]))
+THEN
+	RESPONSE #100
+	EquipMostDamagingMelee()
+	AttackReevaluate(NearestEnemyOfType([GOODCUTOFF]),30)
+END

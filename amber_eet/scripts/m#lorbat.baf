@@ -1,0 +1,120 @@
+IF
+	!Global("M#LorraineDown","Locals",1)
+	HPPercentLT(Myself,25)
+	HasItem("SCRL61",Myself) // Cure Critical Wounds Scroll
+THEN
+	RESPONSE #100
+	UseItem("SCRL61",Myself) // Cure Critical Wounds Scroll
+END
+
+IF
+	!Global("M#LorraineDown","Locals",1)
+	HPPercentLT(Myself,50)
+	!GlobalTimerNotExpired("DrankPotionTimer","Locals")
+	HasItem("TTPOT",Myself) // Potion of Extra Healing
+THEN
+	RESPONSE #100
+	SetGlobalTimer("DrankPotionTimer","Locals",6)
+	DisplayStringHead(Myself,46150) // quaffs a potion
+	UseItem("TTPOT",Myself) // Potion of Extra Healing
+END
+
+IF
+	!Global("M#LorraineDown","Locals",1)
+	HPPercentLT(Myself,75)
+	TookDamage()
+	See(NearestEnemyOf(Myself))
+	OR(3)
+	  Class(NearestEnemyOf(Myself),FIGHTER_ALL)
+	  Class(NearestEnemyOf(Myself),PALADIN_ALL)
+	  Class(NearestEnemyOf(Myself),RANGER_ALL)
+	!GlobalTimerNotExpired("HLATimer","Locals")
+	HaveSpellRES("SPCL907")
+THEN
+	RESPONSE #100
+	SpellRES("SPCL907",Myself)
+	SetGlobal("HLATimer","Locals",14)
+END
+
+IF
+	!Global("M#LorraineDown","Locals",1)
+	See(NearestEnemyOf(Myself))
+	OR(3)
+	  Class(NearestEnemyOf(Myself),FIGHTER_ALL)
+	  Class(NearestEnemyOf(Myself),PALADIN_ALL)
+	  Class(NearestEnemyOf(Myself),RANGER_ALL)
+	!GlobalTimerNotExpired("HLATimer","Locals")
+	Range(NearestEnemyOf(Myself),2)
+	HaveSpellRES("SPCL901")
+THEN
+	RESPONSE #100
+	SpellRES("SPCL901",Myself)
+	SetGlobal("HLATimer","Locals",14)
+END
+
+IF
+	!Global("M#LorraineDown","Locals",1)
+	See(NearestEnemyOf(Myself))
+	OR(3)
+	  Class(NearestEnemyOf(Myself),FIGHTER_ALL)
+	  Class(NearestEnemyOf(Myself),PALADIN_ALL)
+	  Class(NearestEnemyOf(Myself),RANGER_ALL)
+	!GlobalTimerNotExpired("HLATimer","Locals")
+	Range(NearestEnemyOf(Myself),2)
+	HaveSpellRES("SPCL900")
+THEN
+	RESPONSE #100
+	SpellRES("SPCL900",Myself)
+	SetGlobal("HLATimer","Locals",14)
+END
+
+IF
+	!Global("M#LorraineDown","Locals",1)
+	See(NearestEnemyOf(Myself))
+	Allegiance(Myself,ENEMY)
+	Global("HastePotion","Locals",0)
+	!GlobalTimerNotExpired("DrankPotionTimer","Locals")
+	HasItem("POTN14",Myself) // Oil of Speed
+THEN
+	RESPONSE #100
+	SetGlobal("HastePotion","Locals",1)
+	SetGlobalTimer("SawEnemy","Locals",3)
+END
+
+IF
+	!Global("M#LorraineDown","Locals",1)
+	See(NearestEnemyOf(Myself))
+	Allegiance(Myself,ENEMY)
+	Global("HastePotion","Locals",1)
+	GlobalTimerExpired("SawEnemy","Locals")
+	!GlobalTimerNotExpired("DrankPotionTimer","Locals")
+	HasItem("POTN14",Myself) // Oil of Speed
+THEN
+	RESPONSE #100
+	SetGlobalTimer("DrankPotionTimer","Locals",12)
+	SetGlobal("HastePotion","Locals",2)
+	DisplayStringHead(Myself,46150) // quaffs a potion
+	UseItem("POTN14",Myself) // Oil of Speed
+END
+
+IF
+	!Global("M#LorraineDown","Locals",1)
+	See(NearestEnemyOf(Myself))
+	OR(5)
+	  SpellCast([PC],WIZARD_ICE_STORM)
+	  SpellCast([PC],WIZARD_METEOR_SWARM)
+	  SpellCast([PC],WIZARD_CLOUDKILL)
+	  SpellCast([PC],CLERIC_FIRE_STORM)
+	  SpellCast([PC],WIZARD_STINKING_CLOUD)
+THEN
+	RESPONSE #100
+	AttackReevaluate([PC.0.0.MAGE],45)
+END
+
+IF
+	!Global("M#LorraineDown","Locals",1)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+	AttackReevaluate(NearestEnemyOf(Myself),45)
+END

@@ -1,0 +1,126 @@
+IF
+	OnCreation()
+THEN
+	RESPONSE #100
+	TriggerActivation("M#Stairs01",TRUE)
+	TriggerActivation("M#Stairs01b",FALSE)
+	TriggerActivation("M#Stairs01c",FALSE)
+END
+
+IF
+	AreaCheck("M#AR02")
+	InActiveArea("m#lorraine")
+	!Dead("m#lorraine")
+THEN
+	RESPONSE #100
+	MoveGlobal("M#AR01","m#lorraine",[580.370])
+END
+
+IF
+	AreaCheck("M#AR02")
+	!InActiveArea("m#yclbm1")
+	!Dead("m#yclbm1")
+THEN
+	RESPONSE #100
+	MoveGlobal("M#AR02","m#yclbm1",[200.750])
+END
+
+IF
+	AreaCheck("M#AR02")
+	!InActiveArea("m#ygspm1")
+	!Dead("m#ygspm1")
+THEN
+	RESPONSE #100
+	MoveGlobal("M#AR02","m#ygspm1",[180.730])
+END
+
+IF
+	AreaCheck("M#AR02")
+	!InActiveArea("m#ygspm2")
+	!Dead("m#ygspm2")
+THEN
+	RESPONSE #100
+	MoveGlobal("M#AR02","m#ygspm2",[220.770])
+END
+
+IF
+	AreaCheck("M#AR02")
+	!InActiveArea("m#ygspm3")
+	!Dead("m#ygspm3")
+THEN
+	RESPONSE #100
+	MoveGlobal("M#AR02","m#ygspm3",[160.750])
+END
+
+IF
+	AreaCheck("M#AR02")
+	!InActiveArea("m#ygspm4")
+	!Dead("m#ygspm4")
+THEN
+	RESPONSE #100
+	MoveGlobal("M#AR02","m#ygspm4",[200.790])
+END
+
+IF
+	AreaCheck("M#AR02")
+	!InActiveArea("m#ygsbm1")
+	!Dead("m#ygsbm1")
+THEN
+	RESPONSE #100
+	MoveGlobal("M#AR02","m#ygsbm1",[140.770])
+END
+
+IF
+	AreaCheck("M#AR02")
+	!InActiveArea("m#ygsbm2")
+	!Dead("m#ygsbm2")
+THEN
+	RESPONSE #100
+	MoveGlobal("M#AR02","m#ygsbm2",[180.810])
+END
+
+IF
+	Global("M#YmmyrtStairs","M#AR02",1)
+	GlobalTimerExpired("M#YmmyrtStairsTimer","M#AR02")
+THEN
+	RESPONSE #100
+	SetGlobal("M#YmmyrtStairs","M#AR02",0)
+	TriggerActivation("M#Stairs01",TRUE)
+	TriggerActivation("M#Stairs01b",FALSE)
+	TriggerActivation("M#Stairs01c",FALSE)
+END
+
+IF
+	!Dead("m#yimp")
+	!Dead("m#ymmyrt")
+	Global("m#GabrielPicksUpFood","GLOBAL",0)
+	OR(3)
+	  Time(6)
+	  Time(12)
+	  Time(5)
+THEN
+	RESPONSE #100
+	SetGlobal("m#GabrielPicksUpFood","GLOBAL",1)
+END
+
+IF
+	Global("m#GabrielPicksUpFood","GLOBAL",1)
+THEN
+	RESPONSE #100
+	SetGlobal("m#GabrielPicksUpFood","GLOBAL",2)
+	CreateVisualEffect("spuseany",[869.341])
+	Wait(2)
+	CreateCreature("m#yimp",[869.341],10)
+	StartCutSceneMode()
+        StartCutScene("m#cut03")
+END
+
+IF
+	Global("m#GabrielPicksUpFood","GLOBAL",2)
+	!Time(6)
+	!Time(12)
+	!Time(5)
+THEN
+	RESPONSE #100
+	SetGlobal("m#GabrielPicksUpFood","GLOBAL",0)
+END

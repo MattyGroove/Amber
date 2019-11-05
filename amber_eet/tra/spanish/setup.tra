@@ -1,0 +1,566 @@
+@100 = ~Amber~ 
+@101 = ~¿Quién sois?~ [m#amb001]
+@102 = ~¡Por los Nueve Infiernos! Ésta es mi puerta de salida.~ [m#amb002]
+@103 = ~Supongo que unirme a vos no fue una idea tan mala después de todo.~ [m#amb003]
+@104 = ~No apruebo esto en absoluto.~ [m#amb004]
+@105 = ~Sois un tonto, ¿sabéis?~ [m#amb005] 
+~Sois una tonta, ¿sabéis?~ [m#amb005]
+@106 = ~Se acabó. Ya es suficiente, no permitiré más estupideces.~ [m#amb006]
+@107 = ~¿Yo? ¿Una líder? Debéis estar loco.~ [m#amb007] 
+~¿Yo? ¿Una líder? Debéis estar loca.~ [m#amb007]
+@108 = ~¿No creéis que podíamos detenernos un poco?~ [m#amb008]
+@109 = ~No puedo creer que desaprovechemos nuestro precioso tiempo.~ [m#amb009]
+@110 = ~¡Os merecíais esto, canalla!~ [m#amb010]
+@111 = ~¡Os daré una paliza que nunca olvidaréis!~ [m#amb011]
+@112 = ~¡Sólo uno de nosotros dejará este lugar con vida!~ [m#amb012]
+@113 = ~¿Creéis que me podéis atrapar? ¡Pensárolos otra vez!~ [m#amb013]
+@114 = ~~ [m#amb014]
+@115 = ~~ [m#amb015]
+@116 = ~¡Aajj! ¿Dónde... ESTÁ esa poción?~ [m#amb016]
+@117 = ~He pasado casi toda mi vida en ciudades... Pero en cierto modo, me gusta esto.~ [m#amb017] 
+@118 = ~Deberíais tener cuidado; sé que tipo de personas habitan en lugares como éste.~ [m#amb018]
+@119 = ~Oscuro y húmedo, encantador. Lo que fuere que persigamos por aquí espero que valga la pena.~ [m#amb019]
+@120 = ~Hmphh... Preferiría que fuese de noche. Está todo tan frío y calmo.~ [m#amb020]
+@121 = ~Ahh... Mirad las estrellas, son tan brillantes esta noche.~ [m#amb021]
+@122 = ~¿Qué queréis?~ [m#amb022]
+@123 = ~Escucho... por ahora.~ [m#amb023]
+@124 = ~¿Qué queréis ahora?~ [m#amb024]
+@125 = ~Bueno, hablad de una vez.~ [m#amb025]
+@126 = ~Sí, estoy aquí todavía.~ [m#amb026]
+@127 = ~Venga, dejadme en paz.~ [m#amb027]
+@128 = ~Si insistís.~ [m#amb028]
+@129 = ~¿Estáis seguro?~[m#amb029] 
+~¿Estáis segura?~[m#amb029]
+@130 = ~Lo que sea...~ [m#amb080]
+@131 = ~Muy bien entonces.~ [m#amb030]
+@132 = ~Supongo que tenéis razón.~ [m#amb031]
+@133 = ~¿Debería...?~ [m#amb032]
+@134 = ~Eso es fácil.~ [m#amb033]
+@135 = ~¿No tenéis nada mejor que hacer que molestarme?~ [m#amb034]
+@136 = ~¡Dejad de pincharme!~ [m#amb035]
+@137 = ~Ja... no lo ví venir, ¿y vos?~ [m#amb036] 
+@138 = ~¡Maldita sea!~ [m#amb037]
+@139 = ~¿Qué? ¡No puede ser!~ [m#amb038]
+@140 = ~Ya he tenido más que suficiente. VOS podéis cargar con eso.~ [m#amb039]
+@141 = ~Hmm... No creo que necesitéis eso.~ [m#amb040]
+@142 = ~¡Ack! ¿De dónde vino eso?~ [m#amb041]
+@143 = ~Esto les debería dar una lección.~ [m#amb042]
+@144 = ~Cuándo preguntáis por su pasado, Amber afirma que no tiene recuerdos de su infancia. Ella no recuerda nada de sus padres o del lugar en que creció. Vacilante, os dice que vivió esos años en las calles de Aguas Profundas hasta que un desafortunado incidente, involucrando al gremio de los ladrones local y a la guardia de la ciudad, la obligó a irse hacia Luskan. Allí escapó por poco de una muchedumbre enojada con la ayuda de una joven bardo llamada Jill. A medida que ella habla calurosamente de Jill y respetuosamente del hermano de la bardo, Tristan, la expresión de Amber se ilumina poco a poco. Claramente podéis entender que las dos chicas estaban muy unidas, pero hay tristeza en sus ojos cuando os dice que su amiga lleva mucho tiempo ausente. Como la historia de Amber continúa, empezáis a preguntaros cuán vieja es esta exótica criatura realmente. Ella ha viajado por tierras extrañas, desde el norte congelado hasta el calor de los desiertos sureños, años transcurridos con un grupo circense, y a pesar de eso, su cara no deja traslucir señales del paso del tiempo. Cuando tratáis de preguntarla acerca de su edad, responde que no tiene importancia porque las personas alrededor de ella nunca cambian. Por mucho que pase el tiempo, los prejuicios no desaparecen facilmente.~ 
+@145 = ~~ 
+
+// Rest of the tp2
+
+
+@150  = ~Amber NPC para el BG2EE EET~
+@151  = ~Amber NPC para el BG2EE EET.~
+@152  = ~Luchador~
+@153  = ~LUCHADOR: El luchador es un campeón, hombre de armas, soldado. Vive o muere dependiendo del conocimiento de las armas y las tacticas. Pueden ser encontrados en el frente de cualquier batalla, al lado de monstruos y villanos. Un buen luchador debe ser fuerte y saludable si quiere sobrevivir.~
+@154  = ~M#AmbeAI : ~
+@155  = ~IA de combate de Amber.~
+@156  = ~Este callejón está bloqueado por altas pilas de cajones rotos y basura.~
+@157  = ~La cerradura de este cofre ha sido rota, obviamente con precipitación, con un pesado candelabro de plata. Cualquier cosa que contuviese ahora sea perdido.~
+@158  = ~La cara de este hombre está desencajada y su cuerpo retorcido. Él ha debido sufrir un gran tormento antes de que la muerte ofreciese su piadosa liberación. Al principio os preguntáis qué pudo causar la muerte de este guardia, pero al examinarlo más detenidamente véis un fragmento afilado de vidrio que asoma del cuello del hombre. La piel alrededor del corte se ha vuelto de un repugnante color verde amoratado y ha desarrollado algunos furúnculos que lo hacen mas repugnante.~
+@159  = ~Amber~
+@160  = ~Ed~
+@161  = ~Max~
+@162  = ~Nick~
+@163  = ~Capitán Corin~
+@164  = ~Ymmyrt~
+@165  = ~¿Qué es ese ruido?~ [m#ymm001]
+@166  = ~¡Gusanos! ¡Morid, asquerosos!~ [m#ymm002]
+@167  = ~¡No podréis resistir a mis poderes!~ [m#ymm003]
+@168  = ~¡Mis mascotas se encargarán de vos!~ [m#ymm004]
+
+@170  = ~¡Noooooooooo! ¡Caeréis conmigo!~ [m#ymm006]
+@171  = ~Sois un tonto si pensáis que Ymmyrt será abatido tan fácilmente.~ [m#ymm007] 
+~Sois una tonta si pensáis que Ymmyrt será abatido tan fácilmente.~ [m#ymm007]
+@172  = ~No me molestéis.~ [m#ymm008]
+@173  = ~No tengo tiempo para esto.~ [m#ymm009]
+@174  = ~¡Probad el dolor de la muerte!~ [m#ymm010]
+@175  = ~Eso fue intencionado.~ [m#ymm011]
+@176  = ~¡Vuestra insignificante magia no será suficiente para protegeros de mi poder!~ [m#ymm012]
+@177  = ~¡No puedo concentrarme!~ [m#ymm013]
+@178  = ~Lorraine~
+@179  = ~No tenéis nada que hacer aquí, extraño.~ [m#lor001] 
+~No tenéis nada que hacer aquí, extraña.~ [m#lor001]
+@180  = ~¡Esto acabará más pronto de lo que creéis!~ [m#lor002]
+@181  = ~¡Espero que vuestra alma esté preparada!~ [m#lor003]
+@182  = ~¡No tenéis la fuerza necesaria para derrotarme!~ [m#lor004]
+
+@184  = ~¡No! ¡No puedo morir! No, no todavía...~ [m#lor006]
+@185  = ~Ynghh... ¡No me mataréis!~ [m#lor007]
+@186  = ~Os arriesgáis demasiado permaneciendo aquí.~ [m#lor008]
+@187  = ~¿Qué queréis?~ [m#lor009]
+@188  = ~Este lugar es peligroso. Debéis iros cuanto antes.~ [m#lor010]
+@189  = ~¡Aprended de eso!~ [m#lor011]
+@190  = ~¡Qué disparate por mi parte!~ [m#lor012]
+@191  = ~¡Maldita magia!~ [m#lor013]
+@192  = ~¡No! ¡Mielikki, por favor escuchadme!~ [m#lor014]
+@193  = ~Fantasma del hijo de Lorraine~
+@194  = ~Alma Negra~
+@195  = ~Alma Fiera~
+@196  = ~Gabriel~
+@197  = ~¡Achús!~ [m#gabr01]
+@198  = ~Sirvienta~
+@199  = ~Teniente de Ymmyrt~
+@200  = ~Capitán de Ymmyrt~
+@201  = ~Guardia de Ymmyrt~
+@202  = ~Sastre~
+@203  = ~Pipa Abisal~
+@204  = ~Esta es una pipa de madera pequeña, tallada para asemejarse a la cabeza de un demonio.~
+@205  = ~Esta es una pipa de madera pequeña, tallada para asemejarse a la cabeza de un demonio. Cuando se usa esta pipa convoca humos mortíferos de los planos del Abismo.
+
+CARACTERÍSTICAS:
+
+Efecto: Invoca "Nube aniquiladora" dos veces por día.
+
+No permitido a:
+Personajes buenos
+Elfos~
+@206  = ~Armadura De la Sombra Del Aprendiz~
+@207  = ~La armadura de la sombra del aprendiz es una armadura de cuero tachonada creada para el uso de los aprendices y protegidos del maestro de las sombras de Amn, la orden más alta en la jerarquía de los Ladrones de la Sombra. Es una armadura de cuero tachonada +1 que ayuda a su portador a esconderse en las sombras.
+
+CARACTERÍSTICAS:
+
+Clase De Armadura: 6
+Especial: +5 para esconderse en las sombras
+Peso: 12
+Requiere: 6 de fuerza
+Permitido a:
+Ladrón (puro, dual o multiclase)~
+@208  = ~Piel de Leopardo de Nieve~
+@209  = ~Esta piel, que probablemente provine de algún gran y exótico felino, es simplemente lo más suave y más lujoso que recordáis haber tocado. El curtidor ha debido ser un gran maestro en su oficio, ya que las pieles son mucho más difíciles de trabajar que el simple cuero. Con esto se confeccionaría un maravilloso manto incluso para el noble más exigente.~
+@210  = ~Esta piel de leopardo de nieve es simplemente lo más suave y más lujoso que recordáis haber tocado. El curtidor ha debido ser un gran maestro en su oficio, ya que las pieles son mucho más difíciles de trabajar que el simple cuero. Con esto se confeccionaría un maravilloso manto incluso para el noble más exigente.~
+@211  = ~Llave de la Ninfa~
+@212  = ~Esta extraña llave, moldeada a semejanza de una estilizada ninfa, abre la puerta del estudio y de la habitación de Ymmyrt.~
+@213  = ~Kit de la Belleza~
+@214  = ~Esta bolsa contiene unos pocos peines y lazos junto con un poco de belladona, polvos, áloe, alheña pulverizada y otros cosméticos diversos. En resumen, todo lo que necesitaríais para maquillaros.
+
+CARACTERÍSTICAS:
+
+Carisma: +4 
+Duración: 12 horas
+Efecto Secundario: 1-6 daño por veneno una vez que los efectos se desvanezcan~
+@215  = ~Esta bolsa contiene unos pocos peines y lazos junto con un poco de belladona, polvos, áloe, alheña pulverizada y otros cosméticos diversos. En resumen, todo lo que necesitaríais para maquillaros.
+
+CARACTERÍSTICAS:
+
+Carisma: +4 
+Duracion: 12 horas
+Efecto Secundario: 1-6 daño por veneno una vez que los efectos se desvanezcan~
+@216  = ~Pareja de botellas~
+@217  = ~Botella elemental~
+@218  = ~Encontrasteis estas extrañas botellas entre las colecciones del malvado hechicero Ymmyrt. La botella roja parece poseer un cálido resplandor llameante, pero la botella azulada parece vacía.~
+@219  = ~Encontrasteis estas extrañas botellas entre las colecciones del malvado hechicero Ymmyrt. Aparentemente él había intentado crear una colección de espíritus elementales embotellados, pero sólo tuvo el control del aire y del fuego antes de su defunción. Quizá engatusar a un elemental de tierra en una botella había resultado ser más difícil de lo que él había previsto.
+
+CARACTERÍSTICAS:
+
+Efecto: Convoca a un elemental de aire o fuego.~
+@220  = ~Espada de las rosas +4~
+@221  = ~Espada de las rosas, espada larga +4
+Esta espada posee un esplendor sobrenatural, y es probable que Sune, la diosa de la belleza y la pasión, interviniese en su creación. El efecto que tiene en el portador es inmediato, y más de una vez en su historia esta espada ha sido el secreto detrás de la inesperada eminencia de un deslucido soldado en la corte.
+Cuando encontrasteis esta espada le faltaba un rubí encantado de su pomo. Vos jamás podríais haber notado este defecto, pero el herrero enano Cromwell lo apreció y reparó la espada. Además del encantamiento básico de la espada, el rubí, aunque no especialmente grande, perfecciona el equilibrio de la hoja, convirtiéndola en un arma aun más efectiva. Cómo encontró la gema del pomo su camino hasta la pulsera de Amber, que anteriormente poseyese Jill la bardo, sigue siendo un misterio. 
+
+CARACTERÍSTICAS:
+
+Habilidades Equipadas:
+ Carisma: +2 
+ Protección contra el miedo
+ Suerte
+GAC0: +4 
+Daño: 2D4 + 4
+Tipo de Daño: cortante
+Peso: 3
+Factor de Velocidad: 2
+Tipo de Talento: Espada larga
+Tipo: A una mano
+Requiere: 6 Fuerza
+No permitido a:
+ Druida, Clérigo, Mago~
+@222  = ~Gema Negra~
+@223  = ~Gema del Alma negra~
+@224  = ~Esta extraña gema de negro azabache, aproximadamente del tamaño y forma de un gran huevo, palpita con un aspecto vacío de luz. El contacto con la gema os envía escalofríos a vuestro espinazo y os llena de un simultáneo sentimiento de rabia y temor.~
+@225  = ~Esta extraña gema negra del tamaño de un huevo, contiene el alma de la pura maldad. No tenéis ni idea de lo que pueda ser esta vil criatura, pero la gema palpita con un aspecto vacío de luz y al tocarla tembláis y os llenáis de un sentimiento de rabia y temor.~
+@226  = ~Rodela +2~
+@227  = ~Rodela +2, Thorard's Saucer
+Una rodela (o broquel) es un pequeño escudo de madera o metal que se sujeta al antebrazo. Gracias a su tamaño es ligera y puede transportarte sin sufrir grandes restricciones al movimiento. Esta rodela ha sido creada por un herrero enano y construída de metal y cuero duro. Una inscripción en runas enanas embutidas en circulos de cobre está por todo alrededor y su reluciente inscripción proclama soberbiamente: "Por la gloria de Moradin, hecha por la mano de Thorard". La rodela es de buena calidad, pero su valor verdadero está en los encantamientos de protección que la hacen más resistente a los ataques.        
+
+CARACTERÍSTICAS:
+
+Bonificación a la CA: 3
+Especial: No protege contra Ataques de Proyectil/Perforante
+Peso: 2
+Requiere: 4 Fuerza
+No permitido a:
+ Mago~
+@228  = ~Lanza~
+@229  = ~Lanza +2~
+@230  = ~Ésta es una de las primeras armas del hombre y data de tiempos remotos en que las primeras lanzas eran sencillas varas de madera afiladas. Cuando el hombre dominó los metales, las puntas de lanza se fabricaron de hierro y acero. Llegados a este punto, los armeros comenzaron a experimentar con diferentes tipos de puntas, lo que les llevó a descubrir ciertos tipos de armas de asta. Otro tipo de estudio llevó a la integración de la magia en las lanzas. Los chamanes tribales las hechizaban para poder golpear con más facilidad y causar a sus rivales más daño.
+Esta particular lanza consiste en un ceniciento asta y una punta afilada que alberga la apariencia de la artesanía enana. Es interesante advertir que aunque la punta, y probablemente el asta también, parece de manufactura enana, las runas encantadas en sendos asta y punta están grabadas en letras élficas. Un trabajo como éste, el producto de los esfuerzos combinados de dos personas, es una cosa muy poco frecuente. Esta simple, pero efectiva, arma es un raro testamento de lo que en potencia poseyó tal alianza.
+
+CARACTERÍSTICAS:
+  
+GAC0: +2 
+Daño: 1D6 + 2
+Tipo de Daño: perforante
+Peso: 3
+Factor de Velocidad: 4
+Tipo de Talento: Lanza 
+Tipo: A dos manos
+Requiere: 5 Fuerza
+No permitido a:
+ Clérigo
+ Mago
+ Ladrón
+ Monje
+Señor de las Bestias~
+@231  = ~La lanza, una de las primeras armas utilizadas por el hombre primitivo, empezó siendo un asta de madera o una simple vara a la que se sacaba punta. Cuando el hombre llegó a dominar los metales, las puntas de lanza se hicieron de hierro y acero. Llegados a este punto, los armeros comenzaron a experimentar con diferentes tipos de puntas, lo que les llevó a descubrir ciertos tipos de armas de asta.
+
+CARACTERÍSTICAS:
+
+Daño: 1D6
+Tipo de Daño: perforante
+Peso: 5
+Factor de Velocidad: 6
+Tipo de Talento: Lanza 
+Tipo: A dos manos
+Requiere: 5 Fuerza
+No permitida a:
+ Clérigo
+ Mago
+ Ladrón
+ Monje
+ Señor de las Bestias~
+@232  = ~Hatillo~
+@233  = ~Este hatillo contiene varias cosas que pertenecían a la criatura que se os ha cedido.~
+@234  = ~Llave de la Celda~
+@235  = ~Esta es la llave para la Prisión de la Ciudad, donde supuestamente está el demonio.~
+@236  = ~Palo +2~
+@237  = ~La mayoría de los garrotes son palos recios de madera, estrechos en la empuñadura y más anchos en los extremos. Esta sencilla herramienta se ha utilizado desde que el hombre comenzó a utilizar herramientas. Todo el mundo puede encontrar una buena pieza de recia madera con la que golpear, de ahí el amplio uso de los garrotes.
+
+CARACTERÍSTICAS:
+
+GAC0: +2 
+Daño: 1D6 +2
+Tipo de Daño: contundente
+Peso: 1
+Factor de Velocidad: 1
+Tipo de Talento: Palo
+Tipo: A una mano
+Requiere: 5 Fuerza
+No permitido a:
+ Mago~
+@238  = ~Formulario #1567~
+@239  = ~Este es el Formulario Administrativo Oficial de Athkatla #1567 que obtuvisteis del funcionario.~
+@240  = ~Formulario #1567 sin el Apéndice B135~
+@241  = ~Esta es la Formulario Administrativo Oficial de Athkatla #1567, aparentemente sin el Apéndice B135. Tendréis que volver a hablar con el funcionario.~
+@242  = ~Formulario #1567 con el Apéndice B135~
+@243  = ~Este es el Formulario Administrativo Oficial de Athkatla #1567 con el Apéndice B135. A continuación probablemente os pedirán que cumplimentéis la licencia de animal doméstico para demonios.~
+@244  = ~Formulario #1567 cumplimentado con el Apéndice B135~
+@245  = ~Este es el Formulario Administrativo Oficial de Athkatla #1567 completo con el Apéndice B135, cumplimentado y firmada por el Funcionario Público.~
+@246  = ~Formulario #1567 con el Apéndice B135 cumplimentado y sin sello~
+@247  = ~Este es el Formulario Administrativo de Athkatla #1567 con el apéndice B135, cumplimentado y firmado por el Funcionario Público. Falta todavía el sello que señala que el acontecimiento ha estado debidamente registrado en el archivo del Consejo de los Seis.~
+@248  = ~Formulario #1567 con el apéndice B135 cumplimentado y con un sello~
+@249  = ~Este es el Formulario Administrativo de Athkatla #1567 con el apéndice B135, cumplimentado, firmado y, sí, sellado por el Funcionario Público.~
+@250  = ~Formulario #1567 completo.~
+@251  = ~Este es el Formulario Administrativo de Athkatla #1567 con el apéndice B135, cumplimentado, firmado y sellado por el Funcionario Público y completo con el sello final del Alguacil Jefe Brega.~
+@252  = ~Brazalete~
+@253  = ~Brazalete de Gillian~
+@254  = ~Este brazalete de plata tiene un gran rubí incrustado que parece fuera de lugar en un engaste tan humilde.~
+@255  = ~Este simple engaste de plata del brazalete, contrastando en demasía con el gran rubí, solía pertenecer a la amiga de Amber desaparecida hace tiempo, una bardo llamada Gillian "Jill" Featherstonehaugh. Como de su pasado en general, Amber nunca os ha contado mucho acerca de su amiga, pero la pulsera parece conllevar una gran importancia para ella y sospecháis que éste sea el último recuerdo de una estimada amiga ausente desde hace mucho tiempo.
+
+Cuando le preguntáis por el brazalete os dice que lo lleva puesto por "la suerte" y después de un rato añade con voz serena "y por el consuelo".
+
+CARACTERÍSTICAS:
+
+Habilidades Equipadas:
+Suerte
+Protección contra el miedo~
+@256  = ~Llavero~
+@257  = ~Este gran aro de metal puede ser abierto, para permitir la inserción de llaves en él, y vuelto a cerrar en un consiste aro otra vez. Es bastante grande como para llevar alrededor de tres docenas de llaves de tamaño normal.~
+@258  = ~Llave del Laboratorio~
+@259  = ~Esta es la llave de la puerta del laboratorio de Ymmyrt, donde esperáis encontrar al hechicero y a Amber.~
+@260  = ~Esta es la llave de la puerta del laboratorio de Ymmyrt, donde esperáis encontrar al hechicero y a Amber. ~
+@261  = ~Juego de Ganzúas~
+@262  = ~Este juego de ganzúas exquisitamente elaboradas y otras herramientas complementa las habilidades de todo buen ladrón o cerrajero. Con estas ganzúas muchas de las cerraduras simples pueden ser abiertas incluso aunque no se tenga experiencia. En manos de alguien habilidoso puede abrir incluso las más complicaas.
+
+CARACTERÍSTICAS:
+
+Habilidad Equipada: +20 Abrir Cerraduras~
+@263  = ~Acabáis de romper las ganzúas golpeándo a alguien con ellas. Bien hecho.~
+@264  = ~Gema Verde~
+@265  = ~Gema del Alma del Hijo de Lorraine~
+@266  = ~Esta es una extraña gema verde brillante del tamaño de un huevo. Se nota caliente al tacto pero también os llena de tristeza al tocarla.~
+@267  = ~Esta gema verde brillante del tamaño de un huevo contiene el alma del hijo de Lorraine. Es caliente al tacto, pero también llena vuestro corazón de un inexplicable sentimiento de tristeza que se desvanece cuando dejáis de tocar la piedra.~
+@268  = ~Regalo de Mielikki~
+@269  = ~Regalo de Mielikki, Cimitarra +3
+
+Mielikki es la diosa de los bosques, las criaturas del bosque, dríadas y de la estación otoñal. También es llamada la Señora del Bosque, y como muchos otros dioses, a veces da regalos a sus fieles seguidores. Esta hoja elegantemente curvada, que brilla tenuemente con un suave resplandor verde pálido, es uno de esos regalos. Magistralmente equilibrada y bendecida con sendos hechizos protectores y ofensivos, esta hoja es verdaderamente una belleza para ser contemplada y esgrimida.  
+
+Esta cimitarra le fue dada originalmente a la exploradora y clériga Lorraine que encontrasteis rescatando a Amber de las garras del hechicero Ymmyrt. Cuando Lorraine cayó en batalla, cogisteis el arma de su cuerpo sin vida.
+  
+CARACTERÍSTICAS:
+
+Habilidad Equipada: Armadura de la fe dos veces al dia
+Habilidad de Combate: Enredar al objetivo cuando el golpe es exitoso
+Daño: 1D8 +3
+GAC0: +3
+Tipo de Daño: cortante
+Peso: 3
+Factor de Velocidad: 3
+Tipo de Talento: Cimitarra/Wakizashi/Ninja-To
+Tipo: A una mano
+Requiere: 6 Fuerza
+No permitido a:
+ Clérigo
+ Mago~
+@270  = ~Regalo de Mielikki, Cimitarra +4
+
+Mielikki es la diosa de los bosques, las criaturas del bosque, dríadas y de la estación otoñal. También es llamada la Señora del Bosque, y como muchos otros dioses, a veces da regalos a sus fieles seguidores. Esta hoja elegantemente curvada, que brilla tenuemente con un suave resplandor verde pálido, es uno de esos regalos. Magistralmente equilibrada y bendecida con sendos hechizos protectores y ofensivos, esta hoja es verdaderamente una belleza para ser contemplada y esgrimida.  
+
+Esta cimitarra le fue dada originalmente a la exploradora y clériga Lorraine que encontrasteis rescatando a Amber de las garras del hechicero Ymmyrt. Cuando Lorraine cayó en batalla, cogisteis el arma de su cuerpo sin vida. Desde entonces Cespenar ha mejorado los encantamientos, haciendola incluso más formidable.
+  
+CARACTERÍSTICAS:
+
+Habilidad Equipada: Armadura de la fe dos veces al dia
+Habilidad de Combate: Enredar al objetivo cuando el golpe es exitoso
+Daño: 1D8 +4
+GAC0: +4
+Tipo de Daño: cortante
+Peso: 3
+Factor de Velocidad: 3
+Tipo de Talento: Cimitarra/Wakizashi/Ninja-To
+Tipo: A una mano
+Requiere: 6 Fuerza
+No permitido a:
+ Clérigo
+ Mago~
+@271  = ~Collar del alineamiento opuesto~
+@272  = ~Este collar de oro cambia la alineación del portador de tal y como es captado en su aura mágico por su opuesto. Al llevar puesto el collar, un carácter legal bueno parecerá caótico malvado y un ser caótico malvado parecerá legal bueno. El collar no influye en personajes neutrales verdaderos.
+
+CARACTERÍSTICAS:
+
+Habilidades: Invierte el alineamiento del usuario.~
+@273  = ~Caja de polvo~
+@274  = ~Caja de polvo Pixi~
+@275  = ~Este contenedor de forma extraña parece estar lleno de polvos brillantes.~
+@276  = ~Este contenedor de forma extraña está lleno de polvos pixi. El fino polvo brillante ha sido extraído cuidadosamente de pixis vivos y mágicamente preservado en esta caja.
+
+Es bien conocido que el polvo de pixies tiene la capacidad de volver a uno invisible cuándo es rociado en ellos. Parece que hay bastante polvo como para varias rociadas.
+
+CARACTERÍSTICAS:
+
+Habilidad Especial (un uso):  Todas las criaturas en un area de 10 se volverán invisibles durante 12 horas.
+Permitido a:
+ Todos~
+@277  = ~Libro de los Anillos~
+@278  = ~Por el exterior, este ingenioso contenedor de cuero se parece a un libro de bolsillo. Por dentro sobresalen 16 pliegues de suave cuero, entre los cuáles 60 anillos de hasta una pulgada de diámetro podrían anidar firmemente. La cubierta del libro está vendada con una correa de cuero garantizando un manejo silencioso, mientras la estructura interior mantiene su precioso contenido callado y seguro.~
+@279  = ~Gema roja~
+@280  = ~Gema roja del Alma~
+@281  = ~Esta extraña, ardiente y roja gema, apenas del tamaño y forma de un huevo grande, resplandece con una infernal luz roja que parpadea e irradia calor. El tocar la gema es como tocar una brasa, aunque parece no hacer daño.~
+@282  = ~Esta extraña, ardiente y roja gema, apenas del tamaño y forma de un huevo grande, parece contener el alma de alguien o algo. Vos no tenéis ni idea de qué criatura es, pero como la gema resplandece con una luz roja infernal que parpadea e irradia calor, sospecháis que el alma debe estar en llamas. Al tocar la gema se siente como al tocar una brasa, aunque parece no hacer ningún daño tocándola.~
+@283  = ~Poción Soporífera~
+@284  = ~Cuando se lanza la poción se rompe con el impacto y una nube de vapores soporíferos inducen al sueño a toda desafortunada criatura que se encuentre dentro del area de efecto. 
+
+CARACTERÍSTICAS:
+
+Efecto: Dormir a menos que se salve contra aliento
+Alcance: 15 metros
+Área de efecto: radio de 8 metros
+Duración: 2 turnos
+No permitido a:~
+@285  = ~Gema Blanca~
+@286  = ~Gema Blanca del Alma~
+@287  = ~Esta extraña, lechosa y blanca gema, apenas del tamaño y forma de un huevo grande, se siente suave y fría, a pesar de eso parece latir con un calor encendido desde adentro por una fuerza radiante. Por alguna razón, tocar la gema da lugar a que delicadas ondas de caricias se propaguen por todo vuestro ser, algo así como sumergiros en una calma, un balsámico fluido.~
+@288  = ~Esta extraña, lechosa y blanca gema, apenas del tamaño y forma de un huevo grande, parece contener el alma de algo tan puro e inocente como la fresca nieve caída. La gema se siente suave y fría, pero parece latir con calor encendido desde adentro por una fuerza radiante. Un fulgor opaco emana de su corazón, junto con una sensación de renovación. Tocar la gema provoca que ondas sutiles de luz e inocencia se extiendan hasta esparcirse por todo vuestro ser, algo así como sumergiros en una calma, un balsámico fluido.~
+@289  = ~Piel de Draco~
+@290  = ~Esta gruesa y resistente piel, de un color verde amarronado, probablemente perteneció a un gran reptil, aunque no podéis decir a ciencia cierta cual. Tratada propiamente, podría ser convertida en armadura o vestimenta de algún tipo.~
+@291  = ~Esta gruesa y resistente piel es de un draco adulto. Si se trata correctamente y con los encantamientos apropiados, podría retener algunas de las características de la misma bestia.~
+@292  = ~Diario de Ymmyrt~
+@293  = ~Este bonito libro parece ser alguna clase de diario. Las entradas no están claramente fechadas y no sabéis si están ordenadas cronológicamente o no. Las siguientes entradas son las que han captado vuestro interes:
+
+"El dispositivo parece estar funcionando perfectamente y no hay problemas notorios durante el proceso. Ahora sólo tendré que encontrar especímenes dignos del esfuerzo, desde que todos mis especímenes de prueba sólo me han dado colores grises y pardos mates. Sospecho que éste es el resultado del cruce de una contaminación entre sus mundanos y aburridos deseos y emociones. Parece ser que los resultados satisfactorios exigirían especímenes que quieran suficientemente un solo objetivo (preferentemente deseos o emociones extremas) o en alguna otra forma pura."
+
+"Ah ha, al fin, exito. He producido el primer especimen que vale la pena. El sujeto es un hombre humano cercano a la treintena, caracterizado por una gran obsesión por la muerte. Por los informes de mis cazadores, ha causado un baño de sangre antes de que lo capturasen. Con él, el resultado ha sido un color azul oscuro con casi ninguna impureza. En el futuro, daré órdenes de concentrarse en anomalias obsesivas similares de diferentes variedades."
+
+"Parece que he vuelto a tener éxito. Mi hipótesis era correcta; la obsesión en fuego del especimen resultó en un color rojo... muy bonito. Otros colores probarán ser más difíciles, pero parece estar siendo un precioso ejercicio para mi imaginación."
+
+"Parece que los colores puros son más difíciles de obtener de lo que me habría imaginado; la gente parece ser menos imaginativa y apasionada de lo que me gustaría. Comienzo a dudar que alguna vez logre coleccionar el espectro completo, o incluso aquél existente en este plano. Las criaturas de los planos elementales podrían resultar útiles aquí; tendré que considerarlo."
+
+"Parece que la fortuna no está enteramente en mi contra. Por un golpe de fortuna, absolutamente desligado con el propósito presente, he logrado ampliar mi colección con una muestra bastante bonita de un profundo tono verde oscuro. El color es probablemente debido a la formación y hábitat arbóreo de la muestra, con el frescor de la muestra contribuyendo a la perfecta calidad del resultado. Tendré que hacer algunos experimentos más con estas muestras frescas."
+
+"El patrón que creí haber encontrado se hace más sólido con cada nuevo experimento. Hoy logré crear a un espécimen de un color blanco muy puro; no había prácticamente imperfecciones y el color es un hermoso blanco lechoso. El sujeto fue un recién nacido, con tan sólo minutos. Mantuve a su madre a mano hasta ella se puso de parto; el espécimen fue prácticamente entregado directamente en el dispositivo y dudo que sea posible obtener resultados más pulcros con la tecnología actualmente disponible." 
+
+"Parece ser que prácticamente he agotado esta vía de investigación; no hay demasiados colores puros. Además, mi mente últimamente ha estado fascinada por el pensamiento de combinar diferentes colores y texturas. A un nivel teórico, la mejor forma para emprender esto probablemente sea adquirir unos híbridos naturales, en los que dos o más esencias distintas, y preferiblemente poderosas, aparezcan juntas en una sola muestra. Analizar estas pruebas y los productos resultantes probablemente me dé pistas en lo que se refiere a la mejor forma de combinar esencias artificialmente."
+
+"Mis informantes finalmente me han reportado de un espécimen híbrido adecuado. Sus informes apuntan que es un demonio híbrido, comúnmente llamado "tiflin", ha sido excarcelado recientemente de la cárcel de la ciudad. Han logrado localizar a la criatura y les he dado instrucciones para hacerse con ella en la primera oportunidad que tengan. Tendré que acordarme de limpiar y calibrar el equipo; es imperativo que los resultados de la primera muestra de tentativa sean tan fiables como sea posible."
+
+"La criatura está finalmente en mi posesión. Tengo que decir que estoy ligeramente desilusionado; la criatura es una mera humana con tan sólo unos leves indicios de manchas demoníacas. Un verdadero híbrido pudo haber sido más interesante, pero confío en que incluso las pequeñas manchas se pongan de manifiesto de algún modo en el resultado. Para evitar cualquier alteración inducida por el estrés en su psique, he acomodado a la criatura como lo haría con una invitada en lugar de considerarla como una prisionera. Tan pronto como esté preparado el equipo, procederé a tomar las muestras necesarias y comenzaré los ensayos."~
+@294  = ~Este bonito libro parece ser alguna clase de diario. Las entradas no están claramente fechadas y no sabéis si están ordenadas cronológicamente o no. Las siguientes entradas son las que han captado vuestro interes:
+
+"El dispositivo parece estar funcionando perfectamente y no hay problemas notorios durante el proceso. Ahora sólo tendré que encontrar especímenes dignos del esfuerzo, desde que todos mis especímenes de prueba sólo me han dado colores grises y pardos mates. Sospecho que éste es el resultado del cruce de una contaminación entre sus mundanos y aburridos deseos y emociones. Parece ser que los resultados satisfactorios exigirían especímenes que quieran suficientemente un solo objetivo (preferentemente deseos o emociones extremas) o en alguna otra forma pura."
+
+"Ah ha, al fin, exito. He producido el primer especimen que vale la pena. El sujeto es un hombre humano cercano a la treintena, caracterizado por una gran obsesión por la muerte. Por los informes de mis cazadores, ha causado un baño de sangre antes de que lo capturasen. Con él, el resultado ha sido un color azul oscuro con casi ninguna impureza. En el futuro, daré órdenes de concentrarse en anomalias obsesivas similares de diferentes variedades."
+
+"Parece que he vuelto a tener éxito. Mi hipótesis era correcta; la obsesión en fuego del especimen resultó en un color rojo... muy bonito. Otros colores probarán ser más difíciles, pero parece estar siendo un precioso ejercicio para mi imaginación."
+
+"Parece que los colores puros son más difíciles de obtener de lo que me habría imaginado; la gente parece ser menos imaginativa y apasionada de lo que me gustaría. Comienzo a dudar que alguna vez logre coleccionar el espectro completo, o incluso aquél existente en este plano. Las criaturas de los planos elementales podrían resultar útiles aquí; tendré que considerarlo."
+
+"Parece que la fortuna no está enteramente en mi contra. Por un golpe de fortuna, absolutamente desligado con el propósito presente, he logrado ampliar mi colección con una muestra bastante bonita de un profundo tono verde oscuro. El color es probablemente debido a la formación y hábitat arbóreo de la muestra, con el frescor de la muestra contribuyendo a la perfecta calidad del resultado. Tendré que hacer algunos experimentos más con estas muestras frescas."
+
+"El patrón que creí haber encontrado se hace más sólido con cada nuevo experimento. Hoy logré crear a un espécimen de un color blanco muy puro; no había prácticamente imperfecciones y el color es un hermoso blanco lechoso. El sujeto fue un recién nacido, con tan sólo minutos. Mantuve a su madre a mano hasta ella se puso de parto; el espécimen fue prácticamente entregado directamente en el dispositivo y dudo que sea posible obtener resultados más pulcros con la tecnología actualmente disponible." 
+
+"Parece ser que prácticamente he agotado esta vía de investigación; no hay demasiados colores puros. Además, mi mente últimamente ha estado fascinada por el pensamiento de combinar diferentes colores y texturas. A un nivel teórico, la mejor forma para emprender esto probablemente sea adquirir unos híbridos naturales, en los que dos o más esencias distintas, y preferiblemente poderosas, aparezcan juntas en una sola muestra. Analizar estas pruebas y los productos resultantes probablemente me dé pistas en lo que se refiere a la mejor forma de combinar esencias artificialmente."
+
+"Mis informantes finalmente me han reportado de un espécimen híbrido adecuado. Sus informes apuntan que es un demonio híbrido, comúnmente llamado "tiflin", ha sido excarcelado recientemente de la cárcel de la ciudad. Han logrado localizar a la criatura y les he dado instrucciones para hacerse con ella en la primera oportunidad que tengan. Tendré que acordarme de limpiar y calibrar el equipo; es imperativo que los resultados de la primera muestra de tentativa sean tan fiables como sea posible."
+
+"La criatura está finalmente en mi posesión. Tengo que decir que estoy ligeramente desilusionado; la criatura es una mera humana con tan sólo unos leves indicios de manchas demoníacas. Un verdadero híbrido pudo haber sido más interesante, pero confío en que incluso las pequeñas manchas se pongan de manifiesto de algún modo en el resultado. Para evitar cualquier alteración inducida por el estrés en su psique, he acomodado a la criatura como lo haría con una invitada en lugar de considerarla como una prisionera. Tan pronto como esté preparado el equipo, procederé a tomar las muestras necesarias y comenzaré los ensayos."~
+@295  = ~Mapa Extraño~
+@296  = ~Mapa de la casa de Ymmyrt~
+@297  = ~Este pergamino parece ser un mapa de algún sitio de Athkatla, pero no sabeis que área es o dónde está. Si encontraseis algún signo conocido en el mapa, tal vez podáis usarlo.~
+@298  = ~El mapa parece indicar la localización de la vivienda de un tal Ymmyrt dentro de las laberínticas calles del centro de Athkatla. Ahora reconocéis la ruta de los Barrios Bajos, pero no tenéis la seguridad de que todas las calles que se muestran en el mapa existan de verdad. Si queréis, podéis intentar utilizar el mapa en los Barrios Bajos de Athkatla y seguir la ruta.~
+@299  = ~Capitán Corin,
+Tengo otra tarea que necesito que hagáis por mi. La individua en cuestión es una semihumana llamada "Amber". Ella fue puesta recientemente en libertad de la prisión de la ciudad donde estaba retenida por los Magos Encapuchados por ser antinatural. Según mis fuentes, debería ser de constitución pequeña, de tez bronceada, con marcas de tatuajes en su cuerpo y una cabellera larga pelirroja. Puede estar acompañada por una banda de rufianes con quienes tenéis total libertad para actuar como deseéis. Esta tarea es de suma importancia, así es que deberíais poner a vuestros mejores hombres al trabajo. Cuando la hayáis localizado, enviaré a mis hombres a esperarla a vuestro cuartel general. No me decepcionéis como lo hizo vuestro predecesor.
+
+Y.~
+@300  = ~Capitán Haegan,
+Tengo otra tarea que necesito que hagáis por mi. La individua en cuestión es una semihumana llamada "Amber". Ella fue puesta recientemente en libertad de la prisión de la ciudad donde estaba retenida por los Magos Encapuchados por ser antinatural. Según mis fuentes, debería ser de constitución pequeña, de tez bronceada, con marcas de tatuajes en su cuerpo y una cabellera larga pelirroja. Puede estar acompañada por una banda de rufianes con quienes tenéis total libertad para actuar como deseéis. Esta tarea es de suma importancia, así es que deberíais poner a vuestros mejores hombres al trabajo. Cuando la hayáis localizado, enviaré a mis hombres a esperarla a vuestro cuartel general. No me decepcionéis.
+
+Y.~
+@301  = ~Anillo de Ymmyrt~
+@302  = ~Este anillo mágico ha sido creado por Ymmyrt para facilitar el manejo de las exóticas criaturas, y a menudo más bien reacias, utilizadas como sujetos de sus experimentos.
+
+CARACTERÍSTICAS:
+
+Habilidades Especiales: Hechizar Monstruo una vez al dia
+Permitido a: 
+  Magos~
+@303  = ~Túnica de Ymmyrt~
+@304  = ~Esta túnica ha sido especialmente diseñada por Ymmyrt y provista con diversos encantamientos menores necesarios en su oficio de manipular a diversas criaturas exóticas. Además de proteger al portador de diversas formas de daño físico, también provee alguna protección contra la magia hostil y encierra algunos hechizos protectores. Debido a su inusual naturaleza especializada, sólo puede ser usada por magos no especializados en cualquier escuela de magia.
+
+CARACTERÍSTICAS:
+
+Bonificación a la Clase de Armadura: +1
+Resistencia Mágica: +5
+Peso: 4
+Habilidades Especiales: Protección contra el mal, Protección de la petrificación y Escudo una vez al dia
+Permitido a:
+Magos y hechiceros sin especialización~
+@305  = ~Piedra de Guarda a la casa de Ymmyrt~
+@306  = ~Esta piedra de la guarda cancela las protecciones de la entrada de la casa de Ymmyrt en Athkatla.~
+@307  = ~Cuerpo de Amber~
+@308  = ~Amber fue capturada por Bodhi e infectada de vampirismo, forzándoos a matarla. Debe haber alguna forma de revivirla, aunque no sabéis cuala pueda ser.~
+@309  = ~Bandana del Pirata~
+@310  = ~Las bandanas elegantes como ésta son las favoritas de piratas y ladrones en todas partes. Es una parte esencial de su atractivo y encanto único. También proporciona la gran elegancia necesaria para ocultar apropiadamente penosas lesiones con aplomo.
+  
+CARACTERÍSTICAS:
+  
+Habilidad Equipada: +1 Carisma
+Especial:  Proteccion contra ataques críticos
+Permitido a:
+Ladrones y Bardos~
+@311  = ~Las bandanas elegantes como ésta son las favoritas de piratas y ladrones en todas partes. Es una parte esencial de su atractivo y encanto único. También proporciona la gran elegancia necesaria para ocultar apropiadamente penosas lesiones con aplomo.
+  
+CARACTERÍSTICAS:
+  
+Habilidad Equipada: +1 Carisma
+Especial: Proteccion contra ataques críticos
+Permitido a:
+Ladrones y Bardos~
+@312  = ~Guantes de Toque de Pluma~
+@313  = ~Estos exquisitos guantes están hechos del ante más delgado de cuero de cabritilla y encantados para hacer el tacto del toque del portador ligero y suave como una pluma. Nadie sabe el propósito original de estos guantes, pero los miembros de los bajos fondos pronto se dieron cuenta de que son una excelente ayuda en la dificultosa tarea de transferir pertenencias.
+
+CARACTERÍSTICAS:
+
+Habilidad Equipada: +15	Robar
+Permitido a:
+Todos~
+@314  = ~Túnica de cuero de Draco +1~
+@315  = ~El cuero de draco no es fácil de trabajar, pero esta vez el cuero de la bestia venenosa se ha doblegado a la virtuosa habilidad de Rashryn y ha elaborado una túnica de cuero de mucho estilo y altamente funcional. Incluso después de su muerte, algo de la naturaleza del draco permanece en esta túnica. No puede contar con el suave murmullo de una delicada túnica de lana o de seda, o puede verse de un tono verde peculiarmente atractivo, pero a su portador se le protegerá significativamente tanto del ácido como del veneno. El cuero, aunque da la impresión de una suavidad asombrosa, también está encantado con hechizos protectores que ofrecen protección a los golpes del enemigo.
+
+CARACTERÍSTICAS:
+
+Habilidades Equipadas:
+Clase de Armadura: +1
+Resistencia al ácido: bonificación +20
+Resistencia al veneno: bonificación +20
+
+Permitido a:
+Mago (puro, dual, y multiclase)~
+@316  = ~Túnica de cuero de Draco +2~
+@317  = ~El cuero de draco no es fácil de trabajar, pero esta vez el cuero de la bestia venenosa se ha doblegado a la virtuosa habilidad de Rashryn y ha elaborado una túnica de cuero de mucho estilo y altamente funcional. Incluso después de su muerte, algo de la naturaleza del draco permanece en esta túnica. No puede contar con el suave murmullo de una delicada túnica de lana o de seda, o puede verse de un tono verde peculiarmente atractivo, pero a su portador se le protegerá significativamente tanto del ácido como del veneno. El cuero, aunque da la impresión de una suavidad asombrosa, también está encantado con hechizos protectores que ofrecen protección a los golpes del enemigo.
+
+Las esmeraldas cosidas para el cuero sirven para aumentar su magia protectora, mejorando su efecto considerablemente. 
+
+CARACTERÍSTICAS:
+
+Habilidades Equipadas:
+Clase de Armadura: +2
+Resistencia al ácido: bonificación +20
+Resistencia al veneno: bonificación +20
+
+Permitido a:
+Mago (puro, dual, y multiclase)~
+@318  = ~Capa de Piel Felina~
+@319  = ~En las hábiles manos del sastre Rashryn, el suave pelaje que encontrasteis en la cripta de Ymmyrt ha sido transformado en una capa aun más lujosa. Una elaborada seda como forro interior y el broche de plata fina complementan perfectamente al espeso y brillante pelaje. Además de ser muy confortable, la capa también ofrece una protección consistente en contra del gélido frío.
+
+CARACTERÍSTICAS:
+
+Protección contra el frio: +50
+Carisma: +1
+
+No permitido a:
+ Asesino de Magos~
+@320  = ~Entropía
+Este espada abisal +2 de acero verde es una de las armas favoritas de Haer'Dalis. Esta espada corta es capaz de infligir tres puntos adicionales de daño venenoso si el blanco falla un lanzamiento de salvación. Esta espada sólo puede ser usada por Haer'Dalis.
+
+CARACTERÍSTICAS:
+
+Habilidades Especiales: 3 puntos de daño venenoso si el objetivo falla la tirada de salvación contra la Muerte
+GAC0: +2
+Daño: 1D6 + 2
+Tipo de Daño: perforante
+Peso: 2
+Factor de Velocidad: 0
+Tipo de Talento: Espada corta
+Tipo: A una mano
+Permitido a:
+  Haer'Dalis~
+@321  = ~Espada del Caos
+Caos es una espada corta +2 usable sólo por Haer'Dalis. Cada vez que golpea un oponente, éste pierde dos puntos de destreza (durante 30 segundos). Haer'Dalis prefiere utilizar Caos con su compañera: Entropía. Cuando utiliza las dos juntas, Haer'Dalis es un peligroso oponente.
+
+CARACTERÍSTICAS:
+
+Habilidades Especiales: Objetivo pierde dos puntos de destreza con cada golpe (duración: 30 segundos)
+GAC0: +2
+Daño: 1D6 + 2
+Tipo de Daño: perforante
+Peso: 2
+Factor de Velocidad: 0
+Tipo de Talento: Espada corta
+Tipo: A una mano
+Permitido a:
+  Haer'Dalis~
+@322  = ~Pendientes de Amber~
+@323  = ~Amber usa tres pendientes en la oreja derecha y dos en la izquierda. Parecen hechos de oro y no tienen otros ornamentos, y se parecen a los que usan los marineros para la buena suerte. Amber no quiere quitárselos, llamándoles sus "oro de emergencia". No podéis más que preguntaros que tan mal se tienen que poner las cosas para que se los quite. 
+
+CARACTERÍSTICAS:
+
+Protección contra golpes críticos
+
+Permitido a:
+  Amber~
+@324  = ~Ojo Contagioso~
+@325  = ~Ojo Deshacedor~
+@326  = ~Ojo Cegador~
+@327  = ~Muerte~
+@328  = ~Amber se niega a usar armadura más pesada que cuero tachonado.~
+@329  = ~Amber se niega a usar cascos.~
+@330  = ~Amber se niega a usar escudos grandes.~
+@331  = ~Amber se niega a usar mandobles.~
+@332  = ~Amber se niega a usar alabardas.~
+@333  = ~Multiplayer-friendly flirting for Amber (Flirteo Multiplayer para Amber).~
+@334  = ~Instala Amber NPC antes de instalar el Multiplayer-friendly flirting for Amber (Flirteo Multiplayer para Amber).~
+@335  = ~Los archivos de audio y graficos se han desempaquetado y aplicado al 
+juego. No deberias ver mensajes de error. 
+Si los ves, por favor contacta con amber@welho.net~

@@ -1,0 +1,2752 @@
+// **********************************************************************
+//							Segment name: dai_Timers.baf
+// **********************************************************************
+//Set general timers to a known state - this is triggered from Protagonist
+IF
+//	HotKey(A)
+	Global("Initialise_timers","LOCALS",1)
+THEN
+	RESPONSE #100
+
+//Healing specific
+		SetGlobalTimer("gh_SpellCastThisRound","LOCALS",1)
+		SetGlobalTimer("gh_Player1_HelpRequest","GLOBAL",1)
+		SetGlobalTimer("gh_Player1_HelpRequest_Urgent","GLOBAL",1)
+		SetGlobalTimer("gh_Player1_HelpRequest_TopUp","GLOBAL",1)
+		SetGlobalTimer("gh_Player2_HelpRequest","GLOBAL",1)
+		SetGlobalTimer("gh_Player2_HelpRequest_Urgent","GLOBAL",1)
+		SetGlobalTimer("gh_Player2_HelpRequest_TopUp","GLOBAL",1)
+		SetGlobalTimer("gh_Player3_HelpRequest","GLOBAL",1)
+		SetGlobalTimer("gh_Player3_HelpRequest_Urgent","GLOBAL",1)
+		SetGlobalTimer("gh_Player3_HelpRequest_TopUp","GLOBAL",1)
+		SetGlobalTimer("gh_Player4_HelpRequest","GLOBAL",1)
+		SetGlobalTimer("gh_Player4_HelpRequest_Urgent","GLOBAL",1)
+		SetGlobalTimer("gh_Player4_HelpRequest_TopUp","GLOBAL",1)
+		SetGlobalTimer("gh_Player5_HelpRequest","GLOBAL",1)
+		SetGlobalTimer("gh_Player5_HelpRequest_Urgent","GLOBAL",1)
+		SetGlobalTimer("gh_Player5_HelpRequest_TopUp","GLOBAL",1)
+		SetGlobalTimer("gh_Player6_HelpRequest","GLOBAL",1)
+		SetGlobalTimer("gh_Player6_HelpRequest_Urgent","GLOBAL",1)
+		SetGlobalTimer("gh_Player6_HelpRequest_TopUp","GLOBAL",1)
+		SetGlobalTimer("dai_CalledForHelp","LOCALS",1)
+
+//Cleric specific
+		SetGlobalTimer("gh_DefensiveHarmony","LOCALS",1)
+		SetGlobalTimer("gh_ArmourOfFaith","LOCALS",1)
+		SetGlobalTimer("gh_ActionIsInterruptable","LOCALS",1)
+		SetGlobalTimer("gh_PartyHasTrueSeeing","LOCALS",1)
+		SetGlobalTimer("gh_CastingBless","GLOBAL",1)
+		SetGlobalTimer("gh_CastingChant","GLOBAL",1)
+
+//Thief specific
+		SetGlobalTimer("gh_Thief","LOCALS",1)
+		SetGlobalTimer("dai_IntelThiefTimer","LOCALS",1)
+
+//Other
+		SetGlobalTimer("gh_NoSummons","GLOBAL",1)
+		SetGlobalTimer("dai_GiantTrollHealing","LOCALS",1)
+		SetGlobal("Initialise_timers","LOCALS",2)
+
+		Continue()
+END
+
+// **********************************************************************
+//							Segment name: dai_AmberTimers.baf
+// **********************************************************************
+//Set Amber's Timers to a known state
+IF
+	Global("Initialise_timers","LOCALS",2)
+	Global("Initialise_Amber_timers","LOCALS",0)
+THEN
+	RESPONSE #100
+    SetGlobalTimer("M#AskedForHealing","LOCALS",0)
+	  SetGlobalTimer("M#CalledHelpForLI","LOCALS",0)
+		SetGlobalTimer("M#UsedDemonicAbility","LOCALS",0)
+		SetGlobal("Initialise_Amber_timers","LOCALS",1)
+		Continue()
+END
+
+// **********************************************************************
+// *           Segment Name: gs_AIOffSwitch.baf
+// **********************************************************************
+	// * If AI is off, check for switching it back on
+	IF
+		HotKey(D)
+		Global("gh_AIOffSwitch","LOCALS",1)
+	THEN
+		RESPONSE #100
+			DisplayStringHead(Myself,16469)					// "On"
+			SetGlobal("gh_AIOffSwitch","LOCALS",0)
+	END
+
+	// * If AI is off, abort this script
+	IF
+		ActionListEmpty()									// player hasn't given any commands
+		Global("gh_AIOffSwitch","LOCALS",1)					// AI switch is set to off
+	THEN
+		RESPONSE #100
+			NoAction()
+	END
+
+	// * If AI is on, check for switching if off
+	IF
+		HotKey(D)
+		Global("gh_AIOffSwitch","LOCALS",0)
+	THEN
+		RESPONSE #100
+			DisplayStringHead(Myself,16470)					// "Off"
+			SetGlobal("gh_AIOffSwitch","LOCALS",1)
+	END
+//*************************************
+//ForceWeapon change
+//FM says what the PC is going to do
+//*************************************
+IF
+  HotKey(X)
+  Global("ys_ForceWeapon","LOCALS",0)
+THEN
+	RESPONSE #100
+    DisplayStringHead(Myself,9403)
+    SetGlobal("ys_ForceWeapon","LOCALS",1)
+    Continue()
+END
+
+IF
+  HotKey(X)
+  Global("ys_ForceWeapon","LOCALS",1)
+THEN
+	RESPONSE #100
+    DisplayStringHead(Myself,15529)
+    SetGlobal("ys_ForceWeapon","LOCALS",2)
+    Continue()
+END
+
+IF
+  HotKey(X)
+  Global("ys_ForceWeapon","LOCALS",2)
+THEN
+	RESPONSE #100
+    DisplayStringHead(Myself,11311)
+    SetGlobal("ys_ForceWeapon","LOCALS",0)
+    Continue()
+END
+
+// **********************************************************************
+// *           Segment Name: amb_BreachShieldCheck.baf
+// **********************************************************************
+// * BREACH AND SHIELD CHECK
+// * Given to all players, this uses SpellCast to "tag" an enemy mage as
+// * requiring a Breach or Anti-Shield spell. Other scripts detect these tags
+// * to respond appropriately.
+// *
+// * [Depends on custom SPECIFICS.IDS, TRIGGER.IDS and ACTION.IDS]
+// * 
+// * Step #1 - Detect Need for BREACH
+			
+	// * Nearest
+	IF
+		See(NearestEnemyOfType([0.0.0.MAGE_ALL]))	
+		OR(5)														// enemy has magic protections
+			SpellCast(LastSeenBy(),WIZARD_STONE_SKIN)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_NORMAL_MISSILES)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_NORMAL_WEAPONS)	
+		!Specifics(LastSeenBy(),201)
+	THEN
+		RESPONSE #100
+			ChangeSpecifics(LastSeenBy(),201)
+			Continue()
+	END
+
+	// * SecondNearest
+	IF
+		See(SecondNearestEnemyOfType([0.0.0.MAGE_ALL]))
+		OR(5)														// enemy has magic protections
+			SpellCast(LastSeenBy(),WIZARD_STONE_SKIN)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_NORMAL_MISSILES)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_NORMAL_WEAPONS)
+		!Specifics(LastSeenBy(),201)
+	THEN
+		RESPONSE #100
+			ChangeSpecifics(LastSeenBy(),201)
+			Continue()
+	END
+
+	// * ThirdNearest
+	IF
+		See(ThirdNearestEnemyOfType([0.0.0.MAGE_ALL]))
+		OR(5)														// enemy has magic protections
+			SpellCast(LastSeenBy(),WIZARD_STONE_SKIN)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_NORMAL_MISSILES)
+			SpellCast(LastSeenBy(),WIZARD_PROTECTION_FROM_NORMAL_WEAPONS)
+		!Specifics(LastSeenBy(),201)
+	THEN
+		RESPONSE #100
+			ChangeSpecifics(LastSeenBy(),201)
+			Continue()
+	END
+
+// * Step #1 - Detect Need for ANTI-SHIELD spell
+
+	// * Nearest
+	IF
+		See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+		OR(8)
+			SpellCast(LastSeenBy(),WIZARD_MINOR_SPELL_TURNING)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_TURNING)
+			SpellCast(LastSeenBy(),WIZARD_GLOBE_OF_INVULNERABILITY)
+			SpellCast(LastSeenBy(),WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)
+			SpellCast(LastSeenBy(),WIZARD_MINOR_SPELL_DEFLECTION)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_SHIELD)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_DEFLECTION)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_TRAP)
+		!Specifics(LastSeenBy(),202)
+	THEN
+		RESPONSE #100
+			ChangeSpecifics(LastSeenBy(),202)
+			Continue()
+	END
+
+	// * SecondNearest
+	IF
+		See(SecondNearestEnemyOfType([0.0.0.MAGE_ALL]))
+		OR(8)
+			SpellCast(LastSeenBy(),WIZARD_MINOR_SPELL_TURNING)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_TURNING)
+			SpellCast(LastSeenBy(),WIZARD_GLOBE_OF_INVULNERABILITY)
+			SpellCast(LastSeenBy(),WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)
+			SpellCast(LastSeenBy(),WIZARD_MINOR_SPELL_DEFLECTION)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_SHIELD)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_DEFLECTION)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_TRAP)
+		!Specifics(LastSeenBy(),202)
+	THEN
+		RESPONSE #100
+			ChangeSpecifics(LastSeenBy(),202)
+			Continue()
+	END
+
+	// * ThirdNearest
+	IF
+		See(ThirdNearestEnemyOfType([0.0.0.MAGE_ALL]))
+		OR(8)
+			SpellCast(LastSeenBy(),WIZARD_MINOR_SPELL_TURNING)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_TURNING)
+			SpellCast(LastSeenBy(),WIZARD_GLOBE_OF_INVULNERABILITY)
+			SpellCast(LastSeenBy(),WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)
+			SpellCast(LastSeenBy(),WIZARD_MINOR_SPELL_DEFLECTION)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_SHIELD)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_DEFLECTION)
+			SpellCast(LastSeenBy(),WIZARD_SPELL_TRAP)
+		!Specifics(LastSeenBy(),202)
+	THEN
+		RESPONSE #100
+			ChangeSpecifics(LastSeenBy(),202)
+			Continue()
+	END
+
+// **********************************************************************
+// *           Segment Name: gs_GlobalResets_Items.baf
+// **********************************************************************
+// * Item Resets
+IF
+  PartyRested()
+THEN
+  RESPONSE #100
+    SetGlobal("EK_UsedCLCK25","LOCALS",0)                                  // Create Star Darts STARDART.ITM
+    SetGlobal("dai_Bruisers","LOCALS",0)
+END
+
+// **********************************************************************
+// *           Segment Name: amb_Daily_Items.baf
+// **********************************************************************
+// * CLOAK_OF_THE_STARS [CLCK25, Creates 6 +5 darts 1/day, STARDART.ITM]
+IF
+  GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")                 // and I am ready to cast.
+  OR(2)                                                                    // Xyx's Cast&Attack/GB's self-interrupting Attack
+     ActionListEmpty()                                                     // if we're doing nothing
+     GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")            // or we're doing an interruptible action
+  !Exists([EVILCUTOFF])
+  Global("EK_UsedCLCK25","LOCALS",0)                                       // and I haven't cast the spell once already today
+  !InventoryFull(Myself)                                                   // and I have an inventory slot available
+  HasItemEquiped("CLCK25",Myself)                                          // and I have the item equipped
+  CheckStatGT(Myself,0,PROFICIENCYDART)                                    // and I can hit something with them so I might want to create them
+THEN
+  RESPONSE #100
+    SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)                     // set a 6 second timer to ensure we don't reselect a spell action this round (which wastes time)
+    UseItem("CLCK25",Myself)                                               // use the item
+    SetGlobal("EK_UsedCLCK25","LOCALS",1)
+END
+
+
+// **********************************************************************
+// *           Segment Name: gs_HelpCall.baf
+// **********************************************************************
+
+// * PART OF COORDINATION SCRIPTLETS, SHOUT HELP
+// * Requires the usual swag of Custom IDS files, see gs_Credits (gMulti)
+	
+	// * Shout(HELP) if you need to
+	IF
+		HPLT(Myself,25)											//if hp<25%
+		AttackedBy([ANYONE],DEFAULT)							//and under any form of attack
+		Exists(NearestEnemyOf(Myself))							//and opponents are still present
+	THEN
+		RESPONSE #100
+			GlobalShout(2001)
+			DisplayStringHead(Myself,1465)						//"Ah No! Help!"
+			Continue()
+	END
+
+// * COORDINATION SCRIPT
+// * A simple combination of Shout() and Heard() to ensure all PCS fight together, and
+// * that damaged pc's opponents are priority targets. 
+// *
+// * [Still in development, unsure of effectiveness, hence the DSH's]
+// **********************************************************************
+// *           Segment Name: gs_MoveToCombat.baf
+// **********************************************************************
+
+	// * Shout(SEE_ENEMY) if you see one
+	IF
+		Exists(NearestEnemyOf(Myself))
+		!Heard([ANYONE],2024)
+	THEN
+		RESPONSE #100
+			GlobalShout(2024)
+//			DisplayStringHead(Myself,30973)							// "See Enemy"
+			Continue()
+	END
+
+	// * If Not ActuallyInCombat, Doing Nothing and Heard(SEE_ENEMY), hop to it!
+	IF
+		ActionListEmpty()
+ 		!ActuallyInCombat()
+		Heard([ANYONE],2024)
+		!Exists([EVILCUTOFF])
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_InFormation","LOCALS",1)					// set a "in formation" flag
+			SetGlobalTimer("gh_InFormationTimer","LOCALS",2)		// set a 2second timer
+//			DisplayStringHead(Myself,2720)							// "Assistance you shall get. What ails you, friend?"
+			Formation(LastHeardBy(Myself),[1.1])
+	END
+
+	// * Break Formation upon Enemy Sighting! Or after 2 seconds
+	IF
+		Global("gh_InFormation","LOCALS",1)							// if we're in formation mode
+		OR(2)														// and we see an enemy, or two seconds has passed
+		Exists([EVILCUTOFF])
+		GlobalTimerExpired("gh_InFormationTimer","LOCALS")
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_InFormation","LOCALS",0)					// get out of formation mode with a ClearAll
+			ClearActions(Myself)
+			Continue()
+	END
+
+// **********************************************************************
+// *           Segment Name: dai_AmberAntidote.baf
+// **********************************************************************
+
+// * ANTIDOTE USE
+// * 3 Parts - Drinking, Requesting, and Giving Antidote Potions
+//Essentially the same as normal gs_Antidote.baf but with Amber's dialog strings
+	IF
+	    !GlobalTimerNotExpired("gh_SpellCastThisRound","LOCALS")	// and I am ready to cast.
+		OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+		ActionListEmpty()											// if we're doing nothing
+		GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+		StateCheck(Myself,1001)							// if I'm poisoned
+		HPPercentLT(Myself,50)										// and I'm under 50% hp
+		HasItem("POTN20",Myself)									// and I have an antidote
+	THEN
+		RESPONSE #100
+			SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)		// set a 6 second timer to ensure we don't reselect a spell action this round (which wastes time)
+			UseItem("POTN20",Myself)								// drink the antidote
+			DisplayStringHead(Myself,7029)							// say "Antidote"
+	END
+
+	IF
+	    !GlobalTimerNotExpired("gh_SpellCastThisRound","LOCALS")	// and I am ready to cast.
+		OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+		ActionListEmpty()											// if we're doing nothing
+		GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+		StateCheck(Myself,1001)							// if I'm poisoned
+		HPPercentLT(Myself,50)										// and I'm under 50% hp
+		!HasItem("POTN20",Myself)									// and I don't have an antidote
+		HasItem("POTN17",Myself)									// and I have an Elixir of Health
+	THEN
+		RESPONSE #100
+			SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)		// set a 6 second timer to ensure we don't reselect a spell action this round (which wastes time)
+			UseItem("POTN17",Myself)								// drink the antidote
+			DisplayStringHead(Myself,7029)							// say "Antidote"
+	END
+
+	// * Antidote-request
+	IF
+		StateCheck(Myself,1001)							// if I'm poisoned
+		HPPercentLT(Myself,50)										// and I'm under 50% hp
+		!HasItem("POTN20",Myself)									// and I don't have an antidote
+		!HasItem("POTN17",Myself)									// and I don't have an elixir
+		OR(2)
+  		PartyHasItem("POTN20")										// but someone in the party does
+ 		  PartyHasItem("POTN17")										// but someone in the party does
+	THEN
+		RESPONSE #100
+			Shout(1001)											// Triggers "cure-poisons" and "potion-passing"
+			DisplayStringHead(Myself,@57)							// "Poisoned!"
+			Continue()
+	END
+
+	// * Antidote-response
+	IF
+		Heard([PC],1001)										// if I heard a PC shout that they're poisoned
+		HasItem("POTN20",Myself)									// and I have an antidote
+	THEN
+		RESPONSE #100
+			GiveItem("POTN20",LastHeardBy(Myself))					// hand over the antidote(s)
+			DisplayStringHead(Myself,3675)							// say "Give and spend..."
+			Continue()
+	END
+
+	IF
+		Heard([PC],1001)										// if I heard a PC shout that they're poisoned
+		!HasItem("POTN20",Myself)									// and I have no antidote
+		HasItem("POTN17",Myself)									// and I have an elixir
+	THEN
+		RESPONSE #100
+			GiveItem("POTN17",LastHeardBy(Myself))					// hand over the elixir(s)
+			DisplayStringHead(Myself,3675)							// say "Give and spend..."
+			Continue()
+	END
+
+// **********************************************************************
+// *           Segment Name: gs_RunAwayHide.baf
+// **********************************************************************
+
+// * MOBILITY IS LIFE
+// * [For Thieves, includes Hide() command]
+
+	// * Nearly-Dead, ergo Run
+	IF 
+		HPPercentLT(Myself,20)					// if mage health less than 20%
+		OR(2)
+		AttackedBy([ANYONE],DEFAULT)			// and under attack
+		Range(NearestEnemyOf(),4)				// or the nearest attacker is in melee range
+	THEN
+		RESPONSE #100
+			Shout(2001)							// Triggers "assists" from other PC's
+//			DisplayStringHead(Myself,3786)		// scream for help, visibly
+			RunAwayFrom(NearestEnemyOf(),75)	// run for 5 segments, then reevaluate
+			UseItem("POTN52",Myself)			// use Potion, Extra Heal (only happens if you have one)
+			Wait(2)
+			Hide()
+	END
+	
+
+// **********************************************************************
+// *           Segment Name: ys_HealSelf(Items).baf
+// **********************************************************************
+
+// * HEAL SELF ROUTINE: Count spell usage
+
+	// * Potion of Extra Healing aka Cure Serious Wounds
+	IF
+	  GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")	// and I am ready to cast.
+		OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+		  ActionListEmpty()											// if we're doing nothing
+		  GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+		See(NearestEnemyOf())										// if we're in combat
+		HPPercentLT(Myself,25)										// if hp less than 25%
+		GlobalLT("ys_ExHeal","LOCALS",2)									// and I have an Potion, Extra Heal
+	THEN
+		RESPONSE #100
+			SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)		// set a 6 second timer to ensure we don't reselect a spell action this round (which wastes time)
+		  IncrementGlobal("ys_ExHeal","LOCALS",1)									// and I have an Potion, Extra Heal
+			ReallyForceSpell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)								// use Potion, Extra Heal
+//			DisplayStringHead(Myself,18893)							// say "Potion of Extra Healing"
+	END
+
+
+	// * Potion of Healing aka Cure Light Wounds
+	IF
+	  GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")	// and I am ready to cast.
+		OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+		  ActionListEmpty()											// if we're doing nothing
+		  GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+		See(NearestEnemyOf())										// if we're in combat
+		HPPercentLT(Myself,50)										// if hp less than 50%
+		GlobalLT("ys_Heal","LOCALS",4)									// and I have an Potion, Extra Heal
+	THEN
+		RESPONSE #100
+			SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)		// set a 6 second timer to ensure we don't reselect a spell action this round (which wastes time)
+		  IncrementGlobal("ys_Heal","LOCALS",1)									// and I have an Potion, Extra Heal
+			ReallyForceSpell(Myself,CLERIC_CURE_LIGHT_WOUNDS)								// use Potion, Extra Heal
+//			DisplayStringHead(Myself,6990)							// say "Potion of Healing"
+	END
+
+// **********************************************************************
+// *           Segment Name: dai_AmberCallForPotions.baf
+// **********************************************************************
+//Pot luck<g> - Works for both PCS and non-PCS parties
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	OR(2)
+ 	  HPLT(Myself,15)
+ 		HPPercentLT(Myself,20)
+	!HasItem("POTN08",Myself) // Potion of Healing
+	!HasItem("POTN52",Myself) // Potion of Extra Healing
+	!HasItem("POTN55",Myself) // Potion of Superior Healing
+	OR(3)
+    PartyHasItem("POTN08") // Potion of Healing
+	  PartyHasItem("POTN52") // Potion of Extra Healing
+	  PartyHasItem("POTN55") // Potion of Superior Healing
+	GlobalTimerExpired("M#AskedForHealing","LOCALS")
+THEN
+  RESPONSE #100
+	  DisplayStringHead(Myself,@56) // Could someone spare me a healing potion? I'm in a pretty bad shape here!
+		SetGlobalTimer("M#AskedForHealing","LOCALS",60) //Timer shortened to one minute
+END
+
+// **********************************************************************
+// *           Segment Name: dai_AmberHealLIPotions.baf
+// **********************************************************************
+//Pass a potion to the Love Interest - this may not always work due to IE limitations
+//This is triggered by a 2001call from DPLAYER3.BCS or from gs_2001Call.baf
+//Works for both PCS and non-PCS parties
+
+//If Amber has a potion..... problem is, this will make her pass all potions of type
+//This is an IE limitation: GiveItem always gives all items of the specified type
+
+//Superior healing
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player1,2001)
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",1)
+	!StateCheck(Player1,STATE_OUT_OF_ACTION)
+	!HasItem("potn08",Player1)
+	!HasItem("potn52",Player1)
+	!HasItem("potn55",Player1)
+	HasItem("potn55",Myself)
+THEN
+  RESPONSE #100
+	  GiveItem("potn55",Player1)
+	  DisplayStringHead(Myself,@58) // Quickly, my love! Drink this!
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player2,2001)
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",3)
+	!StateCheck(Player1,STATE_OUT_OF_ACTION)
+	!HasItem("potn08",Player2)
+	!HasItem("potn52",Player2)
+	!HasItem("potn55",Player2)
+	HasItem("potn55",Myself)
+THEN
+  RESPONSE #100
+    GiveItem("potn55",Player2)
+    DisplayStringHead(Myself,@58) // Quickly, my love! Drink this!
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard("Imoen2",2001)
+	HPPercentLT("Imoen2",20)
+	!StateCheck("Imoen2",STATE_OUT_OF_ACTION)
+	!HasItem("potn08","Imoen2")
+	!HasItem("potn52","Imoen2")
+	!HasItem("potn55","Imoen2")
+	HasItem("potn55",Myself)
+THEN
+  RESPONSE #100
+	  GiveItem("potn55","Imoen2")
+		DisplayStringHead(Myself,@58) // Quickly, Imoen! Drink this!
+END
+
+//Greater healing
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player1,2001)
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",1)
+	!StateCheck(Player1,STATE_OUT_OF_ACTION)
+	!HasItem("potn08",Player1)
+	!HasItem("potn52",Player1)
+	!HasItem("potn55",Player1)
+	HasItem("potn52",Myself)
+THEN
+  RESPONSE #100
+	  GiveItem("potn52",Player1)
+	  DisplayStringHead(Myself,@58) // Quickly, my love! Drink this!
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player2,2001)
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",3)
+	!StateCheck(Player2,STATE_OUT_OF_ACTION)
+	!HasItem("potn08",Player2)
+	!HasItem("potn52",Player2)
+	!HasItem("potn55",Player2)
+	HasItem("potn52",Myself)
+THEN
+  RESPONSE #100
+    GiveItem("potn52",Player2)
+    DisplayStringHead(Myself,@58) // Quickly, my love! Drink this!
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard("Imoen2",2001)
+	HPPercentLT("Imoen2",20)
+	!StateCheck("Imoen2",STATE_OUT_OF_ACTION)
+	!HasItem("potn08","Imoen2")
+	!HasItem("potn52","Imoen2")
+	!HasItem("potn55","Imoen2")
+	HasItem("potn52",Myself)
+THEN
+  RESPONSE #100
+	  GiveItem("potn52","Imoen2")
+		DisplayStringHead(Myself,@58) // Quickly, Imoen! Drink this!
+END
+
+//Healing
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player1,2001)
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",1)
+	!StateCheck(Player2,STATE_OUT_OF_ACTION)
+	!HasItem("potn08",Player1)
+	!HasItem("potn52",Player1)
+	!HasItem("potn55",Player1)
+	HasItem("potn08",Myself)
+THEN
+  RESPONSE #100
+	  GiveItem("potn08",Player1)
+	  DisplayStringHead(Myself,@58) // Quickly, my love! Drink this!
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player2,2001)
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",3)
+	!StateCheck(Player2,STATE_OUT_OF_ACTION)
+	!HasItem("potn08",Player2)
+	!HasItem("potn52",Player2)
+	!HasItem("potn55",Player2)
+	HasItem("potn08",Myself)
+THEN
+  RESPONSE #100
+    GiveItem("potn08",Player2)
+    DisplayStringHead(Myself,@58) // Quickly, my love! Drink this!
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard("Imoen2",2001)
+	HPPercentLT("Imoen2",20)
+	!StateCheck("Imoen2",STATE_OUT_OF_ACTION)
+	!HasItem("potn08","Imoen2")
+	!HasItem("potn52","Imoen2")
+	!HasItem("potn55","Imoen2")
+	HasItem("potn08",Myself)
+THEN
+  RESPONSE #100
+	  GiveItem("potn08","Imoen2")
+		DisplayStringHead(Myself,@58) // Quickly, Imoen! Drink this!
+END
+
+//If Amber doesn't have a potion and the LI is active then scream at the rest of the party
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player1,2001)
+	GlobalTimerExpired("M#Called2001ForLI","LOCALS")
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",1)
+	!StateCheck(Player1,STATE_OUT_OF_ACTION)
+	!HasItem("potn08",Player1)
+	!HasItem("potn52",Player1)
+	!HasItem("potn55",Player1)
+	!HasItem("potn08",Myself)
+	!HasItem("potn52",Myself)
+	!HasItem("potn55",Myself)
+	OR(3)
+    PartyHasItem("POTN08") // Potion of Healing
+	  PartyHasItem("POTN52") // Potion of Extra Healing
+	  PartyHasItem("POTN55") // Potion of Superior Healing
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,@59) // Quickly, someone give <PLAYER1> a potion or heal him! He's hurt bad!
+    SetGlobalTimer("M#Called2001ForLI","LOCALS",30)
+    Continue()
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player2,2001)
+	GlobalTimerExpired("M#Called2001ForLI","LOCALS")
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",3)
+	!StateCheck(Player2,STATE_OUT_OF_ACTION)
+	!HasItem("potn08",Player2)
+	!HasItem("potn52",Player2)
+	!HasItem("potn55",Player2)
+	!HasItem("potn08",Myself)
+	!HasItem("potn52",Myself)
+	!HasItem("potn55",Myself)
+	OR(3)
+    PartyHasItem("POTN08") // Potion of Healing
+	  PartyHasItem("POTN52") // Potion of Extra Healing
+	  PartyHasItem("POTN55") // Potion of Superior Healing
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,@62) // Quickly, someone give <PLAYER2> a potion or heal him! He's hurt bad!
+    SetGlobalTimer("M#Called2001ForLI","LOCALS",30)
+    Continue()
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard("Imoen2",2001)
+	GlobalTimerExpired("M#Called2001ForImoen","LOCALS")
+	!StateCheck("Imoen2",STATE_OUT_OF_ACTION)
+	!HasItem("potn08",Player1)
+	!HasItem("potn52",Player1)
+	!HasItem("potn55",Player1)
+	!HasItem("potn08",Myself)
+	!HasItem("potn52",Myself)
+	!HasItem("potn55",Myself)
+	OR(3)
+    PartyHasItem("POTN08") // Potion of Healing
+	  PartyHasItem("POTN52") // Potion of Extra Healing
+	  PartyHasItem("POTN55") // Potion of Superior Healing
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,@63) // Quickly, someone give Imoen a potion or heal him! He's hurt bad!
+    SetGlobalTimer("M#Called2001ForImoen","LOCALS",30)
+    Continue()
+END
+
+//If Amber has no potion and the LI is incapacitated
+//Another "Cellphone Effect" - how can an incapacitated player shout? <g>
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player1,2001)
+	GlobalTimerExpired("M#Called2001ForLI ","LOCALS")
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",1)
+	StateCheck(Player1,STATE_OUT_OF_ACTION)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,@60) // Quickly, someone heal <PLAYER1>! He's hurt and incapacitated!
+    SetGlobalTimer("M#Called2001ForLI","LOCALS",30)
+    Continue()
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player2,2001)
+	GlobalTimerExpired("M#Called2001ForLI","LOCALS")
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",3)
+	StateCheck(Player2,STATE_OUT_OF_ACTION)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,@64) // Quickly, someone heal <PLAYER2>! He's hurt and incapacitated!
+    SetGlobalTimer("M#Called2001ForLI","LOCALS",30)
+    Continue()
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard("Imoen2",2001)
+	GlobalTimerExpired("M#Called2001ForImoen","LOCALS")
+	StateCheck("Imoen2",STATE_OUT_OF_ACTION)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,@60) // Quickly, someone heal Imoen! She's hurt and incapacitated!
+    SetGlobalTimer("M#Called2001ForImoen","LOCALS",30)
+    Continue()
+END
+
+// **********************************************************************
+// *           Segment Name: gs_HealOther(Request).baf
+// **********************************************************************
+
+// * HEAL OTHER ROUTINE - MAKE REQUEST
+// * Goes in *All* Player Scripts
+
+// * RESET HELP REQUESTS
+
+	// * Reset from Player1
+	IF
+		Global("gh_LastHealed","GLOBAL",1)								// and they're still the last healed
+		GlobalTimerExpired("gh_Player1_HelpRequest","GLOBAL")		// if its been 10s since Player1 asked for Heals
+		GlobalTimerExpired("gh_Player1_HelpRequest_Urgent","GLOBAL")
+		GlobalTimerExpired("gh_Player1_HelpRequest_TopUp","GLOBAL")
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_LastHealed","GLOBAL",0)						// reset last healed to 0 (nobody), so Player1 can get healed again
+			Continue()
+	END
+
+	// * Reset from Player2
+	IF
+		Global("gh_LastHealed","GLOBAL",2)								// and they're still the last healed
+		GlobalTimerExpired("gh_Player2_HelpRequest","GLOBAL")		// if its been 10s since Player1 Yelped
+		GlobalTimerExpired("gh_Player2_HelpRequest_Urgent","GLOBAL")
+		GlobalTimerExpired("gh_Player2_HelpRequest_TopUp","GLOBAL")
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_LastHealed","GLOBAL",0)						// reset last healed to 0 (nobody), so Player1 can get healed again
+			Continue()
+	END
+
+	// * Reset from Player3
+	IF
+		Global("gh_LastHealed","GLOBAL",3)								// and they're still the last healed
+		GlobalTimerExpired("gh_Player3_HelpRequest","GLOBAL")		// if its been 10s since Player1 Yelped
+		GlobalTimerExpired("gh_Player3_HelpRequest_Urgent","GLOBAL")
+		GlobalTimerExpired("gh_Player3_HelpRequest_TopUp","GLOBAL")
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_LastHealed","GLOBAL",0)						// reset last healed to 0 (nobody), so Player1 can get healed again
+			Continue()
+	END
+
+	// * Reset from Player4
+	IF
+		Global("gh_LastHealed","GLOBAL",4)								// and they're still the last healed
+		GlobalTimerExpired("gh_Player4_HelpRequest","GLOBAL")		// if its been 10s since Player1 Yelped
+		GlobalTimerExpired("gh_Player4_HelpRequest_Urgent","GLOBAL")
+		GlobalTimerExpired("gh_Player4_HelpRequest_TopUp","GLOBAL")
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_LastHealed","GLOBAL",0)						// reset last healed to 0 (nobody), so Player1 can get healed again
+			Continue()
+	END
+
+	// * Reset from Player5
+	IF
+		Global("gh_LastHealed","GLOBAL",5)								// and they're still the last healed
+		GlobalTimerExpired("gh_Player5_HelpRequest","GLOBAL")		// if its been 10s since Player1 Yelped
+		GlobalTimerExpired("gh_Player5_HelpRequest_Urgent","GLOBAL")
+		GlobalTimerExpired("gh_Player5_HelpRequest_TopUp","GLOBAL")
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_LastHealed","GLOBAL",0)						// reset last healed to 0 (nobody), so Player1 can get healed again
+			Continue()
+	END
+
+	// * Reset from Player6
+	IF
+		Global("gh_LastHealed","GLOBAL",6)								// and they're still the last healed
+		GlobalTimerExpired("gh_Player6_HelpRequest","GLOBAL")		// if its been 10s since Player1 Yelped
+		GlobalTimerExpired("gh_Player6_HelpRequest_Urgent","GLOBAL")
+		GlobalTimerExpired("gh_Player6_HelpRequest_TopUp","GLOBAL")
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_LastHealed","GLOBAL",0)						// reset last healed to 0 (nobody), so Player1 can get healed again
+			Continue()
+	END
+
+// * MAKE HELP REQUESTS BUT ONLY IF URGENT
+
+	// * If I am Player1
+		// * Urgent Help Request [<25%hp]
+		IF
+			Range(Player1,0)												// If I am Player1
+			HPPercentLT(Myself,25)											// and I have less than 50% hp
+			GlobalTimerExpired("gh_Player1_HelpRequest_Urgent","GLOBAL")// and I haven't already asked in the last 10 seconds
+			!Global("gh_LastHealed","GLOBAL",1)								// and the Last Healed was *not* Player1 (prevents restarting the timer without resetting the token)
+		THEN
+			RESPONSE #100
+				SetGlobalTimer("gh_Player1_HelpRequest_Urgent","GLOBAL",10)	// set *my* help-required timer
+				//DisplayStringHead(Myself,3786)								// "Help, my wounds are greivous!"
+				Continue()
+		END
+
+	// * If I am Player2
+		// * Urgent Help Request [<25%hp]
+		IF
+			Range(Player2,0)												// If I am Player2
+			HPPercentLT(Myself,25)											// and I have less than 50% hp
+			GlobalTimerExpired("gh_Player2_HelpRequest_Urgent","GLOBAL")// and I haven't already asked in the last 10 seconds
+			!Global("gh_LastHealed","GLOBAL",2)								// and the Last Healed was *not* Player2
+		THEN
+			RESPONSE #100
+				SetGlobalTimer("gh_Player2_HelpRequest_Urgent","GLOBAL",10)	// set *my* help-required timer
+				//DisplayStringHead(Myself,3786)								// "Help, my wounds are greivous!"
+				Continue()
+		END
+
+	// * If I am Player3
+		// * Urgent Help Request [<25%hp]
+		IF
+			Range(Player3,0)												// If I am Player3
+			HPPercentLT(Myself,25)											// and I have less than 50% hp
+			GlobalTimerExpired("gh_Player3_HelpRequest_Urgent","GLOBAL")// and I haven't already asked in the last 10 seconds
+			!Global("gh_LastHealed","GLOBAL",3)								// and the Last Healed was *not* Player3
+		THEN
+			RESPONSE #100
+				SetGlobalTimer("gh_Player3_HelpRequest_Urgent","GLOBAL",10)	// set *my* help-required timer
+				//DisplayStringHead(Myself,3786)								// "Help, my wounds are greivous!"
+				Continue()
+		END
+
+
+	// * If I am Player4
+		// * Urgent Help Request [<25%hp]
+		IF
+			Range(Player4,0)												// If I am Player4
+			HPPercentLT(Myself,25)											// and I have less than 50% hp
+			GlobalTimerExpired("gh_Player4_HelpRequest_Urgent","GLOBAL")// and I haven't already asked in the last 10 seconds
+			!Global("gh_LastHealed","GLOBAL",4)								// and the Last Healed was *not* Player4
+		THEN
+			RESPONSE #100
+				SetGlobalTimer("gh_Player4_HelpRequest_Urgent","GLOBAL",10)	// set *my* help-required timer
+				//DisplayStringHead(Myself,3786)								// "Help, my wounds are greivous!"
+				Continue()
+		END
+
+	// * If I am Player5
+		// * Urgent Help Request [<25%hp]
+		IF
+			Range(Player5,0)												// If I am Player5
+			HPPercentLT(Myself,25)											// and I have less than 50% hp
+			GlobalTimerExpired("gh_Player5_HelpRequest_Urgent","GLOBAL")// and I haven't already asked in the last 10 seconds
+			!Global("gh_LastHealed","GLOBAL",5)								// and the Last Healed was *not* Player5
+		THEN
+			RESPONSE #100
+				SetGlobalTimer("gh_Player5_HelpRequest_Urgent","GLOBAL",10)	// set *my* help-required timer
+				//DisplayStringHead(Myself,3786)								// "Help, my wounds are greivous!"
+				Continue()
+		END
+
+
+	// * If I am Player6
+		// * Urgent Help Request [<25%hp]
+		IF
+			Range(Player6,0)												// If I am Player6
+			HPPercentLT(Myself,25)											// and I have less than 50% hp
+			GlobalTimerExpired("gh_Player6_HelpRequest_Urgent","GLOBAL")// and I haven't already asked in the last 10 seconds
+			!Global("gh_LastHealed","GLOBAL",6)								// and the Last Healed was *not* Player6
+		THEN
+			RESPONSE #100
+				SetGlobalTimer("gh_Player6_HelpRequest_Urgent","GLOBAL",10)	// set *my* help-required timer
+				//DisplayStringHead(Myself,3786)								// "Help, my wounds are greivous!"
+				Continue()
+		END
+
+
+//**************************************************
+// * PERFORMANCE SAVER CUTOFF
+//**************************************************
+	// * Zoot's No-Enemy = No-CPU Wastage Resource Saver
+	IF
+		ActionListEmpty()
+		CombatCounter(0)
+		!See(NearestEnemyOf())
+	THEN
+		RESPONSE #100
+			NoAction()
+	END
+//**************************************
+//Set flag if I have a ranged weapon
+//**************************************
+IF
+  Global("ys_HaveRanged","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ys_HaveRanged","LOCALS",0)
+		SetGlobal("dai_MeleeToggle","LOCALS",0)
+    Continue()
+END
+
+IF
+	Global("dai_MeleeToggle","LOCALS",0)
+	Exists([EVILCUTOFF])											// and combat is *not* over
+			OR(10)														// and we have a RANGED weapon equiped
+			HasItemEquiped("AX1H04", Myself)							// * Throwing Axe
+			HasItemEquiped("AX1H06", Myself)							// * Throwing Axe +2
+			HasItemEquiped("AX1H05", Myself)							// * Throwing Axe +2
+			HasItemEquiped("NPBOW", Myself)								// * Bow of Arvoreen
+			HasItemEquiped("BOW98", Myself)								// * Composite Long Bow
+			HasItemEquiped("BOW01", Myself)								// * Composite Long Bow
+			HasItemEquiped("BOW02", Myself)								// * Composite Long Bow +1
+			HasItemEquiped("BOW16", Myself)								// * Composite Long Bow +2
+			HasItemEquiped("BOW99", Myself)								// * Eagle Bow
+			HasItemEquiped("BOW08", Myself)								// * Eagle Bow
+THEN
+	RESPONSE #100
+		SetGlobal("dai_MeleeToggle","LOCALS",1)
+    SetGlobal("ys_HaveRanged","LOCALS",1)
+   	Continue()												// and Continue to target routine
+END
+
+IF
+	Global("dai_MeleeToggle","LOCALS",0)
+	Exists([EVILCUTOFF])											// and combat is *not* over
+			OR(10)														// and we have a RANGED weapon equiped
+			HasItemEquiped("BOW12", Myself)								// * Elven Court Bow +3
+			HasItemEquiped("BOW10", Myself)								// * Heartseeker +3
+			HasItemEquiped("IBOW03", Myself)							// * Long Bow
+			HasItemEquiped("BOWNON", Myself)							// * Long Bow
+			HasItemEquiped("BOW03", Myself)								// * Long Bow
+			HasItemEquiped("BOW04", Myself)								// * Long Bow +1
+			HasItemEquiped("BOW17", Myself)								// * Long Bow +2
+			HasItemEquiped("BOW07", Myself)								// * Long Bow of Marksmanship
+			HasItemEquiped("BOW13", Myself)								// * Mana Bow +4
+			HasItemEquiped("BOW09", Myself)								// * Ripper +2
+THEN
+	RESPONSE #100
+		SetGlobal("dai_MeleeToggle","LOCALS",1)
+    SetGlobal("ys_HaveRanged","LOCALS",1)
+   	Continue()												// and Continue to target routine
+END
+
+IF
+	Global("dai_MeleeToggle","LOCALS",0)
+	Exists([EVILCUTOFF])											// and combat is *not* over
+			OR(10)														// and we have a RANGED weapon equiped
+			HasItemEquiped("BOW05", Myself)								// * Short Bow
+			HasItemEquiped("BOW06", Myself)								// * Short Bow +1
+			HasItemEquiped("BOW18", Myself)								// * Short Bow +2
+			HasItemEquiped("BOW19", Myself)								// * Short Bow of Gesen
+			HasItemEquiped("BOW11", Myself)								// * Strong Arm +2
+			HasItemEquiped("CATTIBOW", Myself)							// * Tansheron's Bow +3
+			HasItemEquiped("BOW15", Myself)								// * Tansheron's Bow +3
+			HasItemEquiped("BOW14", Myself)								// * Tuigan Bow +1
+			HasItemEquiped("SW1H57", Myself)							// * Throwing Dagger
+			HasItemEquiped("DAGG05", Myself)							// * Throwing Dagger
+THEN
+	RESPONSE #100
+		SetGlobal("dai_MeleeToggle","LOCALS",1)
+    SetGlobal("ys_HaveRanged","LOCALS",1)
+   	Continue()												// and Continue to target routine
+END
+
+IF
+	Global("dai_MeleeToggle","LOCALS",0)
+	Exists([EVILCUTOFF])											// and combat is *not* over
+			OR(10)														// and we have a RANGED weapon equiped
+			HasItemEquiped("DART05", Myself)							// * Asp's Nest
+			HasItemEquiped("IDART01", Myself)							// * Dart
+			HasItemEquiped("DART01", Myself)							// * Dart
+			HasItemEquiped("DART02", Myself)							// * Dart +1
+			HasItemEquiped("STARDART", Myself)							// * Dart +5
+			HasItemEquiped("DART03", Myself)							// * Dart of Stunning
+			HasItemEquiped("DART04", Myself)							// * Dart of Wounding
+			HasItemEquiped("FIRESEED", Myself)							// * Fire Seed
+			HasItemEquiped("DART06", Myself)							// * Giant Rock
+			HasItemEquiped("MELFMET", Myself)							// * Melf's Minute Meteor
+THEN
+	RESPONSE #100
+		SetGlobal("dai_MeleeToggle","LOCALS",1)
+    SetGlobal("ys_HaveRanged","LOCALS",1)
+   	Continue()												// and Continue to target routine
+END
+
+IF
+	Global("dai_MeleeToggle","LOCALS",0)
+	Exists([EVILCUTOFF])											// and combat is *not* over
+			OR(11)														// and we have a RANGED weapon equiped
+			HasItemEquiped("MDK2MTOV", Myself)							// * Molotov Cocktail
+			HasItemEquiped("SORB", Myself)								// * Searing Orb
+			HasItemEquiped("HAMM06", Myself)							// * Dwarven Thrower +3
+			HasItemEquiped("SLNG01", Myself)							// * Sling
+			HasItemEquiped("SLNG02", Myself)							// * Sling +1
+			HasItemEquiped("SLNG04", Myself)							// * Sling +2
+			HasItemEquiped("SLNG03", Myself)							// * Sling +3
+			HasItemEquiped("SLNG05", Myself)							// * Sling +3 : 'Arla's Dragonbane'
+			HasItemEquiped("SLNG06", Myself)							// * Sling of Arvoreen +4
+			HasItemEquiped("WASLING", Myself)							// * Sling of Everard +5
+			HasItemEquiped("SLNG07", Myself)							// * Sling of Seeking +2
+THEN
+	RESPONSE #100
+		SetGlobal("dai_MeleeToggle","LOCALS",1)
+    SetGlobal("ys_HaveRanged","LOCALS",1)
+   	Continue()												// and Continue to targeting routine
+END
+
+// **********************************************************************
+// *           Segment Name: gs_ThreatLevel.baf
+// **********************************************************************
+
+// * THREAT LEVELS
+// * This snippet sets the gh_ThreatLevel to a value between 0 and 4 depending on the 
+// * level of challenge faced by the party. It used extensively throughout the gs_Snippets
+// * and gSeries to determine whether a combat is serious enough to use a spell or power.
+// * 
+// * Its quite dynamic and changes on a round to round basis. 
+
+	// * FINAL RESETS
+	// * If a variable has been set but combat is over, reset it
+	IF
+		ActionListEmpty()									//if we're not doing anything
+		CombatCounter(0)									//and combat is over
+		!See([EVILCUTOFF])									//and no enemies are present
+		GlobalGT("gh_ThreatLevel","LOCALS",0)				//but a threat level has been set
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",0)			//reset it
+	END
+
+// * THREAT-LEVEL 1: LEAST DANGER
+// * ============================
+	IF 
+		ActionListEmpty()
+		See([EVILCUTOFF])							// if enemies are visible
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",1)	// the threat is at least level 1
+			Continue()
+	END	
+
+
+// * THREAT-LEVEL 2: LOW DANGER
+// * =============================
+	IF
+		ActionListEmpty()
+		OR(10)
+		HPGT(NearestEnemyOf(),50)						// If any one monster has >50hp
+		HPGT(SecondNearestEnemyOf(),50)					
+		HPGT(ThirdNearestEnemyOf(),50)
+		HPGT(FourthNearestEnemyOf(),50)
+		HPGT(FifthNearestEnemyOf(),50)	
+		HPGT(SixthNearestEnemyOf(),50)	
+		HPGT(SeventhNearestEnemyOf(),50)	
+		HPGT(EighthNearestEnemyOf(),50)	
+		HPGT(NinthNearestEnemyOf(),50)	
+		HPGT(TenthNearestEnemyOf(),50)	
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",2)		// RESET the ThreatLevel to 2
+			Continue()	
+	END
+
+	IF
+		ActionListEmpty()
+		NumCreatureGT([EVILCUTOFF], 2)						// If there are 3+ monsters
+		OR(3)
+		HPGT(NearestEnemyOf(),35)							// and any one monster has >35hp
+		HPGT(SecondNearestEnemyOf(),35)					
+		HPGT(ThirdNearestEnemyOf(),35)
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",2)		// RESET the ThreatLevel to 2
+			Continue()	
+	END
+	
+	IF
+		ActionListEmpty()
+		NumCreatureGT([EVILCUTOFF], 4)						// If there are 5+ monsters
+		OR(5)
+		HPGT(NearestEnemyOf(),20)						// and any one monster has >20hp
+		HPGT(SecondNearestEnemyOf(),20)					
+		HPGT(ThirdNearestEnemyOf(),20)
+		HPGT(FourthNearestEnemyOf(),20)
+		HPGT(FifthNearestEnemyOf(),20)	
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",2)		// RESET the ThreatLevel to 2
+			Continue()	
+	END
+	
+	IF
+		ActionListEmpty()
+		OR(6)											// AND we see one of these beasts
+		See(NearestEnemyOfType([EVILCUTOFF.0.DOPPLEGANGER.0]))	
+		See(NearestEnemyOfType([EVILCUTOFF.0.SPIDER.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.LYCANTHROPE.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.SPECTRE.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.WRAITH.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.MIST.0]))
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",2)		// RESET the ThreatLevel to 2
+			Continue()	
+	END
+	
+// * THREAT-LEVEL 3: MEDIUM DANGER
+// * ================================
+	IF
+		ActionListEmpty()
+		OR(10)
+		HPGT(NearestEnemyOf(),75)						// If any one monster has >75hp
+		HPGT(SecondNearestEnemyOf(),75)					
+		HPGT(ThirdNearestEnemyOf(),75)
+		HPGT(FourthNearestEnemyOf(),75)
+		HPGT(FifthNearestEnemyOf(),75)	
+		HPGT(SixthNearestEnemyOf(),75)	
+		HPGT(SeventhNearestEnemyOf(),75)	
+		HPGT(EighthNearestEnemyOf(),75)	
+		HPGT(NinthNearestEnemyOf(),75)	
+		HPGT(TenthNearestEnemyOf(),75)	
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",3)		// RESET the ThreatLevel to 3
+			Continue()	
+	END
+
+	IF
+		ActionListEmpty()
+		NumCreatureGT([EVILCUTOFF], 2)					// If there are 3+ monsters
+		OR(3)
+		HPGT(NearestEnemyOf(),50)						// and any one monster has >50hp
+		HPGT(SecondNearestEnemyOf(),50)					
+		HPGT(ThirdNearestEnemyOf(),50)
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",3)		// RESET the ThreatLevel to 3
+			Continue()	
+	END	
+	
+	IF
+		ActionListEmpty()
+		NumCreatureGT([EVILCUTOFF], 4)						// If there are 5+ monsters
+		OR(5)
+		HPGT(NearestEnemyOf(),35)							// and any one monster has >35hp
+		HPGT(SecondNearestEnemyOf(),35)					
+		HPGT(ThirdNearestEnemyOf(),35)
+		HPGT(FourthNearestEnemyOf(),35)
+		HPGT(FifthNearestEnemyOf(),35)	
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",3)			// RESET the ThreatLevel to 3
+			Continue()	
+	END
+	
+	IF
+		ActionListEmpty()
+		OR(8)											// if we see a medium beastie
+		See(NearestEnemyOfType([EVILCUTOFF.0.BASILISK.0]))	
+		See(NearestEnemyOfType([EVILCUTOFF.0.DEMONIC.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.RAKSHASA.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.UMBERHULK.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.GOLEM.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.GITHYANKI.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.WYVERN.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.GENIE.0]))
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",3)		// RESET the ThreatLevel to 3
+			Continue()	
+	END
+	
+
+// * THREAT-LEVEL 4: EXTREME DANGER
+// * ==============================
+
+	IF
+		ActionListEmpty()
+		OR(10)
+		HPGT(NearestEnemyOf(),100)							// If any one monster has >100hp
+		HPGT(SecondNearestEnemyOf(),100)					
+		HPGT(ThirdNearestEnemyOf(),100)
+		HPGT(FourthNearestEnemyOf(),100)
+		HPGT(FifthNearestEnemyOf(),100)	
+		HPGT(SixthNearestEnemyOf(),100)	
+		HPGT(SeventhNearestEnemyOf(),100)	
+		HPGT(EighthNearestEnemyOf(),100)	
+		HPGT(NinthNearestEnemyOf(),100)	
+		HPGT(TenthNearestEnemyOf(),100)	
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",4)			// RESET the ThreatLevel to 4
+			Continue()	
+	END
+
+	IF
+		ActionListEmpty()
+		NumCreatureGT([EVILCUTOFF], 2)						// If there are 3+ monsters
+		OR(3)
+		HPGT(NearestEnemyOf(),75)							// and any one monster has >75hp
+		HPGT(SecondNearestEnemyOf(),75)					
+		HPGT(ThirdNearestEnemyOf(),75)
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",4)			// RESET the ThreatLevel to 4
+			Continue()	
+	END	
+
+	IF
+		ActionListEmpty()
+		NumCreatureGT([EVILCUTOFF], 4)						// If there are 5+ monsters
+		OR(5)
+		HPGT(NearestEnemyOf(),50)							// and any one monster has >50hp
+		HPGT(SecondNearestEnemyOf(),50)					
+		HPGT(ThirdNearestEnemyOf(),50)
+		HPGT(FourthNearestEnemyOf(),50)
+		HPGT(FifthNearestEnemyOf(),50)	
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",4)		// RESET the ThreatLevel to 4
+			Continue()	
+	END
+	
+	IF
+		ActionListEmpty()
+		OR(6)											// If we see a *really* nasty beastie
+		See(NearestEnemyOfType([EVILCUTOFF.0.VAMPIRE.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.MIND_FLAYER.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.BEHOLDER.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.DRAGON.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.DEMILICH.0]))
+		See(NearestEnemyOfType([EVILCUTOFF.0.LICH.0]))
+	THEN
+		RESPONSE #100
+			SetGlobal("gh_ThreatLevel","LOCALS",4)		// RESET the ThreatLevel to 4
+			Continue()	
+	END
+	
+// **********************************************************************
+// *           Segment Name: gs_ThreatLevelZeroCutOff.baf
+// **********************************************************************
+	// * Post-ThreatAssess Check
+
+	// * If the threat level is 0, then its the first round (since its always at least 1 if there is even 1 enemy)
+	// * so, if its Round #1, restart script. This ensures higher threat level responses in the first round, at the 
+	// * expense of an approximately half-second delay.
+	IF
+		See([EVILCUTOFF])
+		Global("gh_ThreatLevel","LOCALS",0)
+	THEN
+		RESPONSE #100
+			//DisplayStringHead(Myself,30973)				// "See Enemy!"
+			NoAction()
+	END
+// **********************************************************************
+// *           Segment Name: gs_EquipMeleeIfAttacked.baf
+// **********************************************************************
+	// * Ensure that the PC has a Melee weapon equipped, to avoid that -4 to AC (BG2 Only)
+	IF
+		OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+		ActionListEmpty()											// if we're doing nothing
+		GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+		AttackedBy([ANYONE],DEFAULT)								// If we're being attacked
+		Range(LastAttackerOf(Myself),6)								// and the attacker is close <6
+	THEN
+		RESPONSE #100
+			EquipMostDamagingMelee()								// equip melee to avoid AC penalty, keep going
+			Continue()
+	END
+//*********************************************
+//					Segment Name: dai_BuffPotions[TL3].baf
+//*********************************************
+//Buff potion use all classes - if you can't use it, you won't have it
+//Use as TL3+
+
+//Oil of Speed
+IF
+		!Class(Myself,MONK)											// we're not a monk
+		HasItem("POTN14",Myself)
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		NumCreatureGT([EVILCUTOFF],4)
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		ActionListEmpty()
+		Range(NearestEnemyOf(Myself),4)
+		!StateCheck(Myself,STATE_HASTED)
+THEN
+		RESPONSE #100
+				UseItem("POTN14",Myself)
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+//Potions of strength
+IF
+		HasItem("POTN07",Myself)       //Storm Giant
+		CheckStatLT(Myself,24,STR)
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN07",Myself)
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+IF
+		HasItem("POTN06",Myself)       //Cloud Giant
+		CheckStatLT(Myself,23,STR)
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN06",Myself)
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+IF
+		HasItem("POTN05",Myself)       //Fire Giant
+		CheckStatLT(Myself,22,STR)
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN05",Myself)
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+IF
+		HasItem("POTN04",Myself)       //Frost Giant
+		CheckStatLT(Myself,21,STR)
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN04",Myself)
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+IF
+		HasItem("POTN12",Myself)       //Stone Giant
+		CheckStatLT(Myself,20,STR)
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN12",Myself)
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+IF
+		HasItem("POTN03",Myself)       //Hill Giant
+		CheckStatLT(Myself,19,STR)
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN03",Myself)
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+IF
+		HasItem("POTN44",Myself)       //Strength
+		CheckStatLT(Myself,18,STR)
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN44",Myself)
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+//Armour class modifiers
+IF
+		HasItem("POTN09",Myself)       //Heroism
+		CheckStatGT(Myself,0,ARMORCLASS)
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		OR(3)
+		  Class(Myself,FIGHTER_ALL)            //Warrior classes only
+		  Class(Myself,RANGER_ALL)
+		  Class(Myself,PALADIN_ALL)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN09",Myself)   //AC0 plus 5HP
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+IF
+		HasItem("POTN11",Myself)       //Invulnerability
+		CheckStatGT(Myself,0,ARMORCLASS)
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN11",Myself)   //AC0 plus 5HP
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+IF
+		HasItem("POTN24",Myself)       //Defence
+		CheckStatGT(Myself,0,ARMORCLASS)
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN24",Myself)   //AC0
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+IF
+		HasItem("POTN18",Myself)       //Absorbtion
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN18",Myself)
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+//Dex modifier
+IF
+		HasItem("POTN19",Myself)       //Dexterity
+		ActionListEmpty()
+		GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+		GlobalGT("gh_ThreatLevel","LOCALS",2)
+		Range(NearestEnemyOf(Myself),4)
+THEN
+		RESPONSE #100
+				UseItem("POTN19",Myself)
+				SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+END
+
+//************
+//* PART 2 - Anti-Specific
+
+// * PROTECTION_FROM_PETRIFICATION
+IF
+  HasItem("POTN38",Myself)
+  GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")	// and I am ready to cast.
+  OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+    ActionListEmpty()											// if we're doing nothing
+    GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+  GlobalGT("gh_ThreatLevel","LOCALS",2)						// or its threat-level 2	+
+  OR(2)
+    See(NearestEnemyOfType([EVILCUTOFF.0.0.BASILISK_GREATER]))	// and I see a Basilisk
+    See(NearestEnemyOfType([EVILCUTOFF.0.0.BASILISK]))
+THEN
+  RESPONSE #100
+		UseItem("POTN38",Myself)
+    SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)		// set a 6 second timer to ensure we don't reselect a spell action this round (which wastes time)
+END
+
+// * CLARITY_OF_MIND
+IF
+  HasItem("POTN21",Myself)
+  GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")	// and I am ready to cast.
+  OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+    ActionListEmpty()											// if we're doing nothing
+    GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+  GlobalGT("gh_ThreatLevel","LOCALS",2)						// or its threat-level 2	+
+  OR(6)
+    See(NearestEnemyOfType([EVILCUTOFF.0.0.BEHOLDER]))
+    See(NearestEnemyOfType([EVILCUTOFF.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([EVILCUTOFF.0.0.CLERIC_ALL]))
+    See(NearestEnemyOfType([EVILCUTOFF.0.0.MIND_FLAYER]))
+    See(NearestEnemyOfType([EVILCUTOFF.0.0.SORCERER]))
+    See(NearestEnemyOfType([EVILCUTOFF.0.0.UMBERHULK]))
+THEN
+  RESPONSE #100
+		UseItem("POTN21",Myself)
+    SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)		// set a 6 second timer to ensure we don't reselect a spell action this round (which wastes time)
+END
+
+// * 3: Potion of Fire Resistance,POTN02, 6977
+IF
+	HasItem("POTN02",Myself)									// and I have a Potion of FireResist
+	CheckStatLT(Myself,1,RESISTFIRE)							// and I'm not already resisting Fire
+	CheckStatLT(Myself,1,RESISTMAGICFIRE)						// and I'm not already resisting Magic Fire
+  GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")	// and I am ready to cast.
+	OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+	ActionListEmpty()											// if we're doing nothing
+	GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+	GlobalGT("gh_ThreatLevel","LOCALS",2)						// if its a level 3+ combat
+	OR(4)
+	See(NearestEnemyOfType([EVILCUTOFF.0.0.ELEMENTAL_FIRE]))	// and I see a big fire beatie
+	See(NearestEnemyOfType([EVILCUTOFF.0.0.RED_DRAGON]))
+	See(NearestEnemyOfType([EVILCUTOFF.0.0.GENIE_EFREETI]))
+	See(NearestEnemyOfType([EVILCUTOFF.0.0.GENIE_NOBLE_EFREETI]))
+THEN
+	RESPONSE #100
+		SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)		//set a 6 second timer to ensure we don't reselect a spell action this round (which wastes time)
+		UseItem("POTN02",Myself)								// drink the Potion of FireResist
+//				DisplayStringHead(Myself,6977)							// say "Potion of Fire Resistance"
+END
+
+// * 3: Potion of Invisibility, POTN10, 6993
+IF
+	HasItem("POTN10",Myself)									// and I have a Potion of Invisibility
+	!StateCheck(Myself,STATE_INVISIBLE)							// and not invisible
+	!StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)				// and not improved invisible
+    GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")	// and I am ready to cast.
+	OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+	ActionListEmpty()											// if we're doing nothing
+	GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+	GlobalGT("gh_ThreatLevel","LOCALS",2)						// if its a level 3+ combat
+	NumCreatureGT([EVILCUTOFF],2)								// and more than 3 foes
+THEN
+	RESPONSE #100
+		SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)		//set a 6 second timer to ensure we don't reselect a spell action this round (which wastes time)
+		UseItem("POTN10",Myself)			// drink the Potion of Invisibility
+//				DisplayStringHead(Myself,6993)		// say "Potion of Invisibility"
+END
+
+// **********************************************************************
+// *           Segment Name: gs_TargetNearestFirst.baf
+// **********************************************************************
+
+// * TARGETING ROUTINE - NEAREST TO FURTHEST
+// * [Fighter/Melee Style] 
+
+	// * Melee/Missile Target-Choice
+	// * ---------------------------	
+
+	// * Start by "clearing" the LastSeenBy()
+	IF
+		See(Myself)
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	// * If there are 10+ Targets, determine if we can target the 10th
+	IF 
+		NumCreatureGT([EVILCUTOFF],9)									//if there is at least 10 monsters
+		!InParty(TenthNearestEnemyOf())									//and they're not in our party
+		HPGT(TenthNearestEnemyOf(),5)									//and have more than 5 hp
+		!StateCheck(TenthNearestEnemyOf(),STATE_HARMLESS)				//and not charmed, helpless,sleeping,feebleminded or stunned
+		See(TenthNearestEnemyOf())										//then they're our new target
+		False()		
+	THEN
+		RESPONSE #100
+			Continue()			
+	END
+
+	// * If there are 9+ Targets, determine if we can target the 9th
+	IF 
+		NumCreatureGT([EVILCUTOFF],8)									//if there is at least 9 monsters
+		!InParty(NinthNearestEnemyOf())									//and they're not in our party	
+		HPGT(NinthNearestEnemyOf(),5)									//and have more than 5 hp
+		!StateCheck(NinthNearestEnemyOf(),STATE_HARMLESS)				//and not charmed, helpless,sleeping,feebleminded or stunned
+		See(NinthNearestEnemyOf())										//then they're our new target
+		False()		
+	THEN
+		RESPONSE #100
+			Continue()			
+	END
+
+	// * If there are 8+ Targets, determine if we can target the 8th
+	IF 
+		NumCreatureGT([EVILCUTOFF],7)									//if there is at least 8 monsters
+		!InParty(EighthNearestEnemyOf())								//and they're not in our party
+		HPGT(EighthNearestEnemyOf(),5)									//and have more than 5 hp
+		!StateCheck(EighthNearestEnemyOf(),STATE_HARMLESS)				//and not charmed, helpless,sleeping,feebleminded or stunned
+		See(EighthNearestEnemyOf())										//then they're our new target
+		False()		
+	THEN
+		RESPONSE #100
+			Continue()			
+	END
+
+	// * If there are 7+ Targets, determine if we can target the 7th
+	IF 
+		NumCreatureGT([EVILCUTOFF],6)									//if there is at least 7 monsters
+		!InParty(SeventhNearestEnemyOf())								//and they're not in our party
+		HPGT(SeventhNearestEnemyOf(),5)									//and have more than 5 hp
+		!StateCheck(SeventhNearestEnemyOf(),STATE_HARMLESS)				//and not charmed, helpless,sleeping,feebleminded or stunned
+		See(SeventhNearestEnemyOf())									//then they're our new target
+		False()		
+	THEN
+		RESPONSE #100
+			Continue()			
+	END
+
+	// * If there are 6+ Targets, determine if we can target the 6th
+	IF 
+		NumCreatureGT([EVILCUTOFF],5)									//if there is at least 6 monsters
+		!InParty(SixthNearestEnemyOf())									//and they're not in our party
+		HPGT(SixthNearestEnemyOf(),5)									//and have more than 5 hp
+		!StateCheck(SixthNearestEnemyOf(),STATE_HARMLESS)				//and not charmed, helpless,sleeping,feebleminded or stunned
+		See(SixthNearestEnemyOf())										//then they're our new target
+		False()		
+	THEN
+		RESPONSE #100
+			Continue()			
+	END
+
+	// * If there are 5+ Targets, determine if we can target the 5th
+	IF 
+		NumCreatureGT([EVILCUTOFF],4)									//if there is at least 5 monsters
+		!InParty(FifthNearestEnemyOf())									//and they're not in our party
+		HPGT(FifthNearestEnemyOf(),5)									//and have more than 5 hp
+		!StateCheck(FifthNearestEnemyOf(),STATE_HARMLESS)				//and not charmed, helpless,sleeping,feebleminded or stunned
+		See(FifthNearestEnemyOf())										//then they're our new target
+		False()		
+	THEN
+		RESPONSE #100
+			Continue()			
+	END
+
+	// * If there are 4+ Targets, determine if we can target the 4th
+	IF 
+		NumCreatureGT([EVILCUTOFF],3)									//if there is at least 4 monsters
+		!InParty(FourthNearestEnemyOf())								//and they're not in our party
+		HPGT(FourthNearestEnemyOf(),5)									//and have more than 5 hp
+		!StateCheck(FourthNearestEnemyOf(),STATE_HARMLESS)				//and not charmed, helpless,sleeping,feebleminded or stunned
+		See(FourthNearestEnemyOf())										//then they're our new target
+		False()		
+	THEN
+		RESPONSE #100
+			Continue()			
+	END
+
+	// * If there are 3+ Targets, determine if we can target the 3rd
+	IF 
+		NumCreatureGT([EVILCUTOFF],2)									//if there is at least 3 monsters
+		!InParty(ThirdNearestEnemyOf())									//and they're not in our party
+		HPGT(ThirdNearestEnemyOf(),5)									//and have more than 5 hp
+		!StateCheck(ThirdNearestEnemyOf(),STATE_HARMLESS)				//and not charmed, helpless,sleeping,feebleminded or stunned
+		See(ThirdNearestEnemyOf())										//then they're our new target
+		False()		
+	THEN
+		RESPONSE #100
+			Continue()			
+	END
+
+	// * If there are 2+ Targets, determine if we can target the 2nd
+	IF 
+		NumCreatureGT([EVILCUTOFF],1)									//if there is at least 2 monsters
+		!InParty(SecondNearestEnemyOf())								//and they're not in our party
+		HPGT(SecondNearestEnemyOf(),5)									//and have more than 5 hp
+		!StateCheck(SecondNearestEnemyOf(),STATE_HARMLESS)				//and not charmed, helpless,sleeping,feebleminded or stunned
+		See(SecondNearestEnemyOf())										//then they're our new target
+		False()		
+	THEN
+		RESPONSE #100
+			Continue()			
+	END
+
+	// * If there is at least 1 target, determine if we can target the nearest
+	IF 
+		NumCreatureGT([EVILCUTOFF],0)									//if there is at least 1 monsters
+		!InParty(NearestEnemyOf())										//and they're not in our party
+		HPGT(NearestEnemyOf(),5)										//and have more than 5 hp
+		!StateCheck(NearestEnemyOf(),STATE_HARMLESS)					//and not charmed, helpless,sleeping,feebleminded or stunned
+		See(NearestEnemyOf())											//then they're our new target
+		False()		
+	THEN
+		RESPONSE #100
+			Continue()			
+	END
+
+// **********************************************************************
+// *           Segment Name: gs_TargetCleric.baf
+// **********************************************************************
+	// * Cleric as Priority Target-Choice
+	// * --------------------------------
+	// * If we see a Priest anywhere and I have a ranged weapon, Target them instead
+	IF
+    !Global("ys_ForceWeapon","LOCALS",2)
+    Global("ys_HaveRanged","LOCALS",1)
+		HPGT(TenthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(TenthNearestEnemyOf())						//and they're not in our party
+		!Class(TenthNearestEnemyOf(),CLERIC_ALL)	//and not invisible/impinvis
+		!StateCheck(TenthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(TenthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(TenthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(TenthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+    !Global("ys_ForceWeapon","LOCALS",2)
+    Global("ys_HaveRanged","LOCALS",1)
+		HPGT(NinthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(NinthNearestEnemyOf())						//and they're not in our party
+		!Class(NinthNearestEnemyOf(),CLERIC_ALL)	//and not invisible/impinvis
+		!StateCheck(NinthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(NinthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(NinthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(NinthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+    !Global("ys_ForceWeapon","LOCALS",2)
+    Global("ys_HaveRanged","LOCALS",1)
+		HPGT(EighthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(EighthNearestEnemyOf())						//and they're not in our party
+		!Class(EighthNearestEnemyOf(),CLERIC_ALL)	//and not invisible/impinvis
+		!StateCheck(EighthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(EighthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(EighthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(EighthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+    !Global("ys_ForceWeapon","LOCALS",2)
+    Global("ys_HaveRanged","LOCALS",1)
+		HPGT(SeventhNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(SeventhNearestEnemyOf())						//and they're not in our party
+		!Class(SeventhNearestEnemyOf(),CLERIC_ALL)	//and not invisible/impinvis
+		!StateCheck(SeventhNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(SeventhNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(SeventhNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(SeventhNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+  IF
+  !Global("ys_ForceWeapon","LOCALS",2)
+   Global("ys_HaveRanged","LOCALS",1)
+		HPGT(SixthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(SixthNearestEnemyOf())						//and they're not in our party
+		!Class(SixthNearestEnemyOf(),CLERIC_ALL)	//and not invisible/impinvis
+		!StateCheck(SixthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(SixthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(SixthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(SixthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+    !Global("ys_ForceWeapon","LOCALS",2)
+    Global("ys_HaveRanged","LOCALS",1)
+		HPGT(FifthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(FifthNearestEnemyOf())						//and they're not in our party
+		!Class(FifthNearestEnemyOf(),CLERIC_ALL)	//and not invisible/impinvis
+		!StateCheck(FifthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(FifthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(FifthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(FifthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	// * If we see a Priest in the nearest Four, Target them with melee or ranged as appropriate
+	IF
+		HPGT(FourthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(FourthNearestEnemyOf())						//and they're not in our party
+		!Class(FourthNearestEnemyOf(),CLERIC_ALL)	//and not invisible/impinvis
+		!StateCheck(FourthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(FourthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(FourthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(FourthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+		HPGT(ThirdNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(ThirdNearestEnemyOf())						//and they're not in our party
+		!Class(ThirdNearestEnemyOf(),CLERIC_ALL)	//and not invisible/impinvis
+		!StateCheck(ThirdNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(ThirdNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(ThirdNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(ThirdNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+	IF
+		HPGT(SecondNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(SecondNearestEnemyOf())						//and they're not in our party
+		!Class(SecondNearestEnemyOf(),CLERIC_ALL)	//and not invisible/impinvis
+		!StateCheck(SecondNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(SecondNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(SecondNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(SecondNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+		HPGT(NearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(NearestEnemyOf())						//and they're not in our party
+		!Class(NearestEnemyOf(),CLERIC_ALL)	//and not invisible/impinvis
+		!StateCheck(NearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(NearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(NearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(NearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+	
+// **********************************************************************
+// *           Segment Name: gs_TargetMage.baf
+// **********************************************************************
+
+	// * Mage as Priority Target-Choice
+	// * ------------------------------
+	// * If we see a mage, target them
+	// * --------------------------------
+	IF
+    !Global("ys_ForceWeapon","LOCALS",2)
+    Global("ys_HaveRanged","LOCALS",1)
+		HPGT(TenthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(TenthNearestEnemyOf())						//and they're not in our party
+		!Class(TenthNearestEnemyOf(),MAGE_ALL)	//and not invisible/impinvis
+		!StateCheck(TenthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(TenthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(TenthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(TenthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+    !Global("ys_ForceWeapon","LOCALS",2)
+    Global("ys_HaveRanged","LOCALS",1)
+		HPGT(NinthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(NinthNearestEnemyOf())						//and they're not in our party
+		!Class(NinthNearestEnemyOf(),MAGE_ALL)	//and not invisible/impinvis
+		!StateCheck(NinthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(NinthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(NinthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(NinthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+    !Global("ys_ForceWeapon","LOCALS",2)
+    Global("ys_HaveRanged","LOCALS",1)
+		HPGT(EighthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(EighthNearestEnemyOf())						//and they're not in our party
+		!Class(EighthNearestEnemyOf(),MAGE_ALL)	//and not invisible/impinvis
+		!StateCheck(EighthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(EighthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(EighthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(EighthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+    !Global("ys_ForceWeapon","LOCALS",2)
+    Global("ys_HaveRanged","LOCALS",1)
+		HPGT(SeventhNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(SeventhNearestEnemyOf())						//and they're not in our party
+		!Class(SeventhNearestEnemyOf(),MAGE_ALL)	//and not invisible/impinvis
+		!StateCheck(SeventhNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(SeventhNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(SeventhNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(SeventhNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+  IF
+  !Global("ys_ForceWeapon","LOCALS",2)
+   Global("ys_HaveRanged","LOCALS",1)
+		HPGT(SixthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(SixthNearestEnemyOf())						//and they're not in our party
+		!Class(SixthNearestEnemyOf(),MAGE_ALL)	//and not invisible/impinvis
+		!StateCheck(SixthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(SixthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(SixthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(SixthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+    !Global("ys_ForceWeapon","LOCALS",2)
+    Global("ys_HaveRanged","LOCALS",1)
+		HPGT(FifthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(FifthNearestEnemyOf())						//and they're not in our party
+		!Class(FifthNearestEnemyOf(),MAGE_ALL)	//and not invisible/impinvis
+		!StateCheck(FifthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(FifthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(FifthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(FifthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	// * If we see a Priest in the nearest Four, Target them with melee or ranged as appropriate
+	IF
+		HPGT(FourthNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(FourthNearestEnemyOf())						//and they're not in our party
+		!Class(FourthNearestEnemyOf(),MAGE_ALL)	//and not invisible/impinvis
+		!StateCheck(FourthNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(FourthNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(FourthNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(FourthNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+		HPGT(ThirdNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(ThirdNearestEnemyOf())						//and they're not in our party
+		!Class(ThirdNearestEnemyOf(),MAGE_ALL)	//and not invisible/impinvis
+		!StateCheck(ThirdNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(ThirdNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(ThirdNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(ThirdNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+	IF
+		HPGT(SecondNearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(SecondNearestEnemyOf())						//and they're not in our party
+		!Class(SecondNearestEnemyOf(),MAGE_ALL)	//and not invisible/impinvis
+		!StateCheck(SecondNearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(SecondNearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(SecondNearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(SecondNearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+	IF
+		HPGT(NearestEnemyOf(),5)							//and have more than 5 hp
+		!InParty(NearestEnemyOf())						//and they're not in our party
+		!Class(NearestEnemyOf(),MAGE_ALL)	//and not invisible/impinvis
+		!StateCheck(NearestEnemyOf(),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(NearestEnemyOf(),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(NearestEnemyOf(),INNOCENT)				//and not an "innocent"
+		See(NearestEnemyOf())							//they're our new target
+		False()
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+
+// **********************************************************************
+// *           Segment Name: gs_TargetHelpCaller.baf
+// **********************************************************************
+
+// * TARGETING ROUTINE - TARGET ALLY WHO CALLED FOR HELP
+
+	// * If another PC called for help, target their attacker
+	IF
+		Heard([PC],2001)												//if a PC needs Help
+		!InParty(LastAttackerOf(LastHeardBy()))							//and they're not in our party
+		!StateCheck(LastAttackerOf(LastHeardBy()),STATE_NOT_VISIBLE)	//and not invisible/impinvis
+		!StateCheck(LastAttackerOf(LastHeardBy()),STATE_HARMLESS)		//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(LastAttackerOf(LastHeardBy()),INNOCENT)					//and not an "innocent"
+		See(LastAttackerOf(LastHeardBy()))								//they're our new target
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+// **********************************************************************
+// *           Segment Name: dai_AmberTargetLIAttacker(Spells)
+// **********************************************************************
+//Amber specific: override both the HelpCaller and the current target and
+//force Amber to use spells and help her LI. Spell selection is randomised; there
+//is a chance that Amber will either ignore spellcasting - or no longer
+//has the spell she wants - and will go for weapons instead
+IF
+	ActionListEmpty()							 										 //No actions stored
+	!CombatCounter(0)																	 //Still in combat
+	Heard(Player1,2001)																 //LI calling for 2001
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",1)
+	See(LastAttackerOf(Player1))		 				 					 //Make LI attacker my new target
+	!InParty(LastSeenBy(Myself))											 //Check it's not a mistake
+	GlobalTimerExpired("M#UsedDemonicAbility","LOCALS")//Check that I have recovered from last time
+	GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")//and I'm free to cast
+	Range(LastSeenBy(),6)															 //and I have room to cast
+THEN
+  RESPONSE #22																			 //Set spellcheck flag
+	  SetGlobal("dai_GetSpell","LOCALS",1)
+	  Continue()
+  RESPONSE #44
+	  SetGlobal("dai_GetSpell","LOCALS",2)
+	  Continue()
+  RESPONSE #44
+	  SetGlobal("dai_GetSpell","LOCALS",3)
+	  Continue()
+  RESPONSE #10
+	  Continue()
+END
+
+IF
+	ActionListEmpty()							 										 //No actions stored
+	!CombatCounter(0)																	 //Still in combat
+	Heard(Player2,2001)
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",3)
+	See(LastAttackerOf(Player1))		 				 					 //Make LI attacker my new target
+	!InParty(LastSeenBy(Myself))											 //Check it's not a mistake
+	GlobalTimerExpired("M#UsedDemonicAbility","LOCALS")//Check that I have recovered from last time
+	Range(LastSeenBy(),6)															 //and I have room to cast
+THEN
+  RESPONSE #22																			 //Set spellcheck flag
+	  SetGlobal("dai_GetSpell","LOCALS",1)
+	  Continue()
+  RESPONSE #44
+	  SetGlobal("dai_GetSpell","LOCALS",2)
+	  Continue()
+  RESPONSE #44
+	  SetGlobal("dai_GetSpell","LOCALS",3)
+	  Continue()
+  RESPONSE #10
+	  Continue()
+END
+
+IF
+	ActionListEmpty()							 										 //No actions stored
+	!CombatCounter(0)																	 //Still in combat
+	Heard("Imoen2",2001)
+	See(LastAttackerOf("Imoen2"))		 				 					 //Make LI attacker my new target
+	!InParty(LastSeenBy(Myself))											 //Check it's not a mistake
+	GlobalTimerExpired("M#UsedDemonicAbility","LOCALS")//Check that I have recovered from last time
+	Range(LastSeenBy(),6)															 //and I have room to cast
+THEN
+  RESPONSE #22																			 //Set spellcheck flag
+	  SetGlobal("dai_GetSpell","LOCALS",1)
+	  Continue()
+  RESPONSE #44
+	  SetGlobal("dai_GetSpell","LOCALS",2)
+	  Continue()
+  RESPONSE #44
+	  SetGlobal("dai_GetSpell","LOCALS",3)
+	  Continue()
+  RESPONSE #10
+	  Continue()
+END
+
+//Select spell by flag and resource
+IF
+	ActionListEmpty()							 										 //No actions stored
+	!CombatCounter(0)																	 //Still in combat
+	Global("dai_GetSpell","LOCALS",1)									 //This spell flag is set
+	HaveSpellRES("M#DISINT")													 //I actually have the spell
+	Range(LastSeenBy(),6)															 //and I have room to cast
+THEN
+  RESPONSE #100
+		DisplayStringHead(Myself,@72) // DIE!!!
+		SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+		SetGlobalTimer("M#UsedDemonicAbility","LOCALS",120)
+	  SetGlobal("dai_GetSpell","LOCALS",0)
+		SpellRES("M#DISINT",LastSeenBy(Myself))
+END
+
+IF
+	ActionListEmpty()							 										 //No actions stored
+	!CombatCounter(0)																	 //Still in combat
+	Global("dai_GetSpell","LOCALS",2)									 //This spell flag is set
+	HaveSpellRES("M#CONTAG")													 //I actually have the spell
+	Range(LastSeenBy(),6)															 //and I have room to cast
+THEN
+  RESPONSE #100
+		DisplayStringHead(Myself,@72) // DIE!!!
+		SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+		SetGlobalTimer("M#UsedDemonicAbility","LOCALS",120)
+	  SetGlobal("dai_GetSpell","LOCALS",0)
+		SpellRES("M#CONTAG",LastSeenBy(Myself))
+END
+
+IF
+	ActionListEmpty()							 										 //No actions stored
+	!CombatCounter(0)																	 //Still in combat
+	Global("dai_GetSpell","LOCALS",3)									 //This spell flag is set
+	HaveSpellRES("M#BLIND")													 //I actually have the spell
+	Range(LastSeenBy(),6)															 //and I have room to cast
+THEN
+  RESPONSE #100
+		DisplayStringHead(Myself,@72) // DIE!!!
+		SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+		SetGlobalTimer("M#UsedDemonicAbility","LOCALS",120)
+	  SetGlobal("dai_GetSpell","LOCALS",0)
+		SpellRES("M#BLIND",LastSeenBy(Myself))
+END
+
+// **********************************************************************
+// *           Segment Name: dai_AmberTargetLIAttacker(Ranged).baf
+// **********************************************************************
+//Amber specific: override both the 2001Caller and the current target and
+//force Amber to use a ranged weapon 2001 her LI.
+IF
+	ActionListEmpty()	 	 							 				//No actions are stored
+	!CombatCounter(0)									 				//Still in combat
+	Heard(Player1,2001)								 				//LI is calling
+	Global("dai_AmberHasRanged","LOCALS",1)		//I have a ranged weapon
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",1)
+	!Range(LastAttackerOf(Player1),6)				  //LI attacker is outside melee range
+	See(LastAttackerOf(Player1))							//Make LI attacker is my new target
+	!InParty(LastSeenBy(Myself))							//Double-check it's not a mistake
+THEN
+  RESPONSE #100
+	  EquipRanged()
+	 	DisplayStringHead(Myself,@66) // Hang on <PLAYER1>!
+		Attack(LastSeenBy(Myself))
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard(Player2,2001)
+	Global("dai_AmberHasRanged","LOCALS",1)
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",3)
+	!Range(LastAttackerOf(Player2),6)
+	See(LastAttackerOf(Player2))
+	!InParty(LastSeenBy(Myself))
+THEN
+  RESPONSE #100
+	  EquipRanged()
+	 	DisplayStringHead(Myself,@67) // Hang on <PLAYER2>!
+		Attack(LastSeenBy(Myself))
+END
+
+IF
+	ActionListEmpty()
+	!CombatCounter(0)
+	Heard("Imoen2",2001)
+	Global("dai_AmberHasRanged","LOCALS",1)
+	!Range(LastAttackerOf("Imoen2"),6)
+	See(LastAttackerOf("Imoen2"))
+	!InParty(LastSeenBy(Myself))
+THEN
+  RESPONSE #100
+	  EquipRanged()
+	 	DisplayStringHead(Myself,@68) // Hang on Imoen!
+		Attack(LastSeenBy(Myself))
+END
+
+// **********************************************************************
+// *           Segment Name: dai_AmberTargetLIAttacker(Melee).baf
+// **********************************************************************
+//Amber specific: override both the 2001Caller and the current target and
+//force Amber to use a melee weapon 2001 her LI. This will also kick in
+//if she has no ranged weapons.
+IF
+	ActionListEmpty()	 	 							 				//No actions are stored
+	!CombatCounter(0)									 				//Still in combat
+	Heard(Player1,2001)								 				//LI is calling
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",1)
+	OR(2)
+    Global("dai_AmberHasRanged","LOCALS",0)		//I don't have a ranged weapon
+		Range(LastAttackerOf(Player1),6)				  //or LI attacker is inside melee range
+	See(LastAttackerOf(Player1))							//Make LI attacker is my new target
+	!InParty(LastSeenBy(Myself))							//Double-check it's not a mistake
+THEN
+  RESPONSE #100
+	  EquipMostDamagingMelee()
+	 	DisplayStringHead(Myself,@69) // Hang on <PLAYER1>!
+		Attack(LastSeenBy(Myself))
+END
+
+IF
+	ActionListEmpty()	 	 							 				//No actions are stored
+	!CombatCounter(0)									 				//Still in combat
+	Heard(Player2,2001)								 				//LI is calling
+	Global("M#AmberRomanceActive","GLOBAL",2)
+	Global("M#AmberMatch","GLOBAL",3)
+	OR(2)
+    Global("dai_AmberHasRanged","LOCALS",0)		//I don't have a ranged weapon
+		Range(LastAttackerOf(Player1),6)				  //or LI attacker is inside melee range
+	See(LastAttackerOf(Player1))							//Make LI attacker is my new target
+	!InParty(LastSeenBy(Myself))							//Double-check it's not a mistake
+THEN
+  RESPONSE #100
+	  EquipMostDamagingMelee()
+	 	DisplayStringHead(Myself,@70) // Hang on <PLAYER2>!
+		Attack(LastSeenBy(Myself))
+END
+
+IF
+	ActionListEmpty()	 	 							 				//No actions are stored
+	!CombatCounter(0)									 				//Still in combat
+	Heard("Imoen2",2001)								 				//LI is calling
+	OR(2)
+    Global("dai_AmberHasRanged","LOCALS",0)		//I don't have a ranged weapon
+		Range(LastAttackerOf("Imoen2"),6)				  //or LI attacker is inside melee range
+	See(LastAttackerOf("Imoen2"))							//Make LI attacker is my new target
+	!InParty(LastSeenBy(Myself))							//Double-check it's not a mistake
+THEN
+  RESPONSE #100
+	  EquipMostDamagingMelee()
+	 	DisplayStringHead(Myself,@71) // Hang on Imoen!
+		Attack(LastSeenBy(Myself))
+END
+
+// **********************************************************************
+// *           Segment Name: gs_TargetAttackerOfSelf.baf
+// **********************************************************************
+	// * If we're under attack, use that as the Target instead of all others
+	IF
+		AttackedBy([ANYONE],DEFAULT)									//if we are being attacked
+		!InParty(LastAttackerOf(Myself))								//and they're not in our party
+		!StateCheck(LastAttackerOf(Myself),STATE_NOT_VISIBLE)			//and not invisible/impinvis
+		!StateCheck(LastAttackerOf(Myself),STATE_HARMLESS)				//and not charmed, helpless,sleeping,feebleminded or stunned
+		!Class(LastAttackerOf(Myself),INNOCENT)							//and not an "innocent"
+		See(LastAttackerOf(Myself))										//they're our new target
+	THEN
+		RESPONSE #100
+			Continue()
+	END
+	
+// **********************************************************************
+// *           Segment Name: dai_AmberSpellAttack
+// **********************************************************************
+//Amber specific: target the spellcasters first and then anyone else.
+//Again, the nature of the random response plus spells not available
+//means that this section may drop through without triggering.
+IF
+	ActionListEmpty()							 										 //No actions stored
+	!CombatCounter(0)																	 //Still in combat
+	GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")
+	GlobalTimerExpired("M#UsedDemonicAbility","LOCALS")
+	GlobalGT("gh_ThreatLevel","LOCALS",2)
+	!InParty(LastSeenBy(Myself))											 //Check it's not a mistake
+	GlobalTimerExpired("M#UsedDemonicAbility","LOCALS")//Check that I have recovered from last time
+	GlobalTimerExpired("gh_SpellCastThisRound","LOCALS")//and I'm free to cast
+	Range(LastSeenBy(),6)															 //and I have room to cast
+THEN
+  RESPONSE #22																			 //Set spellcheck flag
+	  SetGlobal("dai_GetSpell","LOCALS",1)
+  RESPONSE #44
+	  SetGlobal("dai_GetSpell","LOCALS",2)
+  RESPONSE #44
+	  SetGlobal("dai_GetSpell","LOCALS",3)
+  RESPONSE #10
+	  Continue()
+END
+
+//Select spell by flag and resource
+IF
+	ActionListEmpty()							 										 //No actions stored
+	!CombatCounter(0)																	 //Still in combat
+	Global("dai_GetSpell","LOCALS",1)									 //This spell flag is set
+	!InParty(LastSeenBy(Myself))
+	HaveSpellRES("M#DISINT")													 //I actually have the spell
+	Range(LastSeenBy(),6)															 //and I have room to cast
+THEN
+  RESPONSE #100
+		DisplayStringHead(Myself,@72) // DIE!!!
+		SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+		SetGlobalTimer("M#UsedDemonicAbility","LOCALS",120)
+	  SetGlobal("dai_GetSpell","LOCALS",0)
+		SpellRES("M#DISINT",LastSeenBy(Myself))
+END
+
+IF
+	ActionListEmpty()							 										 //No actions stored
+	!CombatCounter(0)																	 //Still in combat
+	Global("dai_GetSpell","LOCALS",2)									 //This spell flag is set
+	!InParty(LastSeenBy(Myself))
+	HaveSpellRES("M#CONTAG")													 //I actually have the spell
+	Range(LastSeenBy(),6)															 //and I have room to cast
+THEN
+  RESPONSE #100
+		DisplayStringHead(Myself,@72) // DIE!!!
+		SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+		SetGlobalTimer("M#UsedDemonicAbility","LOCALS",120)
+	  SetGlobal("dai_GetSpell","LOCALS",0)
+		SpellRES("M#CONTAG",LastSeenBy(Myself))
+END
+
+IF
+	ActionListEmpty()							 										 //No actions stored
+	!CombatCounter(0)																	 //Still in combat
+	Global("dai_GetSpell","LOCALS",3)									 //This spell flag is set
+	!InParty(LastSeenBy(Myself))
+	HaveSpellRES("M#BLIND")													 //I actually have the spell
+	Range(LastSeenBy(),6)															 //and I have room to cast
+THEN
+  RESPONSE #100
+		DisplayStringHead(Myself,@72) // DIE!!!
+		SetGlobalTimer("gh_SpellCastThisRound","LOCALS",6)
+		SetGlobalTimer("M#UsedDemonicAbility","LOCALS",120)
+	  SetGlobal("dai_GetSpell","LOCALS",0)
+	  DisplayStringHead(Myself,3)
+		SpellRES("M#BLIND",LastSeenBy(Myself))
+END
+
+// **********************************************************************
+// *           Segment Name: gs_BackStab.baf
+// **********************************************************************
+		// * THIEF::STEALTH ATTACK
+		IF
+			ActionListEmpty()
+			Class(Myself,THIEF_ALL)										// if I'm a Thief or Multiclass Thief
+			!CombatCounter(0)											// if combat has started (thus I'm not out scouting on my own)
+			OR(2)
+				StateCheck(Myself,STATE_INVISIBLE)							// and I'm invisible
+				StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)				// or I'm improved invisible
+			!InParty(LastSeenBy())										// target is not in party
+			Range(LastSeenBy(),8)										// target is reachable range, and no area effects are likely
+		THEN
+			RESPONSE #100
+				EquipMostDamagingMelee()								// equip melee weapon
+				SmallWait(1)
+				MoveToObject(LastSeenBy())								// move to the target
+				Attack(LastSeenBy())									// whack them hard
+				DisplayStringHead(Myself,8549)							// "Die you bastard!"
+				MoveToObject(StrongestOf())								// and run away back towards party
+		END			
+// **********************************************************************
+// *           Segment Name: dai_AmberRangedReset.baf
+// **********************************************************************
+//Reset Amber's ranged flag in case she has no weapon
+	 IF
+	 	 Global("dai_AmberHasRanged","LOCALS",1)
+	 THEN
+	   RESPONSE #100
+	 		 SetGlobal("dai_AmberHasRanged","LOCALS",0)
+	 		 Continue()
+	 END
+
+// **********************************************************************
+// *           Segment Name: gs_SelectRangedThenMelee(ItemList).baf
+// **********************************************************************
+
+//Force change
+IF
+  Global("ys_ForceWeapon","LOCALS",1)
+  Global("ys_WeaponChange","LOCALS",0)
+THEN
+	RESPONSE #100
+    SetGlobal("ys_WeaponChange","LOCALS",1)
+	 	SetGlobal("dai_AmberHasRanged","LOCALS",1) //Specials flag
+    EquipRanged()
+    Continue()
+END
+
+IF
+  Global("ys_ForceWeapon","LOCALS",2)
+  Global("ys_WeaponChange","LOCALS",1)
+THEN
+	RESPONSE #100
+    EquipMostDamagingMelee()
+    SetGlobal("ys_WeaponChange","LOCALS",2)
+    Continue()
+END
+
+IF
+  Global("ys_ForceWeapon","LOCALS",0)
+  Global("ys_WeaponChange","LOCALS",2)
+THEN
+	RESPONSE #100
+    SetGlobal("ys_WeaponChange","LOCALS",0)
+    Continue()
+END
+
+IF
+	Global("dai_MissileToggle","LOCALS",0)
+  Global("ys_WeaponChange","LOCALS",0)
+	OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+		ActionListEmpty()											// if we're doing nothing
+		GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+	!Range(LastSeenBy(),6)										// range is >4 steps away, therefore ranged
+	!InParty(LastSeenBy())										// and they're not in our party (double-check)
+	!CombatCounter(0)											// and combat is *not* over
+			OR(10)														// and we have a RANGED weapon equiped
+			HasItemEquiped("AX1H04", Myself)							// * Throwing Axe
+			HasItemEquiped("AX1H06", Myself)							// * Throwing Axe +2
+			HasItemEquiped("AX1H05", Myself)							// * Throwing Axe +2
+			HasItemEquiped("NPBOW", Myself)								// * Bow of Arvoreen
+			HasItemEquiped("BOW98", Myself)								// * Composite Long Bow
+			HasItemEquiped("BOW01", Myself)								// * Composite Long Bow
+			HasItemEquiped("BOW02", Myself)								// * Composite Long Bow +1
+			HasItemEquiped("BOW16", Myself)								// * Composite Long Bow +2
+			HasItemEquiped("BOW99", Myself)								// * Eagle Bow
+			HasItemEquiped("BOW08", Myself)								// * Eagle Bow
+THEN
+	RESPONSE #100
+		SetGlobal("dai_MissileToggle","LOCALS",1)
+	 	SetGlobal("dai_AmberHasRanged","LOCALS",1) //Specials flag
+   	Continue()												// and Continue to target routine
+END
+
+IF
+	Global("dai_MissileToggle","LOCALS",0)
+  Global("ys_WeaponChange","LOCALS",0)
+	OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+		ActionListEmpty()											// if we're doing nothing
+		GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+	!Range(LastSeenBy(),6)										// range is >4 steps away, therefore ranged
+	!InParty(LastSeenBy())										// and they're not in our party (double-check)
+	!CombatCounter(0)											// and combat is *not* over
+			OR(10)														// and we have a RANGED weapon equiped
+			HasItemEquiped("BOW12", Myself)								// * Elven Court Bow +3
+			HasItemEquiped("BOW10", Myself)								// * Heartseeker +3
+			HasItemEquiped("IBOW03", Myself)							// * Long Bow
+			HasItemEquiped("BOWNON", Myself)							// * Long Bow
+			HasItemEquiped("BOW03", Myself)								// * Long Bow
+			HasItemEquiped("BOW04", Myself)								// * Long Bow +1
+			HasItemEquiped("BOW17", Myself)								// * Long Bow +2
+			HasItemEquiped("BOW07", Myself)								// * Long Bow of Marksmanship
+			HasItemEquiped("BOW13", Myself)								// * Mana Bow +4
+			HasItemEquiped("BOW09", Myself)								// * Ripper +2
+THEN
+	RESPONSE #100
+		SetGlobal("dai_MissileToggle","LOCALS",1)
+	 	SetGlobal("dai_AmberHasRanged","LOCALS",1) //Specials flag
+   	Continue()												// and Continue to target routine
+END
+
+IF
+	Global("dai_MissileToggle","LOCALS",0)
+  Global("ys_WeaponChange","LOCALS",0)
+	OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+		ActionListEmpty()											// if we're doing nothing
+		GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+	!Range(LastSeenBy(),6)										// range is >4 steps away, therefore ranged
+	!InParty(LastSeenBy())										// and they're not in our party (double-check)
+	!CombatCounter(0)											// and combat is *not* over
+			OR(10)														// and we have a RANGED weapon equiped
+			HasItemEquiped("BOW05", Myself)								// * Short Bow
+			HasItemEquiped("BOW06", Myself)								// * Short Bow +1
+			HasItemEquiped("BOW18", Myself)								// * Short Bow +2
+			HasItemEquiped("BOW19", Myself)								// * Short Bow of Gesen
+			HasItemEquiped("BOW11", Myself)								// * Strong Arm +2
+			HasItemEquiped("CATTIBOW", Myself)							// * Tansheron's Bow +3
+			HasItemEquiped("BOW15", Myself)								// * Tansheron's Bow +3
+			HasItemEquiped("BOW14", Myself)								// * Tuigan Bow +1
+			HasItemEquiped("SW1H57", Myself)							// * Throwing Dagger
+			HasItemEquiped("DAGG05", Myself)							// * Throwing Dagger
+THEN
+	RESPONSE #100
+		SetGlobal("dai_MissileToggle","LOCALS",1)
+	 	SetGlobal("dai_AmberHasRanged","LOCALS",1) //Specials flag
+   	Continue()												// and Continue to target routine
+END
+
+IF
+	Global("dai_MissileToggle","LOCALS",0)
+  Global("ys_WeaponChange","LOCALS",0)
+	OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+		ActionListEmpty()											// if we're doing nothing
+		GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+	!Range(LastSeenBy(),6)										// range is >4 steps away, therefore ranged
+	!InParty(LastSeenBy())										// and they're not in our party (double-check)
+	!CombatCounter(0)											// and combat is *not* over
+			OR(10)														// and we have a RANGED weapon equiped
+			HasItemEquiped("DART05", Myself)							// * Asp's Nest
+			HasItemEquiped("IDART01", Myself)							// * Dart
+			HasItemEquiped("DART01", Myself)							// * Dart
+			HasItemEquiped("DART02", Myself)							// * Dart +1
+			HasItemEquiped("STARDART", Myself)							// * Dart +5
+			HasItemEquiped("DART03", Myself)							// * Dart of Stunning
+			HasItemEquiped("DART04", Myself)							// * Dart of Wounding
+			HasItemEquiped("FIRESEED", Myself)							// * Fire Seed
+			HasItemEquiped("DART06", Myself)							// * Giant Rock
+			HasItemEquiped("MELFMET", Myself)							// * Melf's Minute Meteor
+THEN
+	RESPONSE #100
+		SetGlobal("dai_MissileToggle","LOCALS",1)
+	 	SetGlobal("dai_AmberHasRanged","LOCALS",1) //Specials flag
+   	Continue()												// and Continue to target routine
+END
+
+IF
+	Global("dai_MissileToggle","LOCALS",0)
+  Global("ys_WeaponChange","LOCALS",0)
+	OR(2)														// Xyx's Cast&Attack/GB's self-interrupting Attack
+		ActionListEmpty()											// if we're doing nothing
+		GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")	// or we're doing an interruptible action
+	!Range(LastSeenBy(),6)										// range is >4 steps away, therefore ranged
+	!InParty(LastSeenBy())										// and they're not in our party (double-check)
+	!CombatCounter(0)											// and combat is *not* over
+			OR(11)														// and we have a RANGED weapon equiped
+			HasItemEquiped("MDK2MTOV", Myself)							// * Molotov Cocktail
+			HasItemEquiped("SORB", Myself)								// * Searing Orb
+			HasItemEquiped("HAMM06", Myself)							// * Dwarven Thrower +3
+			HasItemEquiped("SLNG01", Myself)							// * Sling
+			HasItemEquiped("SLNG02", Myself)							// * Sling +1
+			HasItemEquiped("SLNG04", Myself)							// * Sling +2
+			HasItemEquiped("SLNG03", Myself)							// * Sling +3
+			HasItemEquiped("SLNG05", Myself)							// * Sling +3 : 'Arla's Dragonbane'
+			HasItemEquiped("SLNG06", Myself)							// * Sling of Arvoreen +4
+			HasItemEquiped("WASLING", Myself)							// * Sling of Everard +5
+			HasItemEquiped("SLNG07", Myself)							// * Sling of Seeking +2
+THEN
+	RESPONSE #100
+		SetGlobal("dai_MissileToggle","LOCALS",1)
+	 	SetGlobal("dai_AmberHasRanged","LOCALS",1) //Specials flag
+   	Continue()												// and Continue to target routine
+END
+
+// **********************************************************************
+// *           Segment Name: gs_SelectRangedThenMelee.baf
+// **********************************************************************
+// * Notes:  TargetUnreachable seems to happen more often that one might think.  I believe if
+// *         the character cannot reach LastSeenBy(), such as in the case of when they are
+// *         surrounded by other NPCs, then that counts as TargetUnreachable()
+
+// * SELECT RANGED_WEAPON, if you have one in a quickslot
+IF
+	!GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")               // if we're still on our timer, & attacking--no need to add more time
+ 	OR(2)
+  	Global("ys_WeaponChange","LOCALS",1)                             // or the global, ys_WeaponChange, is set to 1
+   	Global("dai_MissileToggle","LOCALS",1)                               // 1=Fire a Missile, we checked clean against them last block
+ 	!Range(LastSeenBy(Myself),4)                                             // range is >4 steps away, therefore ranged
+ 	!InWeaponRange(LastSeenBy(Myself))                                       // and my current wepaon won't reach there
+ 	!InParty(LastSeenBy(Myself))                                             // and they're not in our party (double-check)
+ 	!CombatCounter(0)                                                        // and combat is *not* over
+ THEN
+ 	RESPONSE #100
+   	SetGlobal("gh_MeleeMissileToggle","LOCALS",1)                          // 1=Missile
+  	EquipRanged()                                                          // Equip ranged weapon
+   	SmallWait(3)
+   	Continue()                                                             // and Continue to ranged weapons check block
+END
+
+
+// * SELECT MELEE ATTACK
+IF
+ !GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")               // if we're still on our timer, & attacking--no need to add more time
+ OR(2)
+   Global("ys_WeaponChange","LOCALS",2)       			                      // or the global, ys_WeaponChange, is set to 1
+   Range(LastSeenBy(Myself),4)                                              // range is closer than 4 steps, therefore melee
+ !InParty(LastSeenBy(Myself))                                             // and they're not in our party (double-check)
+ !Class(Myself,MONK)                                                      // and we're not a monk
+THEN
+ RESPONSE #100
+   SetGlobal("gh_MeleeMissileToggle","LOCALS",0)                          // 0=Melee
+   EquipMostDamagingMelee()                                               // equip nasty Weapon
+   SmallWait(3)
+   Continue()                                                             // and Continue() to Attack() routine
+END
+
+IF
+	!GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")               // if we're still on our timer, & attacking--no need to add more time
+ Global("gh_MeleeMissileToggle","LOCALS",1)                               // 1=Fire a Missile, we checked clean against them last block
+ 	Range(LastSeenBy(Myself),20)                                             //& we can still see them, and within dart range (minimum ranged weapon reach)
+ 	!Range(LastSeenBy(Myself),4)                                             // range is >4 steps away, definitely for ranged attack
+ 	OR(2)
+   	Global("ys_WeaponChange","LOCALS",0)                             				// either the global, ys_WeaponChange, is set to 0
+   	!InWeaponRange(LastSeenBy(Myself))                                       //or they're not in range = we have no ranged weapon
+ 	!CombatCounter(0)                                                        // and combat is *not* over
+ THEN
+ RESPONSE #100
+   SetGlobal("gh_MeleeMissileToggle","LOCALS",0)                          // 1=Missile
+   EquipMostDamagingMelee()                                               // Equip melee weapon instead                                                      // "Missile Weapons"
+   SmallWait(3)
+   Continue()                                                             // and Continue to Attack() routine
+END
+
+IF
+	!GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")               // if we're still on our timer, & attacking--no need to add more time
+ 	!Range(LastSeenBy(Myself),20)                                             //we're outside of dart range
+ 	!InWeaponRange(LastSeenBy(Myself))                                        //and our weapon isn't "long" enough
+ 	See(NearestEnemyOf(Myself))                                               //and we can see our nearest opponent
+THEN
+ 	RESPONSE #100
+   	Continue()                                                              //take whatever is in hand, and head to the attack block
+END
+
+// **********************************************************************
+// *           Segment Name: gs_Attack.baf
+// **********************************************************************
+
+// * ATTACK CLAUSE
+
+// * "Force" Reevaluation Clause of Attack()
+// * ----------------------------------------
+// * Thanks to Gebhard Blucher & Jochem for the source and inspiration for these bits :)
+
+// * Simple Interruptable Attack Clause
+IF
+ ActionListEmpty()                                                         // not doing a thing...
+ !GlobalTimerNotExpired("gh_ActionIsInterruptable","LOCALS")               // if we're still on our timer, & attacking--no need to add more time
+ !Allegiance(LastSeenBy(Myself),GOODCUTOFF)                               // and they're not in our party (double-check)
+ Detect([EVILCUTOFF])
+THEN
+ RESPONSE #100
+   SetGlobalTimer("gh_ActionIsInterruptable","LOCALS",6)                  // set a 18-sec timer to indicate action is interruptable
+   AttackOneRound(LastSeenBy(Myself))                                             // Attack()--if time expires, we reevaluate
+END
+
+// * Minimum Catch-All Attack
+// * This is invoked if targetting produced no valid targets, and thus the LastSeenBy() is empty
+// * but Combat is still going. This is usually when there are only targets left that
+// * qualify as "helpless". I'm not so bothered about losing the attacks here, so I continue
+// * to use AttackOneRound()
+
+// * MINIMUM ATTACK
+IF
+ ActionListEmpty()
+ See(NearestEnemyOf(Myself))                                              // but we can still see AN enemy
+ !InParty(LastSeenBy(Myself))                                             // and they're not in our party (double-check)
+ !Allegiance(LastSeenBy(Myself),GOODCUTOFF)                               // and not an Ally, Familiar, Minion or Simulacrum
+THEN
+ RESPONSE #100
+   AttackOneRound(NearestEnemyOf(Myself))                                 // and attack
+END
+

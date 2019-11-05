@@ -1,0 +1,17 @@
+IF
+Global("M#AmberRomanceActive","GLOBAL",2)
+InParty("M#Amber")
+!Dead("M#Amber")
+AttackedBy([ANYONE],DEFAULT)
+OR(6)
+  HPPercentLT(Myself,30)
+  StateCheck(Myself,STATE_HELPLESS)
+  StateCheck(Myself,STATE_STUNNED)
+  StateCheck(Myself,STATE_PANIC)
+  StateCheck(Myself,STATE_SLEEPING)
+  StateCheck(Myself,STATE_FEEBLEMINDED)
+THEN
+	RESPONSE #100
+	Shout(2001)
+	Continue()
+END

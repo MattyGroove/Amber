@@ -1,0 +1,218 @@
+IF
+	AreaCheck("M#AR01")
+	See([PC])
+	Range([PC],20)
+	Global("M#Lorraine","GLOBAL",0)
+THEN
+	RESPONSE #100
+	StartDialogueNoSet([PC])
+END
+
+IF
+	AreaCheck("M#AR01")
+	See([PC])
+	Global("M#Lorraine","GLOBAL",1)
+	GlobalTimerExpired("M#LorraineMad","Locals")
+THEN
+	RESPONSE #100
+	StartDialogueNoSet([PC])
+END
+
+IF
+	AreaCheck("M#AR01")
+	See([PC])
+	Global("M#Lorraine","GLOBAL",2)
+	GlobalTimerExpired("M#LorraineMad","Locals")
+THEN
+	RESPONSE #100
+	StartDialogueNoSet([PC])
+END
+
+IF
+	AreaCheck("M#AR01")
+	Global("M#Lorraine","GLOBAL",3)
+	Global("M#ReviveLorraine","GLOBAL",1)
+	Detect([PC])
+THEN
+	RESPONSE #100
+	PlaySong(0)
+	SetSequence(SEQ_SLEEP)
+	ChangeEnemyAlly(Myself,NEUTRAL)
+	Wait(1)
+	ClearActions(Player1)
+	ClearActions(Player2)
+	ClearActions(Player3)
+	ClearActions(Player4)
+	ClearActions(Player5)
+        ClearActions(Player6)
+	StartDialogueNoSet([PC])
+END
+
+IF
+	AreaCheck("M#AR01")
+	OR(7)
+	  SpellCastOnMe([PC],CLERIC_CURE_LIGHT_WOUNDS)
+	  SpellCastOnMe([PC],CLERIC_CURE_MEDIUM_WOUNDS)
+	  SpellCastOnMe([PC],CLERIC_CURE_SERIOUS_WOUNDS)
+	  SpellCastOnMe([PC],CLERIC_CURE_CRITICAL_WOUNDS)
+	  SpellCastOnMe([PC],CLERIC_MASS_CURE)
+	  SpellCastOnMe([PC],CLERIC_HEAL)
+	  SpellCastOnMe([PC],PALADIN_LAY_ON_HANDS)
+	Global("M#Lorraine","GLOBAL",5)
+	Global("M#LorraineHealed","Locals",0)
+THEN
+	RESPONSE #100
+	AddexperienceParty(5000)
+	SetGlobal("M#LorraineHealed","Locals",1)
+	StartDialogNoSet([PC])
+END
+
+IF
+	AreaCheck("M#AR01")
+	Global("M#Lorraine","GLOBAL",5)
+	Global("M#LorraineHealed","Locals",0)
+	Global("M#LorraineWaited","Locals",0)
+THEN
+	RESPONSE #100
+	Wait(10)
+	SetGlobal("M#LorraineWaited","Locals",1)
+END
+
+IF
+	AreaCheck("M#AR01")
+	Global("M#Lorraine","GLOBAL",5)
+	Global("M#LorraineHealed","Locals",0)
+	Global("M#LorraineWaited","Locals",1)
+THEN
+	RESPONSE #100
+	EscapeAreaMove("m#ar04",530,610,10)
+END
+
+IF
+	AreaCheck("M#AR01")
+	Global("M#Lorraine","GLOBAL",5)
+	Global("M#LorraineHealed","Locals",2)
+THEN
+	RESPONSE #100
+	EscapeAreaMove("m#ar04",530,610,10)
+END
+
+IF
+	AreaCheck("M#AR04")
+	Global("M#Lorraine","GLOBAL",5)	
+THEN
+	RESPONSE #100
+	Face(10)
+	ApplySpell(Myself,CLERIC_HEAL)
+	SetGlobal("M#Lorraine","GLOBAL",6)
+	DestroyItem("minHP20")
+END
+
+IF
+	Die()
+	OR(4)
+	  AreaCheck("M#AR01")
+	  AreaCheck("M#AR02")
+	  AreaCheck("M#AR03")
+	  AreaCheck("M#AR04")
+THEN
+	RESPONSE #100
+	AddJournalEntry(@51,QUEST)
+	SetGlobal("M#KilledLorraine","GLOBAL",1)
+	Continue()
+END
+
+IF
+	Global("M#Lorraine","GLOBAL",6)
+	AreaCheck("M#AR04")
+	See([PC])
+	Range([PC],12)
+THEN
+	RESPONSE #100
+	StartDialogueNoSet([PC])
+END
+
+IF
+	Die()
+	OR(6)
+	  AttackedBy(Player1,DEFAULT)
+	  AttackedBy(Player2,DEFAULT)
+	  AttackedBy(Player3,DEFAULT)
+	  AttackedBy(Player4,DEFAULT)
+	  AttackedBy(Player5,DEFAULT)
+	  AttackedBy(Player6,DEFAULT)
+THEN
+	RESPONSE #100
+	SetGlobal("M#KilledLorraine","GLOBAL",1)
+	Continue()
+END
+
+IF
+	Die()
+THEN
+	RESPONSE #100
+        DestroyItem("m#mgiftl")
+        CreateItem("m#mgift",0,2,0)
+	Continue()
+END
+
+IF
+	AreaCheck("m#ar06")
+	!Dead("m#ymmyrt")
+	!HasItem("m#lsgem",Myself)
+THEN
+	RESPONSE #100
+	CreateItem("m#lsgem",1,0,0)
+END
+
+IF
+	AreaCheck("m#ar06")
+	!Dead("m#ymmyrt")
+	!See("m#ymmyrt")
+THEN
+	RESPONSE #100
+	MoveToObject("m#ymmyrt")
+END
+
+IF
+	AreaCheck("m#ar06")
+	Dead("m#ymmyrt")
+	CombatCounterLT(1)
+	Global("M#LorraineSeeYmmyrtDead","Locals",0)
+	See([PC])
+	Range([PC],12)
+THEN
+	RESPONSE #100
+	SetGlobal("M#LorraineSeeYmmyrtDead","Locals",1)
+END
+
+IF
+	Global("M#LorraineSeeYmmyrtDead","Locals",1)
+THEN
+	RESPONSE #100
+	PlaySong(0)
+	StartDialogueNoSet([PC])
+END
+
+IF
+	AreaCheck("m#ar06")
+	Dead("m#ymmyrt")
+	CombatCounterLT(1)
+	HasItem("m#lsgem",Myself)
+	Global("M#LorraineSeeYmmyrtDead","Locals",2)
+THEN
+	RESPONSE #100
+	MoveToPointNoInterrupt([730.695])
+	DestroyItem("m#lsgem")
+	SetGlobal("M#GreenGem","M#AR06",1)
+END
+
+IF
+	GlobalLT("M#Lorraine","GLOBAL",9)
+	Global("M#LorSonGone","M#AR06",1)
+	AreaCheck("m#ar06")
+THEN
+	RESPONSE #100
+	Wait(8)
+	Dialog(Player1)
+END

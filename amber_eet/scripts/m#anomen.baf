@@ -1,0 +1,82 @@
+IF
+	Global("M#AmberKidnap","GLOBAL",4)
+	CombatCounter(0)
+        !StateCheck(Player1,CD_STATE_NOTVALID) 
+	See(Player1)
+	Global("M#AnomenKidnapResponse","GLOBAL",1)
+THEN
+	RESPONSE #100
+	Dialog(Player1)	
+END
+
+IF
+	Global("M#AskAboutAnomen","GLOBAL",0)
+	Global("LoveTalk","Locals",7)
+	!Global("AnomenRomanceActive","GLOBAL",3)
+	InParty("M#Amber")
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAnomen","GLOBAL",1)
+END
+
+IF
+	GlobalLT("M#AskAboutAnomen","GLOBAL",2)
+	Global("LoveTalk","Locals",13)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAnomen","GLOBAL",2)
+END
+
+IF
+	GlobalLT("M#AskAboutAnomen","GLOBAL",3)
+	Global("LoveTalk","Locals",13)
+	!Global("AnomenRomanceActive","GLOBAL",3)
+	InParty("M#Amber")
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAnomen","GLOBAL",3)
+END
+
+IF
+	GlobalLT("M#AskAboutAnomen","GLOBAL",4)
+	Global("LoveTalk","Locals",15)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAnomen","GLOBAL",4)
+END
+
+IF
+	GlobalLT("M#AskAboutAnomen","GLOBAL",5)
+	Global("LoveTalk","Locals",23)
+	!Global("AnomenRomanceActive","GLOBAL",3)
+	InParty("M#Amber")
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAnomen","GLOBAL",5)
+END
+
+IF
+	GlobalLT("M#AskAboutAnomen","GLOBAL",6)
+	Global("LoveTalk","Locals",29)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAnomen","GLOBAL",6)
+END
+
+IF
+	GlobalLT("M#AskAboutAnomen","GLOBAL",7)
+	Global("LoveTalk","Locals",33)
+	!Global("AnomenRomanceActive","GLOBAL",3)
+	InParty("M#Amber")
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAnomen","GLOBAL",7)
+END
+
+IF
+	GlobalLT("M#AskAboutAnomen","GLOBAL",8)
+	Global("LoveTalk","Locals",37)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AskAboutAnomen","GLOBAL",8)
+END

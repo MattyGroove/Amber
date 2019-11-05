@@ -1,0 +1,10 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+	DisplayStringHead(Myself,@46)
+	MoveToPoint([615.775])
+	CreateVisualEffectObject("spdusty2",Myself)
+	CreateVisualEffectObject("spfdeath",Myself)
+	DestroySelf()
+END

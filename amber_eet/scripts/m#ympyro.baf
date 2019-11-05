@@ -1,0 +1,11 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+	DisplayStringHead(Myself,@45)
+	MoveToPoint([830.715])
+	CreateVisualEffectObject("spfirsdi",Myself)
+	CreateVisualEffectObject("spflast2",Myself)
+	ReallyForceSpellRES("SPWI523",Myself)
+	DestroySelf()
+END

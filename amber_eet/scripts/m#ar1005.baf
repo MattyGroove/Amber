@@ -1,0 +1,178 @@
+IF
+	Global("M#PrisonKDeact","AR1005",0)
+	!Dead("prisonk1")	
+	GlobalGT("M#AmberRescue","GLOBAL",0)
+	GlobalLT("M#AmberRescue","GLOBAL",7)
+THEN
+	RESPONSE #100
+	Deactivate("prisonk1")
+	SetGlobal("M#PrisonKDeact","AR1005",1)		
+END
+
+IF
+	Global("M#AmberRescue","GLOBAL",1)
+	Global("M#MaxTGSpawn","AR1005",0)
+THEN
+	RESPONSE #100
+	CreateCreature("m#maxtg",[907.486],0)
+	SetGlobal("M#MaxTGSpawn","AR1005",1)
+END
+
+IF
+	Global("M#AmberRescue","GLOBAL",1)
+	Global("M#AmberSpawn","AR1005",0)
+	!Dead("m#amber")
+	XPLT(Player1,300000)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AmberSpawn","AR1005",1)
+	SetGlobal("M#AmberLvl","GLOBAL",10)
+	CreateCreature("m#ambr10",[775.415],13)	
+END
+
+IF
+	Global("M#AmberRescue","GLOBAL",1)
+	Global("M#AmberSpawn","AR1005",0)
+	!Dead("m#amber")
+	XPGT(Player1,299999)
+	XPLT(Player1,800000)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AmberSpawn","AR1005",1)
+	SetGlobal("M#AmberLvl","GLOBAL",12)
+	CreateCreature("m#ambr12",[775.415],13)	
+END
+
+IF
+	Global("M#AmberRescue","GLOBAL",1)
+	Global("M#AmberSpawn","AR1005",0)
+	!Dead("m#amber")
+	XPGT(Player1,799999)
+	XPLT(Player1,1000000)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AmberSpawn","AR1005",1)
+	SetGlobal("M#AmberLvl","GLOBAL",14)
+	CreateCreature("m#ambr14",[775.415],13)	
+END
+
+IF
+	Global("M#AmberRescue","GLOBAL",1)
+	Global("M#AmberSpawn","AR1005",0)
+	!Dead("m#amber")
+	XPGT(Player1,999999)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AmberSpawn","AR1005",1)
+	SetGlobal("M#AmberLvl","GLOBAL",15)
+	CreateCreature("m#ambr15",[775.415],13)	
+END
+
+IF
+	OR(4)
+	  Global("M#AmberRescue","GLOBAL",1)
+	  Global("M#AmberRescue","GLOBAL",2)
+	  Global("M#AmberRescue","GLOBAL",3)
+  	  Global("M#AmberRescue","GLOBAL",4)
+	!Global("M#CellDoorL","GLOBAL",1)
+THEN
+	RESPONSE #100
+	CloseDoor("DOOR06")
+	Lock("DOOR06")
+	SetGlobal("M#CellDoorL","GLOBAL",1)
+END
+
+IF
+	Global("M#AmberRescue","GLOBAL",6)
+	Global("M#CellDoorL","GLOBAL",1)
+THEN
+	RESPONSE #100
+	Unlock("DOOR06")
+	OpenDoor("DOOR06")
+	SetGlobal("M#CellDoorL","GLOBAL",0)
+	ActionOverride("M#Amber",SetGlobal("M#Amberlike","Locals",100))
+END
+
+IF
+	Global("M#PrisonKDeact","AR1005",1)
+	!Dead("prisonk1")
+	OR(2)
+	  Global("M#AmberRescue","GLOBAL",0)
+	  Global("M#AmberRescue","GLOBAL",7)
+THEN
+	RESPONSE #100
+	Activate("prisonk1")
+	SetGlobal("M#PrisonKDeact","AR1005",2)
+	ActionOverride("m#maxtg",DestroySelf())
+	SetGlobal("M#MaxTGSpawn","AR1005",2)
+END
+
+IF
+	Allegiance("M#maxtg",Enemy)
+	Global("M#PrisonGSpawn","AR1005",0)
+THEN
+	RESPONSE #100
+	CreateCreature("m#prisg1",[708.630],10)
+	ActionOverride("m#prisg1",Enemy())      	
+	CreateCreature("m#prisg1",[750.647],10)
+	ActionOverride("m#prisg1",Enemy())
+	CreateCreature("m#prisg1",[931.665],5)
+	ActionOverride("m#prisg1",Enemy())
+	CreateCreature("m#prisg1",[919.702],6)
+	ActionOverride("m#prisg1",Enemy())
+	SetGlobal("M#PrisonGSpawn","AR1005",1)
+END
+
+IF
+	Dead("m#maxtg")
+	Global("M#BundleRoom","AR1005",0)
+THEN
+	RESPONSE #100
+	ReputationInc(-3)
+	CreateCreature("m#prisg1",[1254.283],6)
+	ActionOverride("m#prisg1",Enemy())
+	CreateCreature("m#prisg2",[1227.303],6)
+	ActionOverride("m#prisg2",CreateItem("m#bundle",1,0,0))
+	ActionOverride("m#prisg2",Enemy())
+	SetGlobal("M#BundleRoom","AR1005",1)
+END
+
+IF
+	Global("M#JillBracelet","GLOBAL",3)
+	Global("M#PrisonKDeact","AR1005",2)
+	!Dead("prisonk1")
+THEN
+	RESPONSE #100
+	Deactivate("prisonk1")
+	SetGlobal("M#PrisonKDeact","AR1005",3)	
+END
+
+IF
+	Global("M#JillBracelet","GLOBAL",3)
+	Global("M#EdTGSpawn","AR1005",0)
+	!Dead("M#edtg")
+THEN
+	RESPONSE #100
+	CreateCreature("m#edtg",[907.486],0)
+	SetGlobal("M#EdTGSpawn","AR1005",1)
+END
+
+IF
+	GlobalGT("M#JillBracelet","GLOBAL",5)
+	Global("M#PrisonKDeact","AR1005",3)
+	!Dead("prisonk1")
+THEN
+	RESPONSE #100
+	Activate("prisonk1")
+	SetGlobal("M#PrisonKDeact","AR1005",4)	
+END
+
+IF
+	GlobalGT("M#JillBracelet","GLOBAL",5)
+	Global("M#EdTGSpawn","AR1005",1)
+	!Dead("M#edtg")
+THEN
+	RESPONSE #100
+	ActionOverride("m#edtg",DestroySelf())
+	SetGlobal("M#EdTGSpawn","AR1005",2)
+END

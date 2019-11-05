@@ -1,0 +1,17 @@
+IF
+	Global("M#BoyGirl","GLOBAL",1)
+	!TimeOfDay(Day)
+THEN
+	RESPONSE #100
+		EscapeAreaDestroy(30)
+		SetGlobal("M#BoyGirl","GLOBAL",0)
+END
+
+IF
+	Global("M#BoyGirl","GLOBAL",2)
+THEN
+	RESPONSE #100
+		Wait(4)
+		DisplayStringHead(Myself,@2)
+		EscapeAreaDestroy(30)
+END

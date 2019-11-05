@@ -1,0 +1,171 @@
+IF
+	HpLT("M#Lorraine",25)
+	Global("M#ReviveLorraine","GLOBAL",0)
+	Global("M#LorraineCreated","m#ar01",1)
+	OR(2)
+	  Dead("m#ygspm1")
+	  !InActiveArea("m#ygspm1")
+	OR(2)
+	  Dead("m#ygspm2")
+	  !InActiveArea("m#ygspm2")
+	OR(2)
+	  Dead("m#ygsbm1")
+	  !InActiveArea("m#ygsbm1")
+	OR(2)
+	  Dead("m#ygsbm2")
+	  !InActiveArea("m#ygsbm2")
+	OR(2)
+	  Dead("m#yclbm1")
+	  !InActiveArea("m#yclbm1")	
+THEN
+ 	RESPONSE #100
+ 	SetGlobal("M#ReviveLorraine","GLOBAL",1)
+   	ApplySpellRes("m#lore10","M#Lorraine")
+END 
+
+IF
+	HpLT("M#Lorraine",25)
+	Global("M#ReviveLorraine","GLOBAL",0)
+	Global("M#LorraineCreated","m#ar01",2)
+	OR(2)
+	  Dead("m#ygspm1")
+	  !InActiveArea("m#ygspm1")
+	OR(2)
+	  Dead("m#ygspm2")
+	  !InActiveArea("m#ygspm2")
+	OR(2)
+	  Dead("m#ygsbm1")
+	  !InActiveArea("m#ygsbm1")
+	OR(2)
+	  Dead("m#ygsbm2")
+	  !InActiveArea("m#ygsbm2")
+	OR(2)
+	  Dead("m#yclbm1")
+	  !InActiveArea("m#yclbm1")
+THEN
+ 	RESPONSE #100
+ 	SetGlobal("M#ReviveLorraine","GLOBAL",1)
+   	ApplySpellRes("m#lore13","M#Lorraine")
+END 
+
+IF
+	HpLT("M#Lorraine",25)
+	Global("M#ReviveLorraine","GLOBAL",0)
+	Global("M#LorraineCreated","m#ar01",3)
+	OR(2)
+	  Dead("m#ygspm1")
+	  !InActiveArea("m#ygspm1")
+	OR(2)
+	  Dead("m#ygspm2")
+	  !InActiveArea("m#ygspm2")
+	OR(2)
+	  Dead("m#ygsbm1")
+	  !InActiveArea("m#ygsbm1")
+	OR(2)
+	  Dead("m#ygsbm2")
+	  !InActiveArea("m#ygsbm2")
+	OR(2)
+	  Dead("m#yclbm1")
+	  !InActiveArea("m#yclbm1")
+THEN
+ 	RESPONSE #100
+ 	SetGlobal("M#ReviveLorraine","GLOBAL",1)
+   	ApplySpellRes("m#lore17","M#Lorraine")
+END 
+
+IF
+	Global("M#AmberKidnap","GLOBAL",5)
+THEN
+	RESPONSE #100
+	SetGlobal("M#AmberKidnap","GLOBAL",6)
+	ActionOverride("m#yclbm1",MakeGlobal())
+	ActionOverride("m#ygspm1",MakeGlobal())
+	ActionOverride("m#ygspm2",MakeGlobal())
+	ActionOverride("m#ygspm3",MakeGlobal())
+	ActionOverride("m#ygspm4",MakeGlobal())
+	ActionOverride("m#ygsbm1",MakeGlobal())
+	ActionOverride("m#ygsbm2",MakeGlobal())
+END
+
+IF
+	Global("M#Gate01Open","M#AR01",0)
+THEN
+	RESPONSE #100
+	TriggerActivation("M#Gate01",FALSE)
+	SetGlobal("M#Gate01Open","M#AR01",1)
+END
+
+IF
+	Global("M#LorraineCreated","m#ar01",0)
+	XPLT(Player1,330001)
+THEN
+	RESPONSE #100
+	CreateCreature("m#lorr10",[559.412],11)
+	SetGlobal("M#LorraineCreated","m#ar01",1)
+	ActionOverride("m#lorraine",MakeGlobal())
+	ActionOverride("m#lorraine",ReallyForceSpell(Myself,CLERIC_BLESS))
+	ActionOverride("m#lorraine",ReallyForceSpell(Myself,CLERIC_REMOVE_FEAR))
+	ActionOverride("m#lorraine",ReallyForceSpell(Myself,CLERIC_PROTECT_FROM_EVIL))
+END
+
+IF
+	Global("M#LorraineCreated","m#ar01",0)
+	XPLT(Player1,900001)
+	XPGT(Player1,330000)
+THEN
+	RESPONSE #100
+	CreateCreature("m#lorr13",[559.412],11)
+	SetGlobal("M#LorraineCreated","m#ar01",2)
+	ActionOverride("m#lorraine",MakeGlobal())
+	ActionOverride("m#lorraine",ReallyForceSpell(Myself,CLERIC_BLESS))
+	ActionOverride("m#lorraine",ReallyForceSpell(Myself,CLERIC_REMOVE_FEAR))
+	ActionOverride("m#lorraine",ReallyForceSpell(Myself,CLERIC_PROTECT_FROM_EVIL))
+END
+
+IF
+	Global("M#LorraineCreated","m#ar01",0)
+	XPGT(Player1,900000)
+THEN
+	RESPONSE #100
+	CreateCreature("m#lorr17",[559.412],11)
+	SetGlobal("M#LorraineCreated","m#ar01",3)
+	ActionOverride("m#lorraine",MakeGlobal())
+	ActionOverride("m#lorraine",ReallyForceSpell(Myself,CLERIC_BLESS))
+	ActionOverride("m#lorraine",ReallyForceSpell(Myself,CLERIC_REMOVE_FEAR))
+	ActionOverride("m#lorraine",ReallyForceSpell(Myself,CLERIC_PROTECT_FROM_EVIL))
+END
+
+IF
+	Allegiance("M#Lorraine",ENEMY)
+	Global("M#Gate01Open","M#AR01",1)
+THEN
+	RESPONSE #100
+	TriggerActivation("M#Gate01",TRUE)
+	SetGlobal("M#Gate01Open","M#AR01",2)
+END
+
+IF
+	GlobalLT("M#AmberKidnap","GLOBAL",7)
+	Global("M#Climb02Hidden","M#AR01",0)
+THEN
+	RESPONSE #100
+	TriggerActivation("m#climb02",FALSE)
+	SetGlobal("M#Climb02Hidden","M#AR01",1)
+END
+
+IF
+	GlobalGT("M#AmberKidnap","GLOBAL",6)
+	Global("M#Climb02Hidden","M#AR01",1)
+THEN
+	RESPONSE #100
+	TriggerActivation("m#climb02",TRUE)
+	SetGlobal("M#Climb02Hidden","M#AR01",0)
+END
+
+IF
+	Global("M#Climb","M#AR01",1)
+	GlobalTimerExpired("M#ClimbTimer","M#AR01")
+THEN
+	RESPONSE #100
+	SetGlobal("M#Climb","M#AR01",0)
+END

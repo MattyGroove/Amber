@@ -1,0 +1,10 @@
+IF
+	Global("M#AmberKidnap","GLOBAL",4)
+	CombatCounter(0)
+	!StateCheck(Player1,CD_STATE_NOTVALID)
+	See(Player1)
+	Global("M#MazzyKidnapResponse","GLOBAL",1)
+THEN
+	RESPONSE #100
+	Dialog(Player1)	
+END 

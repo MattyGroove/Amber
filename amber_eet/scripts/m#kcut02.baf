@@ -1,0 +1,16 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("remage02")
+		SetGlobal("M#AmberKidnap","GLOBAL",4)
+		ActionOverride("M#Amber",LeaveParty())
+		ActionOverride("M#Amber",SetDialog("m#amberp"))
+		ActionOverride("M#Amber",MoveBetweenAreasEffect("m#ar05","SPDIMNDR",[805.615],2))
+		ActionOverride("refigh01",Enemy())
+		ActionOverride("recler01",Enemy())
+		ActionOverride("rethie01",Enemy())
+		ActionOverride("rethie03",Enemy())
+		MoveBetweenAreasEffect("AR0405","SPDIMNDR",[1914.1253],14)
+		
+END

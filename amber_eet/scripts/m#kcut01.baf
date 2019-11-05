@@ -1,0 +1,15 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("remage02")
+		MoveViewObject("M#Amber",FAST)
+		ActionOverride("refigh01",Formation("M#Amber",[-6.-6]))
+		ActionOverride("recler01",Formation("M#Amber",[6.-6]))
+		ActionOverride("rethie01",Formation("M#Amber",[-6.6]))
+		ActionOverride("rethie03",Formation("M#Amber",[6.6]))
+		MoveToObjectNoInterrupt("M#Amber")
+		ActionOverride("M#Amber",FaceObject("remage02"))
+		SetGlobal("M#AmberKidnap","GLOBAL",3)
+		StartDialogNoSet("M#Amber")
+END

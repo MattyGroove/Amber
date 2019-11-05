@@ -1,0 +1,31 @@
+IF
+	Global("M#RunAway","Locals",1)
+THEN
+	RESPONSE #100
+	EscapeArea()
+END
+
+IF
+	Range([PC],5)
+	See([PC])
+	Allegiance(Myself,NEUTRAL)
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+		StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See([PC])
+THEN
+	RESPONSE #100
+		RunAwayFrom(LastSeenBy(Myself),180)
+END
+
+IF
+	Die()
+THEN
+	RESPONSE #100
+	ReputationInc(-1)
+END

@@ -1,0 +1,14 @@
+IF
+	Clicked([PC])
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,@27)
+		Wait(2)
+		ActionOverride(Player1,LeaveAreaLUA("ar0400","",[1692.271],0))
+		ActionOverride(Player2,LeaveAreaLUA("ar0400","",[1650.226],0))
+		ActionOverride(Player3,LeaveAreaLUA("ar0400","",[1729.231],0))
+		ActionOverride(Player4,LeaveAreaLUA("ar0400","",[1621.182],0))
+		ActionOverride(Player5,LeaveAreaLUA("ar0400","",[1692.181],0))
+		ActionOverride(Player6,LeaveAreaLUA("ar0400","",[1750.180],0))
+		DisplayStringHead(Myself,@28)
+END

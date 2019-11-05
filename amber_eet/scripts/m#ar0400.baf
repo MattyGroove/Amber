@@ -1,0 +1,25 @@
+IF
+	Global("M#BoyGirl","Global",0)
+	TimeGT(DAWN_START)
+	TimeLT(DUSK_START)
+	!Dead("M#Girl1")
+	!Dead("M#Boy1")
+	OR(2)
+	  Dead("Viconia")
+	  NumDeadGT("Vicg",2)
+THEN
+	RESPONSE #100
+	SetGlobal("M#BoyGirl","Global",1)
+	CreateCreature("M#Girl1",[2361.2467],10)
+	CreateCreature("M#Boy1",[2425.2427],2)
+END
+
+IF
+	Global("M#AmberKidnap","GLOBAL",4)
+	Global("M#Door0405","AR0400",0)
+THEN
+	RESPONSE #100
+	CloseDoor("DOOR0405")
+	Lock("DOOR0405")
+	SetGlobal("M#Door0405","AR0400",1)
+END

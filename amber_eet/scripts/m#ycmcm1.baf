@@ -1,0 +1,7 @@
+IF
+	See([PC])
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+	StartDialogNoSet(LastSeenBy(Myself))
+END

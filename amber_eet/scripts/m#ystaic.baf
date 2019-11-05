@@ -1,0 +1,38 @@
+IF
+	Clicked([ANYONE])
+	Range(LastTrigger,15)
+	OR(2)
+	  PartyHasItem("m#yward")
+	  PartyHasItem("m#yward")
+THEN
+	RESPONSE #100
+		DisplayString(Myself,@34)
+		TriggerActivation("M#Stairs01",FALSE)
+		TriggerActivation("M#Stairs01b",TRUE)
+		TriggerActivation("M#Stairs01c",FALSE)
+END
+
+IF
+	Clicked([ANYONE])
+	!PartyHasItem("m#yward")
+	!PartyHasItem("m#ywardl")
+	Range(LastTrigger,15)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,@36)
+		ApplySpellRES("jwfall",LastTrigger())
+		Recoil()
+		TriggerActivation("M#Stairs01",TRUE)
+		TriggerActivation("M#Stairs01b",FALSE)
+		TriggerActivation("M#Stairs01c",FALSE)
+		SetGlobal("M#YmmyrtStairs","M#AR02",0)
+END
+
+IF
+	Clicked([ANYONE])
+	!Range(LastTrigger,15)
+
+THEN
+	RESPONSE #100
+		DisplayString(Myself,@37)
+END

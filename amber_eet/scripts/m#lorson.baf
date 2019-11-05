@@ -1,0 +1,36 @@
+IF
+	!Dead("m#lorraine")
+	InActiveArea("m#lorraine")
+	Global("M#LorSonGone","M#AR06",0)
+THEN
+	RESPONSE #100
+	MoveToObject("m#lorraine")
+	Dialog("m#lorraine")
+END
+
+IF
+	!Dead("m#lorraine")
+	!InActiveArea("m#lorraine")
+	Global("M#LorSonGone","M#AR06",0)
+THEN
+	RESPONSE #100
+	StartDialogNoSet(Player1)
+END
+
+IF
+	Dead("m#lorraine")
+	Global("M#LorSonGone","M#AR06",0)
+THEN
+	RESPONSE #100
+	MoveToObject(Player1)
+	Dialog(Player1)
+END
+
+IF
+	Global("M#LorSonGone","M#AR06",1)
+THEN
+	RESPONSE #100
+	ApplySpellRES("m#heaven",Myself)
+	Wait(1)
+        DestroySelf()
+END

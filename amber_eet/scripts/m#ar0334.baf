@@ -1,0 +1,11 @@
+IF
+	Global("M#ForgeItem","GLOBAL",1)
+	Global("ForgeStuff","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("ForgeStuff","GLOBAL",0)
+		TakePartyItem("sw1h40") // Blade of Roses
+		TakePartyItem("m#jbrace") // Jill's Bracelet
+		GiveItemCreate("m#brose2",Player1,0,0,0) // Blade of Roses
+		ActionOverride("wsmith01",StartDialogueNoSet([PC]))
+END

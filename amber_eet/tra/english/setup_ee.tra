@@ -1,0 +1,246 @@
+@205  = ~This is a small wooden pipe, carved to resemble the head of a demon. When used, this pipe billows forth great gouts of deadly fumes from the planes of the Abyss.
+
+STATISTICS:
+
+Effect: Invokes "Cloud Kill" twice per day
+
+~
+@207  = ~Apprentice shadow armor is a studded leather armor created for the use of the proteges and apprentices of the Shadowmasters of Amn, the highest order within the Shadow Thief hierarchy.  It is a +1 studded leather armour that helps its wearer meld into the shadows.
+
+STATISTICS:
+
+Armor Class: 6
+Special: +5% Hide in Shadows
+Weight: 12
+Requires: 6 Strength
+
+~
+@221  = ~Blade of Roses, Long Sword +4
+This blade possesses an unearthly splendour, and it is likely that Sune, the goddess of beauty and passion, had a hand in its creation.  The effect it has on the wielder is immediate, and more than once in its history has this sword has been the secret behind a lacklustre soldier's sudden elevation at court.
+When you first came upon this blade, it was missing an enchanted ruby from its pommel. You might not ever have noticed this defect, but the dwarven smith Cromwell pointed it out and repaired the blade. In addition to the sword’s basic enchantment, the ruby - although not especially large - perfects the blade's balance, making it even more effective a weapon. How the pommel gem found its way to Amber's bracelet, formerly owned by Jill the bard, remains a mystery. 
+
+STATISTICS:
+
+Equipped Abilities:
+ Charisma: +2 bonus
+ Protection from fear
+ Luck
+THAC0: +4 bonus
+Damage: 2D4 + 4
+Damage type: slashing
+Weight: 3
+Speed Factor: 2
+Proficiency Type: Long sword
+Type: 1-handed
+Requires: 6 Strength
+~
+@227  = ~Buckler +2, Thorard's Saucer
+A buckler is usually a small shield of wood or metal that fastens to the forearm.  Because of its size, it is light and can be worn with very little restriction to movement. This buckler has been crafted by a skilful dwarven smith and is constructed of metal and hardened leather. An inscription wrought in dwarven runes inlaid in copper circles the metal hub, its bright lettering proudly  proclaiming: 'For the Glory of Moradin made by the hand of Thorard'. The buckler itself is of good, solid quality, but its real value lies in the protective enchantments that make it more resistant to blows.        
+
+STATISTICS:
+
+Armor Class Bonus: 3
+Special: No Missile/Piercing Attack Protection
+Weight: 2
+Requires: 4 Strength
+
+~
+@230  = ~One of man's earliest weapons, dating back to the most primitive of times, the first spears were simply wooden poles or sticks sharpened at one end.  When man mastered metals, spearheads were made from iron and steel.  Having reached this end, weaponers began experimenting with different types of spear heads, thus leading to the development of certain polearm types.  Another line of tinkering led to the integration of magic with spears.  Tribal shaman would enchant the spears so that they would hit more often and do greater damage to their wielder's opponents.
+This particular spear is consists of an ashen shaft and a sharpened head that bears the look of dwarven craftsmanship. It is interesting to note that although the head, and likely the shaft as well, seem to be of dwarven manufacture, the enchanted runes on both the shaft and the head are carved in elvish letters. A work such as this, the product of the combined efforts of two peoples, is a very uncommon thing. This simple, yet effective weapon is a rare testament to the potential held by such an alliance.
+
+STATISTICS:
+  
+THAC0: +2 bonus
+Damage: 1D6 + 2
+Damage type: piercing
+Weight: 3
+Speed Factor: 4
+Proficiency Type: Spear 
+Type: 2-handed
+Requires: 5 Strength
+~
+@231  = ~One of man's earliest weapons, dating back to the most primitive of times, the first spears were simply wooden poles or sticks sharpened at one end.  When man mastered metals, spearheads were made from iron and steel.  Having reached this end, weaponers began experimenting with different types of spear heads, thus leading to the development of certain polearm types.
+
+STATISTICS:
+
+Damage: 1D6
+Damage type: piercing
+Weight: 5
+Speed Factor: 6
+Proficiency Type: Spear 
+Type: 2-handed
+Requires: 5 Strength
+~
+@237  = ~Most clubs are stout, hardwood sticks, narrow at the grip and wider at the end.  This simple weapon has been used since mankind first began using tools.  Anyone can find a good stout piece of wood and swing it; hence the club's widespread use. This particular club has been magically enhanced.
+
+STATISTICS:
+
+THAC0: +2 bonus
+Damage: 1D6 +2
+Damage type: crushing
+Weight: 1
+Speed Factor: 1
+Proficiency Type: Club
+Type: 1-handed
+Requires: 5 Strength
+~
+@269  = ~Mielikki's Gift, Scimitar +3
+
+Mielikki is the goddess of forests, all forest creatures, dryads and the autumn season. She is also called the Lady of the Forest, and like many other gods and goddesses, she sometimes bestows special gifts to her faithful followers. This elegantly curved blade that shimmers with soft pale green glow is one of those gifts. Masterfully balanced and blessed with both protective and offensive spells, this blade is truly a beauty to look at and wield.  
+
+This scimitar was originally given to the half-elven ranger and cleric Lorraine that you encountered while rescuing Amber from the clutches of the sorcerer Ymmyrt. When Lorraine fell in battle, you stripped this blade from her lifeless corpse.
+  
+STATISTICS:
+
+Equipped Ability: Armour of Faith twice per day
+Combat Ability: Entangle target on successful hit
+Damage: 1D8 +3
+THAC0: +3
+Damage type: slashing
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
+Type: 1-handed
+Requires: 6 Strength
+~
+@270  = ~Mielikki's Gift, Scimitar +4
+
+Mielikki is the goddess of forests, all forest creatures, dryads and the autumn season. She is also called the Lady of the Forest, and like many other gods and goddesses, she sometimes bestows special gifts to her faithful followers. This elegantly curved blade that shimmers with soft pale green glow is one of those gifts. Masterfully balanced and blessed with both protective and offensive spells, this blade is truly a beauty to look at and wield.  
+
+This scimitar was originally given to the half-elven ranger and cleric Lorraine that you encountered while rescuing Amber from the clutches of the sorcerer Ymmyrt. When Lorraine fell in battle, you stripped this blade from her lifeless corpse. Since then, your butler and personal weaponsmith Cespenar has improved on the blade’s enchantments, making it even more formidable a weapon.
+  
+STATISTICS:
+
+Equipped Ability: Armour of Faith twice per day
+Combat Ability: Entangle target on successful hit
+Damage: 1D8 +4
+THAC0: +4
+Damage type: slashing
+Weight: 3
+Speed Factor: 3
+Proficiency Type: Scimitar/Wakizashi/Ninja-To
+Type: 1-handed
+Requires: 6 Strength
+~
+@276  = ~This strangely shaped earthenware container is full of pixie dust. The fine, shimmering dust has been carefully harvested from live pixies and magically preserved in this box.
+
+It is common knowledge that the dust of pixies has the ability to turn one invisible when it is sprinkled upon them. There seems to be enough of the dust for several such sprinklings.
+
+STATISTICS:
+
+Special Ability (one use):  All creatures within 10' will become invisible for 12 hours.
+~
+@284  = ~When thrown, this potion will break upon impact and release a cloud of soporific vapour that will induce deep sleep in anyone unfortunate enough to be caught in its area of effect.
+
+STATISTICS:
+
+Effect: Sleep unless victim saves vs. breath weapons
+Range: 40 ft
+Area: 20 ft radius
+Duration: 2 turns
+~
+@302  = ~This magical ring has been created by Ymmyrt to facilitate the handling of the exotic and often rather reluctant creatures used as subjects of his experimentations.
+
+STATISTICS:
+
+Special Abilities: Charm Monster once per day
+~
+@304  = ~This robe of has been specially designed by Ymmyrt and provided with assorted minor enchantments needed in his craft of handling various exotic creatures. Aside from protecting the wearer from various forms of physical damage, it also provides some protection from hostile magic and contains various protective spells. Due to its unusual specialized nature, it can only be worn by wizards not themselves specialized in any particular school of magic.
+
+STATISTICS:
+
+Armor Class Bonus: +1
+Magic Resistance: +5%
+Weight: 4
+Special Abilities: Protection from Evil, Protection from Petrification and Shield once per day
+~
+@310  = ~Stylish bandannas like this are favoured by pirates and rogues everywhere. It is an essential part of their unique charm and appeal. It also provides the necessary flair for escaping truly grievous injuries with aplomb.
+  
+STATISTICS:
+  
+Equipped Ability: +1 Charisma
+Special:  Protects Against Critical Hits
+~
+@311  = ~Stylish bandannas like this are favoured by pirates and rogues everywhere. It is an essential part of their unique charm and appeal. It also provides the necessary flair for escaping truly grievous injuries with aplomb.
+  
+STATISTICS:
+  
+Equipped Ability: +1 Charisma
+Special: Protects Against Critical Hits
+~
+@313  = ~These exquisite gloves are made of the thinnest kidskin suede and enchanted to make the feel of the wearer's touch light and soft as a feather. No one knows the original purpose of these gloves, but members of the underworld soon found that they are an excellent aid in facilitating difficult property transfers.
+
+STATISTICS:
+
+Equipped Ability: +15% Pick Pockets
+~
+@315  = ~Wyvern hides are not easy to work with, but this time the poisonous beast's hide has yielded to Rashryn's superb skill and produced a stylish and highly functional leather robe. Even after its death, something of the wyvern's nature remains in this robe. It may not have the soft rustle of a fine woollen or silken robe, or be of a particularly attractive hue of green, but its wearer will be significantly better protected from both acid and poison. The leather, though worked into an amazing softness, has also been enchanted with protective spells that offer protection from the blows of the enemy.
+
+STATISTICS:
+
+Equipped Abilities:
+Armour Class: +1
+Acid Resistance: +20% bonus
+Poison Resistance: +20% bonus
+
+~
+@317  = ~Wyvern hides are not easy to work with, but this time the poisonous beast's hide has yielded to Rashryn's superb skill and produced a stylish and highly functional leather robe. Even after its death, something of the wyvern's nature remains in this robe. It may not have the soft rustle of a fine woollen or silken robe, or be of a particularly attractive hue of green, but its wearer will be significantly better protected from both acid and poison. The leather, though worked into an amazing softness, has also been enchanted with protective spells that offer protection from the blows of the enemy.
+
+The emeralds sewn to the leather serve to amplify its protective magic, improving its effect considerably. 
+
+STATISTICS:
+
+Equipped Abilities:
+Armour Class: +2
+Acid Resistance: +20% bonus
+Poison Resistance: +20% bonus
+
+~
+@319  = ~In the skilful hands of the tailor Rashryn, the soft fur you found in Ymmyrt's vault has been transformed into an even more luxurious cloak. The elaborate silk lining and fine silver clasp perfectly complement the thick and shiny fur. In addition to feeling extremely pleasant, the cloak also offers a solid protection against the freezing cold.
+
+STATISTICS:
+
+Protection from Cold: +50%
+Charisma: +1
+
+~
+@320  = ~Entropy
+This +2 abyssal greensteel blade is one of Haer'Dalis' favorite weapons.  This shortsword is capable of inflicting an additional three points of poison damage if the target fails a saving throw. This blade may only be used by Haer'Dalis.
+
+STATISTICS:
+
+Special Abilities: 3 points of poison damage if target fails Save Vs. Death
+THAC0: +2 bonus
+Damage: 1D6 + 2
+Damage type: piercing
+Weight: 2
+Speed Factor: 0
+Proficiency Type: Short Sword
+Type: 1-handed
+~
+@321  = ~Chaos Blade
+Chaos is a +2 short-sword usable only by Haer'Dalis. Every time it strikes an opponent, he or she loses 2 points of dexterity (for 30 seconds). Haer'Dalis prefers using Chaos with its partner -- Entropy. When dual-wielding these two blades, Haer'Dalis is a dangerous opponent.
+
+STATISTICS:
+
+Special Abilities: Target loses 2 points of dexterity each hit (duration: 30 seconds)
+THAC0: +2 bonus
+Damage: 1D6 + 2
+Damage type:  piercing
+Weight: 2
+Speed Factor: 0
+Proficiency Type: Short Sword
+Type: 1-handed
+~
+@323  = ~Amber wears three large hoop earrings on her right ear and two on her left. They are made of plain gold with neither ornaments nor gemstones, and resemble those often worn by sailors for good luck. Amber seems reluctant to take them off, calling them her 'emergency gold reserve'. You cannot help wondering how dire things would have to get before she would be willing to give them up.
+
+STATISTICS:
+
+Protection from critical hits
+
+~
+@333 =~Amber left <CHARNAME> right after the events at the Throne of Bhaal. The experience in the Abyss and with its creatures had shown her that she still did not know who she was and which was the life she wanted to live. She went to search for Cadderly, the human she had learned to be her father.
+
+What exactly happened between father and daughter after she reached Spirit Soaring will remain their common secret. Anyway, Amber decided to stay at that place of healing and became part of the community around her father without but without becoming a priest herself.
+
+Her magnificent fighting skills were tested at several times during assaults made on the temple. She became Spirit Soaring's main defender by those events. She and <CHARNAME> never met again.~

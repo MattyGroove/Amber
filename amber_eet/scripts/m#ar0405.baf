@@ -1,0 +1,53 @@
+IF
+	Global("M#HaeganDead","GLOBAL",0)
+	Dead("HAEGAN")
+THEN
+	RESPONSE #100
+	SetGlobal("M#HaeganDead","GLOBAL",1)
+END
+
+IF
+	Global("M#AmberKidnap","GLOBAL",4)
+	Global("M#HaeganDead","GLOBAL",1)
+	Global("M#CorinCreated","AR0405",0)
+THEN
+	RESPONSE #100
+	CreateCreature("m#corin",[2001.1339],6)
+	CreateCreature("slmage2",[1532.1560],8)
+	ChangeEnemyAlly("slmage2",NEUTRAL)
+	CreateCreature("slguard1",[1475.1463],15)
+	CreateCreature("slguard1",[1583.1431],1)
+	ChangeEnemyAlly("slguard1",NEUTRAL)
+	CreateCreature("slguard2",[1801.1209],14)
+	CreateCreature("slguard1",[1570.1272],10)
+	ChangeEnemyAlly("slguard2",NEUTRAL)
+	CreateCreature("slarch1",[1878.1507],6)
+	CreateCreature("slarch1",[1976.1438],6)
+	ChangeEnemyAlly("slarch1",NEUTRAL)
+	CreateCreature("slguard1",[1050.1864],2)
+	CreateCreature("slguard1",[954.1752],2)
+	CreateCreature("slguard2",[1055.850],2)
+	CreateCreature("slguard2",[990.769],2)
+	SetGlobal("M#CorinCreated","AR0405",1)
+END
+
+IF
+	Global("M#AmberKidnap","GLOBAL",4)
+	Global("M#HaeganDead","GLOBAL",0)
+	Global("M#CorinCreated","AR0405",0)
+THEN
+	RESPONSE #100
+	CreateCreature("m#corin",[2001.1339],6)
+	SetGlobal("M#CorinCreated","AR0405",1)
+END
+
+IF
+	Global("M#AmberKidnap","GLOBAL",4)
+	OR(2)
+	  PartyHasItem("m#ymmap")
+	  PartyHasItem("m#ymmlet")
+THEN
+	RESPONSE #100
+	SetGlobal("M#AmberKidnap","GLOBAL",5)
+	AddJournalEntry(@26,QUEST)
+END

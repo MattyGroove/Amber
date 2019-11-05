@@ -1,0 +1,16 @@
+IF
+	Global("M#AmberRescue","GLOBAL",6)
+	Global("M#SetMaxRemoveTimer","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobalTimer("M#RemoveMaxTime","GLOBAL",30)
+	SetGlobal("M#SetMaxRemoveTimer","GLOBAL",1)
+END
+
+IF
+	Global("M#AmberRescue","GLOBAL",6)
+	GlobalTimerExpired("M#RemoveMaxTime","GLOBAL")
+THEN
+	RESPONSE #100
+	SetGlobal("M#AmberRescue","GLOBAL",7)
+END

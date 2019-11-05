@@ -1,0 +1,237 @@
+
+@205  = ~Dies ist eine kleine, hölzerne Pfeife, die so geschnitzt ist, dass sie dem Kopf eines Dämonen ähnelt. Wenn diese Pfeife verwendet wird, stößt sie große Wolken tödlicher Dämpfe aus den Ebenen der Abyss aus.
+
+EIGENSCHAFTEN:
+
+Wirkung: Kann zwei mal am Tag "Todeswolke" hervorrufen
+
+~
+@207  = ~Bei der Rüstung der Schattennovizen handelt es sich um ein beschlagenes Lederwams, das speziell für die Lehrlinge der Schattenmeister von Amn hergestellt wurde. Die Schattenmeister nehmen innerhalb der Hierarchie der Schattendiebe den höchsten Rang ein. Die Schattenrüstung ist ein beschlagenes Lederwams +1, mit dessen Hilfe man mit den Schatten verschmelzen kann.
+
+EIGENSCHAFTEN:
+
+Rüstungsklasse: 6
+Besondere Eigenschaften: Im Schatten verstecken +5%
+Gewicht: 12
+Benötigt: Stärke 6
+~
+@221  = ~Rosenklinge, Langschwert +4
+Diese Klinge verfügt über eine überirdische Schönheit. Es ist ziemlich wahrscheinlich, dass Sune, die Göttin der Schönheit und der Leidenschaft, bei ihrer Entstehung mitgewirkt hat. Sie hat eine unmittelbare Wirkung auf den Träger und in der Geschichte war diese Waffe schon oft insgeheim dafür verantwortlich, dass ein unauffälliger Soldat am Hof irgendeines Adeligen plötzlich durch sein beeindruckendes Auftreten in höfischen Kreisen befördert wurde.
+Als Ihr diese Klinge gefunden habt, fehlte der verzauberte Rubin an ihrem Knauf. Euch wäre dieser Defekt nicht einmal aufgefallen, aber der Zwergenschmied Cromwell bemerkte ihn und reparierte das Schwert. Zusätzlich zur Verzauberung des Schwertes ist die Klinge jetzt durch den Rubin - trotz seiner eher geringen Größe - perfekt ausbalanciert und eine noch effektivere Waffe. Wie der Edelstein auf Ambers Armreif gelangte, der zuvor der Bardin Jill gehörte, bleibt jedoch ein Rätsel. 
+
+EIGENSCHAFTEN:
+
+Besondere Fähigkeiten:
+ Charisma +2
+ Schutz vor Furcht
+ Glück
+ETW0: -4
+Schaden: 2W4+4 (Klingenwaffe)
+Gewicht: 3
+Initiativefaktor: 2
+Waffenfertigkeit: Langschwert
+Waffentyp: Einhändig
+Benötigt: Stärke 6
+~
+@227  = ~Tartsche +2, Thorards Untertasse
+Eine Tartsche ist ein kleiner Schild aus Holz oder Metall, den man am Vorderarm festschnallt. Da er relativ klein und leicht ist, schränkt er die Bewegungsfreiheit kaum ein. Diese Tartsche wurde von einem kunstfertigen Zwergenschmied angefertigt und besteht aus Metall und gehärtetem Leder. Eine aus Zwergenrunen bestehende, aus Kupfer gefertigte Inschrift läuft kreisförmig um die metallene Panzerung in der Mitte der Tartsche. Ihre leuchtenden Buchstaben verkünden stolz: 'Gefertigt von Thorard, zum Ruhme Moradins'. Die Tartsche selbst ist von guter, solider Qualität, aber ihr wahrer Wert liegt in ihren schützenden Verzauberungen, die sie widerstandsfähiger Schlägen gegenüber machen.        
+
+EIGENSCHAFTEN:
+
+-3 auf Rüstungsklasse
+Besondere Eigenschaften: Kein Schutz gegen Fernkampfwaffen und Stichwaffen
+Gewicht: 2
+Benötigt: Stärke 4
+~
+@230  = ~Der Speer war eine der ersten Waffen, die von Menschenhand gefertigt wurden. Die ersten Speere waren nicht viel mehr als Holzstangen, die an einem Ende zugespitzt waren. Als die Menschheit lernte, mit Metall zu arbeiten, wurden die Speerspitzen aus Eisen oder Stahl gefertigt. Dann begannen die Waffenschmiede, mit verschiedenen Arten von Speerspitzen zu experimentieren. Aus den Experimenten heraus entstanden die verschiedenen Arten von Stangenwaffen.  Weitere Experimente führten zur Herstellung magischer Speere. So wurden Speere beispielsweise vom Schamanen eines Stammes verzaubert, damit sie der Stammeskrieger rascher führen konnte und ein Treffer beim Feind mehr Schaden anrichtete.
+Dieser Speer besteht aus einem Schaft aus Eschenholz und einer scharfen Spitze, die nach zwergischer Handwerkskunst aussieht. Bemerkenswert ist weiterhin, dass die magischen Runen, welche sowohl den Schaft als auch die Spitze überziehen, elfische Buchstaben sind, obwohl der Speer höchstwahrscheinlich von Zwergen gefertigt wurde. Eine Arbeit wie diese, welche die Handwerkskunst zweier Völker vereint, ist eine höchst ungewöhnliche Sache. Diese einfache und dennoch äußerst effektive Waffe ist eins der seltenen Zeugnisse für das Potential, das einer derartigen Allianz innewohnt.
+
+EIGENSCHAFTEN:
+  
+ETW0: -2
+Schaden: 1W6+2(Stichwaffe)
+Gewicht: 3
+Initiativefaktor: 4
+Waffenfertigkeit: Speer 
+Waffentyp: Zweihändig
+Benötigt: Stärke 5
+~
+@231  = ~Der Speer war eine der ersten Waffen, die von Menschenhand gefertigt wurden. Die ersten Speere waren nicht viel mehr als Holzstangen, die an einem Ende zugespitzt waren. Als die Menschheit lernte, mit Metall zu arbeiten, wurden die Speerspitzen aus Eisen oder Stahl gefertigt. Dann begannen die Waffenschmiede, mit verschiedenen Arten von Speerspitzen zu experimentieren. Aus den Experimenten heraus entstanden die verschiedenen Arten von Stangenwaffen.
+
+EIGENSCHAFTEN:
+
+Schaden: 1W6(Stichwaffe)
+Gewicht: 5
+Initiativefaktor: 6
+Waffenfertigkeit: Speer 
+Waffentyp: Zweihändig
+Benötigt: Stärke 5
+~
+@237  = ~Die meisten Keulen sind nichts anderes als stämmige Trümmer aus Hartholz, die am Griff schmaler sind als am Ende. Diese einfache Waffe wird verwendet, seit der Mensch Werkzeuge einsetzt. Es ist wahrlich keine Kunst, sich einen Holzprügel zu packen und damit zuzuschlagen. Kein Wunder also, dass die Keule weit verbreitet ist. Die Keule, die Ihr hier in der Hand haltet, wurde jedoch magisch verzaubert.
+
+EIGENSCHAFTEN:
+
+ETW0: -2
+Schaden: 1W6+2(Wuchtwaffe)
+Gewicht: 1
+Initiativefaktor: 1
+Waffenfertigkeit: Keule
+Waffentyp: Einhändig
+Benötigt: Stärke 5
+~
+@269  = ~Mielikkis Geschenk, Krummsäbel +3
+
+Mielikki ist die Göttin der Wälder, aller Waldwesen, der Dryaden und des Herbstes. Sie wird auch die Herrin des Waldes genannt, und wie viele andere Götter gewährt sie ihren treuen Anhänger bisweilen besondere Geschenke. Diese elegant geschwungene Klinge, die in einem matten, blassgrünen Glanz schimmert, ist eins dieser Geschenke. Sie ist perfekt ausbalanciert und sowohl mit schützenden, als auch mit offensiven Zaubern belegt und nicht nur ihr Anblick, sondern auch ihre Kampfkraft sind beeindruckend.  
+
+Ursprünglich war der Krummsäbel ein Geschenk an die halbelfische Waldläuferin Lorraine, der Ihr begegnet seid, während Ihr Amber aus den Fängen des Magiers Ymmyrt gerettet habt. Nachdem Lorraine im Kampf gefallen war, habt Ihr die Klinge bei ihrem leblosen Körper gefunden.
+  
+EIGENSCHAFTEN:
+
+Der Träger kann zweimal täglich Rüstung des Glaubens wirken.
+Kampffähigkeit: Bei einem erfolgreichen Treffer wird das Ziel verwirrt.
+Schaden: 1W8+3(Klingenwaffe)
+ETW0: +3
+Gewicht: 3
+Initiativefaktor: 3
+Waffenfertigkeit: Krummsäbel/Wakizashi/Ninja-To
+Waffentyp: Einhändig
+Benötigt: Stärke 6
+~
+@270  = ~Mielikkis Geschenk, Krummsäbel +4
+
+Mielikki ist die Göttin der Wälder, aller Waldwesen, der Dryaden und des Herbstes. Sie wird auch die Herrin des Waldes genannt, und wie viele andere Götter gewährt sie ihren treuen Anhänger bisweilen besondere Geschenke. Diese elegant geschwungene Klinge, die in einem matten, blassgrünen Glanz schimmert, ist eins dieser Geschenke. Sie ist perfekt ausbalanciert und sowohl mit schützenden, als auch mit offensiven Zaubern belegt, und nicht nur ihr Anblick, sondern auch ihre Kampfkraft sind beeindruckend.  
+
+Ursprünglich war der Krummsäbel ein Geschenk an die halbelfische Waldläuferin Lorraine, der Ihr begegnet seid, während Ihr Amber aus den Fängen des Magiers Ymmyrt gerettet habt. Nachdem Lorraine im Kampf gefallen war, habt Ihr die Klinge bei ihrem leblosen Körper gefunden. Später wurden die auf der Klinge liegenden Verzauberungen durch Euren Diener und persönlichen Waffenschmied Cespenar verstärkt, sodass aus dem Krummsäbel eine noch effektivere Waffe wurde.
+  
+EIGENSCHAFTEN:
+
+Der Träger kann zweimal täglich Rüstung des Glaubens wirken.
+Kampffähigkeit: Bei einem erfolgreichen Treffer wird das Ziel verwirrt.
+Schaden: 1W8+4(Klingenwaffe)
+ETW0: +4
+Gewicht: 3
+Initiativefaktor: 3
+Waffenfertigkeit: Krummsäbel/Wakizashi/Ninja-To
+Waffentyp: Einhändig
+Benötigt: Stärke 6
+~
+@276  = ~Dieser seltsam geformte Tonbehälter ist voller Feenstaub. Das feine, schimmernde Pulver wurde sorgfältig von lebenden Feen gesammelt und auf magische Weise in diesem Kästchen aufbewahrt.
+
+Es ist allgemein bekannt, dass Feenstaub jeden unsichtbar machen kann, der mit ihm bestreut wird. Es scheint noch genug Staub vorhanden zu sein, um ein paar Prisen davon zu verteilen.
+
+EIGENSCHAFTEN:
+
+Spezialfähigkeit (einmalige Anwendung):  Alle Kreaturen im Umkreis von 3,5 m werden für 12 Stunden unsichtbar.
+~
+@284  = ~Wirft man ihn von sich, explodiert dieser Trank, wenn er auf den Boden auftrifft. Dadurch entsteht eine Wolke von einschläfernden Dämpfen, die jeden in tiefen Schlaf versetzen, der sich im Wirkungsbereich befindet. 
+
+EIGENSCHAFTEN:
+
+Wirkung: Schlaf, bis dem Opfer ein Rettungswurf gegen Odemwaffen gelingt
+Reichweite: 15 m
+Wirkungsbereich: Im Umkreis von 6,5 m
+Wirkungsdauer: 2 Phasen
+~
+@302  = ~Dieser magische Ring wurde von Ymmyrt geschaffen, um den Umgang mit den exotischen und oftmals recht widerspenstigen Kreaturen zu erleichtern, die Gegenstand seiner Forschungen sind.
+
+EIGENSCHAFTEN:
+
+Besondere Eigenschaften: Monster Bezaubern (einmal täglich)
+~
+@304  = ~Diese Robe wurde von Ymmyrt entworfen und mit diversen geringeren Verzauberungen versehen, die ihm den Umgang mit verschiedenen exotischen Kreaturen erleichtern. Die Robe schützt den Träger nicht nur vor verschiedenen Formen physischen Schadens, sie bietet auch Schutz vor feindlicher Magie und ist mit einigen Schutzzaubern belegt. Aufgrund ihrer ungewöhnlichen Spezialisierung kann sie nur von Magiern getragen werden, die sich nicht auf eine bestimmte Zauberschule spezialisiert haben.
+
+EIGENSCHAFTEN:
+
+-1 auf Rüstungsklasse +1
+Magieresistenz: +5%
+Gewicht: 4
+Besondere Eigenschaften: Schutz gegen Böses, Schutz gegen Versteinerung, Schild (einmal täglich)
+~
+@310  = ~Modische Halstücher wie dieses hier werden von Piraten und Gaunern auf der ganzen Welt bevorzugt. Sie machen einen essentiellen Teil ihres einzigartigen Charmes und ihrer Anziehungskraft aus. Dieses Halstuch vermittelt außerdem ein Gespür dafür, wie man durch selbstbewusstes Auftreten schwerwiegenden Verletzungen entgehen kann.
+  
+EIGENSCHAFTEN:
+  
+Verleiht dem Träger Charisma +1
+Besondere Eigenschaften:  Schutz gegen Kritische Treffer
+~
+@311  = ~Modische Halstücher wie dieses hier werden von Piraten und Gaunern auf der ganzen Welt bevorzugt. Sie machen einen essentiellen Teil ihres einzigartigen Charmes und ihrer Anziehungskraft aus. Es vermittelt außerdem ein Gespür dafür, wie man durch selbstbewusstes Auftreten schwerwiegenden Verletzungen entgehen kann.
+  
+EIGENSCHAFTEN:
+  
+Verleiht dem Träger Charisma +1
+Besondere Eigenschaften: Schutz gegen Kritische Treffer
+~
+@313  = ~Diese exquisiten Handschuhe sind aus unglaublich dünnem Ziegenleder gefertigt und wurden so verzaubert, dass sich ihre Berührung so sanft und weich wie eine Feder anfühlt. Der ursprüngliche Verwendungszweck dieser Handschuhe ist nicht bekannt, aber eher zwielichtige Gestalten fanden bald heraus, dass sie sich exzellent dafür eigneten, schwierige Transaktionen von Eigentum zu vereinfachen.
+
+EIGENSCHAFTEN:
+
+Verleiht dem Träger +15% auf Schlösser Öffnen
+~
+@315  = ~Die Bearbeitung von Lindwurmhaut ist kein leichtes Unterfangen, aber dieses Mal musste die giftige Haut der Bestie sich den außergewöhnlichen Fähigkeiten Rashryns geschlagen geben. Er stellte für Euch eine sowohl modische als auch nützliche Lederrobe her. Sogar nach dem Tod des Lindwurms ist etwas von seinem Wesen in der Robe erhalten geblieben. Ihr mag das sanfte Rascheln einer hauchdünnen Woll- oder Seidenrobe fehlen, und auch ihre grüne Färbung verleiht ihr ein nur bedingt attraktives Äußeres, aber der Träger dieser Robe ist dafür geringfügig besser gegen Säure und Gift geschützt. Das Leder besitzt eine atemberaubende Weichheit und wurde zudem mit schützenden Verzauberungen versehen, die Schutz gegenüber feindlichen Schlägen bieten.
+
+EIGENSCHAFTEN:
+
+Besondere Fähigkeiten:
+Rüstungsklasse +1
+Säureresistenz: +20%
+Giftresistenz: +20%
+
+~
+@317  = ~Die Bearbeitung von Lindwurmhaut ist kein leichtes Unterfangen, aber dieses Mal musste die giftige Haut der Bestie sich den außergewöhnlichen Fähigkeiten Rashryns geschlagen geben. Er stellte für Euch eine sowohl modische als auch nützliche Lederrobe her. Sogar nach dem Tod des Lindwurms ist etwas von seinem Wesen in der Robe erhalten geblieben. Ihr mag das sanfte Rascheln einer hauchdünnen Woll- oder Seidenrobe fehlen, und auch ihre grüne Färbung verleiht ihr ein nur bedingt attraktives Äußeres, aber der Träger dieser Robe ist dafür geringfügig besser gegen Säure und Gift geschützt. Das Leder besitzt eine atemberaubende Weichheit und wurde zudem mit schützenden Verzauberungen versehen, die Schutz gegenüber feindlichen Schlägen bieten.
+
+Die in das Leder eingearbeiteten Smaragde verstärken die auf der Robe liegenden Schutzzauber erheblich. 
+
+EIGENSCHAFTEN:
+
+Besondere Fähigkeiten:
+Rüstungsklasse +2
+Säureresistenz: +20%
+Giftresistenz: +20%
+
+~
+@319  = ~In den geschickten Händen des Schneiders Rashryn hat sich das weiche Fell, das Ihr in Ymmyrts Haus gefunden habt, in einen noch luxuriöseren Mantel verwandelt. Der kunstvoll gearbeitete seidene Saum und die feine Silberschnalle ergänzen das dicke und glänzende Fell perfekt. Der Mantel fühlt sich nicht nur äußerst angenehm an, sondern bietet auch guten Schutz gegen klirrende Kälte.
+
+EIGENSCHAFTEN:
+
+Kälteresistenz: +50%
+Charisma +1
+
+~
+@320  = ~Entropie
+Das Kurzschwert +2 stammt aus der Abyss und ist aus Grünstahl gefertigt. Es ist eine der Lieblingswaffen von Haer'Dalis. Das Kurzschwert verursacht bei einem Gegner, der bei seinem Rettungswurf gegen Gift scheitert, drei zusätzliche Schadenspunkte. Es kann nur von Haer'Dalis verwendet werden.
+
+EIGENSCHAFTEN:
+
+Besondere Fähigkeiten: Wird ein Gegner von der Klinge getroffen, erleidet er 3 zusätzliche Schadenspunkte durch Gift, wenn ihm ein Rettungswurf gegen Gift misslingt.
+ETW0: -2
+Schaden: 1W6+2(Stichwaffe)
+Gewicht: 2
+Initiativefaktor: 0
+Waffenfertigkeit: Kurzschwert
+Waffentyp: Einhändig
+~
+@321  = ~Chaosklinge
+Die Chaosklinge ist ein Kurzschwert +2, das nur von Haer'Dalis verwendet werden kann. Jedes Mal, wenn die Klinge trifft, verliert der Gegner für 30 Sekunden zwei Geschicklichkeitspunkte. Haer'Dalis setzt die Chaosklinge gerne zusammen mit ihrer Schwesternwaffe Entropie ein und wird mit beiden Waffen gemeinsam zu einem äußerst gefährlichen Gegner.
+
+EIGENSCHAFTEN:
+
+Besondere Fähigkeiten: Wird ein Gegner von der Klinge getroffen, verliert er für 30 Sekunden zwei Geschicklichkeitspunkte.
+ETW0: -2
+Schaden: 1W6+2(Stichwaffe)
+Gewicht: 2
+Initiativefaktor: 0
+Waffenfertigkeit: Kurzschwert
+Waffentyp: Einhändig
+~
+@323  = ~Amber trägt drei große, ringförmige Ohrringe an ihrem rechten Ohr und zwei an ihrem linken. Sie bestehen aus purem Gold und sind weder durch Verzierungen noch durch Edelsteine geschmückt. Die Ohrringe erinnern an jene, die Seemänner oft als Glücksbringer tragen. Amber sträubt sich, sie abzulegen und nennt sie ihre 'Notreserve an Gold'. Ihr fragt Euch, wie schlimm die Dinge stehen müssten, damit sie sich wirklich von ihren Ohrringen trennen würde.
+
+EIGENSCHAFTEN:
+
+Schutz vor Kritischen Treffern
+
+~
+@333 =~Amber left <CHARNAME> right after the events at the Throne of Bhaal. The experience in the Abyss and with its creatures had shown her that she still did not know who she was and which was the life she wanted to live. She went to search for Cadderly, the human she had learned to be her father.
+
+What exactly happened between father and daughter after she reached Spirit Soaring will remain their common secret. Anyway, Amber decided to stay at that place of healing and became part of the community around her father without but without becoming a priest herself.
+
+Her magnificent fighting skills were tested at several times during assaults made on the temple. She became Spirit Soaring's main defender by those events. She and <CHARNAME> never met again.~

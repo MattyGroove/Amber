@@ -1,0 +1,365 @@
+IF
+	HPLT(Myself,10)
+	Global("M#YmmExplode","Locals",0)
+THEN
+	RESPONSE #100
+		SetGlobal("M#YmmExplode","Locals",1)
+		ReallyForceSpellRES("SPWI523",Myself)
+		DisplayStringHead(Myself,@43)		
+END
+
+IF
+	HPPercentLT(Myself,75)
+	HasItem("potn52",Myself)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		UseItem("potn52",Myself)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Prep","LOCALS",0)
+	HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+	RESPONSE #100
+		SetGlobal("Prep","LOCALS",1)
+		SetGlobalTimer("castnattack","LOCALS",1)
+		ReallyForceSpell(Myself,WIZARD_STONE_SKIN)
+		ApplySpell(Myself,WIZARD_MINOR_SPELL_TURNING)
+		ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+		UseItem("potn29",Myself)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	CheckStat(Myself,0,STONESKINS)
+	Global("Prep","LOCALS",1)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		DisplayString(Myself,29736) // Contingency - Stoneskin
+		ApplySpell(Myself,WIZARD_STONE_SKIN)
+		SetGlobal("Prep","LOCALS",2)
+		SetGlobalTimer("castnattack","LOCALS",1)
+		UseItem("scrl8z",Myself)
+		DisplayStringHead(Myself,@42)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	StateCheck(Myself,STATE_SILENCED)
+	HaveSpell(WIZARD_VOCALIZE)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	Detect([PC])
+	!See(LastSeenBy(Myself))
+	HasItem("scrl6w",Myself)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		UseItem("scrl7m",Myself)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See([GOODCUTOFF.0.0.MAGE_ALL])
+	HasItem("potn33",Myself)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		UseItem("potn33",Myself)
+END
+
+IF
+	OR(6)
+	  See(SixthNearestEnemyOf(Myself))
+	  See(FifthNearestEnemyOf(Myself))
+	  See(FourthNearestEnemyOf(Myself))
+	  See(ThirdNearestEnemyOf(Myself))
+	  See(SecondNearestEnemyOf(Myself))
+	  See(NearestEnemyOf(Myself))
+	!Range(LastSeenBy(Myself),21)
+	HaveSpell(WIZARD_FIREBALL)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(LastSeenBy(Myself),WIZARD_FIREBALL)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	OR(3)
+	  Range([GOODCUTOFF.0.0.FIGHTER_ALL],15)
+	  Range([GOODCUTOFF.0.0.PALADIN_ALL],15)
+	  Range([GOODCUTOFF.0.0.RANGER_ALL],15)
+	HasItem("scrl9c",Myself)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		UseItem("scrl9c",Myself)
+END
+
+IF
+	See(StrongestOf([GOODCUTOFF]))
+	HaveSpell(WIZARD_MAZE)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+	RandomNum(3,1)
+THEN
+	RESPONSE #100
+	SetGlobalTimer("castnattack","LOCALS",1)
+	Spell(LastSeenBy(Myself),WIZARD_MAZE)
+END
+
+IF
+	OR(3)
+	  See(NearestEnemyOfType([GOODCUTOFF.0.0.FIGHTER_ALL]))
+	  See(NearestEnemyOfType([GOODCUTOFF.0.0.PALADIN_ALL]))
+	  See(NearestEnemyOfType([GOODCUTOFF.0.0.RANGER_ALL]))
+	HaveSpell(WIZARD_POLYMORPH_OTHER)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!HasImmunityEffects(LastSeenBy(Myself))
+	CheckStatGT(LastSeenBy(Myself),9,SAVEVSPOLY)
+	CheckStat(LastSeenBy(Myself),0,POLYMORPHED)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")	
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(LastSeenBy(Myself),WIZARD_POLYMORPH_OTHER)
+END
+
+IF
+	See([GOODCUTOFF])
+	CheckStatGT(LastSeenBy(Myself),8,SAVEVSSPELL)
+	HaveSpell(WIZARD_DISINTEGRATE)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!HasImmunityEffects(LastSeenBy(Myself))
+	RandomNum(2,1)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")	
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(LastSeenBy(Myself),WIZARD_DISINTEGRATE)
+END
+
+IF
+	OR(2)
+	  See(NearestEnemyofType([GOODCUTOFF.0.0.MAGE_ALL]))
+	  See(NearestEnemyofType([GOODCUTOFF.0.0.CLERIC_ALL]))
+	CheckStatGT(LastSeenBy(Myself),8,SAVEVSSPELL)
+	NotStateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+	HaveSpell(WIZARD_CHAOS)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!HasImmunityEffects(LastSeenBy(Myself))
+	RandomNum(2,2)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(LastSeenBy(Myself),WIZARD_CHAOS)
+END
+
+IF
+	!Range(NearestEnemyOf(Myself),3)
+	OR(2)
+	  See(NearestEnemyofType([GOODCUTOFF.0.0.MAGE_ALL]))
+	  See(NearestEnemyofType([GOODCUTOFF.0.0.CLERIC_ALL]))
+	HaveSpell(WIZARD_MELF_ACID_ARROW)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!HasImmunityEffects(LastSeenBy(Myself))
+	!GlobalTimerNotExpired("M#Melf","LOCALS")
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("M#Melf","LOCALS",24)
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(LastSeenBy(Myself),WIZARD_MELF_ACID_ARROW)
+END
+
+IF
+	OR(2)
+	  See(NearestEnemyofType([GOODCUTOFF.0.0.MAGE_ALL]))
+	  See(NearestEnemyofType([GOODCUTOFF.0.0.CLERIC_ALL]))
+	HaveSpell(WIZARD_SUMMON_NISHRUU)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+	NumCreature([ENEMY.0.0.OGRE_MAGE],0)
+
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(LastSeenBy(Myself),WIZARD_SUMMON_NISHRUU)
+END
+	
+IF
+	Allegiance(Myself,ENEMY)
+	HasItem("scrl9b",Myself)
+	See(SecondNearestEnemyOf(Myself))
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+	RandomNum(3,2)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		ReallyForceSpell(Myself,WIZARD_PROTECTION_FROM_EVIL)
+		UseItem("scrl9b",SecondNearestEnemyOf(Myself))
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	HaveSpell(WIZARD_MORDENKAINENS_SWORD)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+	NumCreatureVsParty([0.0.GNOLL],0)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(Myself,WIZARD_MORDENKAINENS_SWORD)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	NumCreatureLT([ENEMY],3)
+	HaveSpell(WIZARD_MONSTER_SUMMONING_2)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+	
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(Myself,WIZARD_MONSTER_SUMMONING_2)
+END
+
+IF
+	NumCreatureGT([GOODCUTOFF],3)
+	See(NearestEnemyOf(Myself))
+	Range(LastSeenBy(Myself),2)
+	HaveSpell(WIZARD_CONE_OF_COLD)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!HasImmunityEffects(LastSeenBy(Myself))
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(LastSeenBy(Myself),WIZARD_CONE_OF_COLD)
+END
+
+IF
+	NumCreatureGT([GOODCUTOFF],3)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_CHAIN_LIGHTNING)
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(LastSeenBy(Myself),WIZARD_CHAIN_LIGHTNING)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+	HaveSpell(WIZARD_HOLD_PERSON)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!HasImmunityEffects(LastSeenBy(Myself))
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(NearestEnemyOf(Myself),WIZARD_HOLD_PERSON)
+END
+
+IF
+	NumCreatureGT([GOODCUTOFF],3)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MAGIC_MISSILE)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!HasImmunityEffects(LastSeenBy(Myself))
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)
+END
+
+IF
+	OR(2)
+	  HasBounceEffects(LastSeenBy(Myself))
+	  HasImmunityEffects(LastSeenBy(Myself))
+	HaveSpellRES("SPWI302")
+	OR(2)
+	  CheckStat(Myself,1,AURACLEANSING)
+	  !GlobalTimerNotExpired("castnattack","LOCALS")
+	
+THEN
+	RESPONSE #100
+		SetGlobalTimer("castnattack","LOCALS",1)
+		SpellRES("SPWI302",LastSeenBy(Myself))
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Range(NearestEnemyOf(Myself),5)
+THEN
+	RESPONSE #100
+		EquipRanged()
+		AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Range(NearestEnemyOf(Myself),5)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackOneRound(LastSeenBy(Myself))
+END

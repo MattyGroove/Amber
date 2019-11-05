@@ -1,0 +1,16 @@
+IF
+	OnCreation()
+THEN
+	RESPONSE #100
+		TriggerActivation("M#Climb01",TRUE)
+		TriggerActivation("M#Climb01b",FALSE)
+END
+
+IF
+	Global("M#AmberKidnap","GLOBAL",7)
+	!InParty("M#Amber")
+THEN
+	RESPONSE #100
+	ActionOverride("M#Amber",MoveBetweenAreas("m#ar01",[590.560],6))
+	SetGlobal("M#AmberKidnap","GLOBAL",8)
+END

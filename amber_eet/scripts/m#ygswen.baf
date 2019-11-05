@@ -1,0 +1,45 @@
+IF
+	See([PC])
+	Range([PC],10)
+	!Allegiance(Myself,ENEMY)
+	Global("M#RunAway","Locals",0)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,@32)
+		RunAwayFrom(LastSeenBy(Myself),180)
+		SetGlobal("M#RunAway","Locals",1)
+END
+
+IF
+	See([PC])
+	CombatCounterGT(0)
+	Range([PC],5)
+	!Allegiance(Myself,ENEMY)
+	Global("M#RunAway","Locals",1)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,@33)
+		RunAwayFrom(LastSeenBy(Myself),60)
+END
+
+IF
+	See([PC])
+	Range([PC],5)
+	CombatCounter(0)
+	!Allegiance(Myself,ENEMY)
+	GlobalLT("M#RunAway","Locals",2)
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+		SetGlobal("M#RunAway","Locals",2)
+		StartDialogNoSet(LastSeenBy(Myself))
+END
+
+IF
+	CombatCounter(0)
+	!Allegiance(Myself,ENEMY)
+	Global("M#RunAway","Locals",3)
+THEN
+	RESPONSE #100
+	EscapeArea()	
+END
