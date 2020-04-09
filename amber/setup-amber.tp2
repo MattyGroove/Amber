@@ -1,6 +1,6 @@
 BACKUP ~amber/backup~
 AUTHOR ~not available~
-VERSION ~v5.04~
+VERSION ~v5.05~
 
 
 ALWAYS
@@ -666,6 +666,19 @@ COPY ~amber/creatures/m#rashry.cre~            ~override/m#rashry.cre~
   SAY NAME2 @202 /* @202 = ~Tailor~ */     
 
 COPY ~amber/creatures/m#reveal.cre~           ~override/m#reveal.cre~  
+
+COPY_EXISTING ~M#Ambr10.CRE~ ~override~
+              ~M#Ambr12.CRE~ ~override~
+              ~M#Ambr14.CRE~ ~override~
+              ~M#Ambr15.CRE~ ~override~
+ LAUNCH_PATCH_FUNCTION ADD_CRE_EFFECT
+    INT_VAR
+    opcode = 360
+    timing = 9
+    target = 1 
+    resist_dispel = 0 
+  END
+BUT_ONLY
 
 // Items
 
