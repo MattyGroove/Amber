@@ -1093,6 +1093,9 @@ COPY ~amber/creatures/m#Jill.cre~    ~override~
   SAY NAME1 ~Gillian~
   SAY NAME2 ~Gillian~
   
+COPY_EXISTING ~gorsuc01.cre~ ~override~
+WRITE_ASCII 0x34 ~gorsuc01~ #8  
+  
 COMPILE 
 ~amber/ToB/Stronghold.d~  
 ~amber/ToB/Ambersolar.d~
