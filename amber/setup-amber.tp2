@@ -1,6 +1,6 @@
 BACKUP ~amber/backup~
 AUTHOR ~not available~
-VERSION ~v5.05~
+VERSION ~v5.06~
 
 
 ALWAYS
@@ -15,20 +15,12 @@ ACTION_IF GAME_IS ~eet~ BEGIN
     OUTER_SET EVAL ~%name_source%~ = bg2_chapter
   END
 
-ACTION_DEFINE_ARRAY fl#reload BEGIN setup END
-  LAF HANDLE_CHARSETS
-    INT_VAR
-      infer_charset = 1
-    STR_VAR
-      tra_path = ~amber/tra~
-      reload_array = fl#reload
-      default_language = ~English~
-  END
 END
 
 LANGUAGE ~English~ ~english~ ~amber/tra/english/setup.tra~
 LANGUAGE ~Deutsch~ ~german~  ~amber/tra/german/setup.tra~
 LANGUAGE ~Spanish~ ~spanish~ ~amber/tra/spanish/setup.tra~
+LANGUAGE ~Chinese~ ~chinese~ ~amber/tra/chinese/setup.tra~
 
 BEGIN @150 
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @151  

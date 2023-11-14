@@ -1,13 +1,13 @@
-@205  = ~Esta es una pipa de madera pequeÒa, tallada para asemejarse a la cabeza de un demonio. Cuando se usa esta pipa convoca humos mortÌferos de los planos del Abismo.
+@205  = ~Esta es una pipa de madera peque√±a, tallada para asemejarse a la cabeza de un demonio. Cuando se usa esta pipa convoca humos mort√≠feros de los planos del Abismo.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-Efecto: Invoca "Nube aniquiladora" dos veces por dÌa.
+Efecto: Invoca "Nube aniquiladora" dos veces por d√≠a.
 
 ~
-@207  = ~La armadura de la sombra del aprendiz es una armadura de cuero tachonada creada para el uso de los aprendices y protegidos del maestro de las sombras de Amn, la orden m·s alta en la jerarquÌa de los Ladrones de la Sombra. Es una armadura de cuero tachonada +1 que ayuda a su portador a esconderse en las sombras.
+@207  = ~La armadura de la sombra del aprendiz es una armadura de cuero tachonada creada para el uso de los aprendices y protegidos del maestro de las sombras de Amn, la orden m√°s alta en la jerarqu√≠a de los Ladrones de la Sombra. Es una armadura de cuero tachonada +1 que ayuda a su portador a esconderse en las sombras.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
 Clase De Armadura: 6
 Especial: +5 para esconderse en las sombras
@@ -15,18 +15,18 @@ Peso: 12
 Requiere: 6 de fuerza
 ~
 @221  = ~Espada de las rosas, espada larga +4
-Esta espada posee un esplendor sobrenatural, y es probable que Sune, la diosa de la belleza y la pasiÛn, interviniese en su creaciÛn. El efecto que tiene en el portador es inmediato, y m·s de una vez en su historia esta espada ha sido el secreto detr·s de la inesperada eminencia de un deslucido soldado en la corte.
-Cuando encontrasteis esta espada le faltaba un rubÌ encantado de su pomo. Vos jam·s podrÌais haber notado este defecto, pero el herrero enano Cromwell lo apreciÛ y reparÛ la espada. Adem·s del encantamiento b·sico de la espada, el rubÌ, aunque no especialmente grande, perfecciona el equilibrio de la hoja, convirtiÈndola en un arma aun m·s efectiva. CÛmo encontrÛ la gema del pomo su camino hasta la pulsera de Amber, que anteriormente poseyese Jill la bardo, sigue siendo un misterio. 
+Esta espada posee un esplendor sobrenatural, y es probable que Sune, la diosa de la belleza y la pasi√≥n, interviniese en su creaci√≥n. El efecto que tiene en el portador es inmediato, y m√°s de una vez en su historia esta espada ha sido el secreto detr√°s de la inesperada eminencia de un deslucido soldado en la corte.
+Cuando encontrasteis esta espada le faltaba un rub√≠ encantado de su pomo. Vos jam√°s podr√≠ais haber notado este defecto, pero el herrero enano Cromwell lo apreci√≥ y repar√≥ la espada. Adem√°s del encantamiento b√°sico de la espada, el rub√≠, aunque no especialmente grande, perfecciona el equilibrio de la hoja, convirti√©ndola en un arma aun m√°s efectiva. C√≥mo encontr√≥ la gema del pomo su camino hasta la pulsera de Amber, que anteriormente poseyese Jill la bardo, sigue siendo un misterio. 
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
 Habilidades Equipadas:
  Carisma: +2 
- ProtecciÛn contra el miedo
+ Protecci√≥n contra el miedo
  Suerte
 GAC0: +4 
-DaÒo: 2D4 + 4
-Tipo de DaÒo: cortante
+Da√±o: 2D4 + 4
+Tipo de Da√±o: cortante
 Peso: 3
 Factor de Velocidad: 2
 Tipo de Talento: Espada larga
@@ -34,35 +34,35 @@ Tipo: A una mano
 Requiere: 6 Fuerza
 ~
 @227  = ~Rodela +2, Thorard's Saucer
-Una rodela (o broquel) es un pequeÒo escudo de madera o metal que se sujeta al antebrazo. Gracias a su tamaÒo es ligera y puede transportarte sin sufrir grandes restricciones al movimiento. Esta rodela ha sido creada por un herrero enano y construÌda de metal y cuero duro. Una inscripciÛn en runas enanas embutidas en circulos de cobre est· por todo alrededor y su reluciente inscripciÛn proclama soberbiamente: "Por la gloria de Moradin, hecha por la mano de Thorard". La rodela es de buena calidad, pero su valor verdadero est· en los encantamientos de protecciÛn que la hacen m·s resistente a los ataques.        
+Una rodela (o broquel) es un peque√±o escudo de madera o metal que se sujeta al antebrazo. Gracias a su tama√±o es ligera y puede transportarte sin sufrir grandes restricciones al movimiento. Esta rodela ha sido creada por un herrero enano y constru√≠da de metal y cuero duro. Una inscripci√≥n en runas enanas embutidas en circulos de cobre est√° por todo alrededor y su reluciente inscripci√≥n proclama soberbiamente: "Por la gloria de Moradin, hecha por la mano de Thorard". La rodela es de buena calidad, pero su valor verdadero est√° en los encantamientos de protecci√≥n que la hacen m√°s resistente a los ataques.        
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-BonificaciÛn a la CA: 3
+Bonificaci√≥n a la CA: 3
 Especial: No protege contra Ataques de Proyectil/Perforante
 Peso: 2
 Requiere: 4 Fuerza
 ~
-@230  = ~…sta es una de las primeras armas del hombre y data de tiempos remotos en que las primeras lanzas eran sencillas varas de madera afiladas. Cuando el hombre dominÛ los metales, las puntas de lanza se fabricaron de hierro y acero. Llegados a este punto, los armeros comenzaron a experimentar con diferentes tipos de puntas, lo que les llevÛ a descubrir ciertos tipos de armas de asta. Otro tipo de estudio llevÛ a la integraciÛn de la magia en las lanzas. Los chamanes tribales las hechizaban para poder golpear con m·s facilidad y causar a sus rivales m·s daÒo.
-Esta particular lanza consiste en un ceniciento asta y una punta afilada que alberga la apariencia de la artesanÌa enana. Es interesante advertir que aunque la punta, y probablemente el asta tambiÈn, parece de manufactura enana, las runas encantadas en sendos asta y punta est·n grabadas en letras Èlficas. Un trabajo como Èste, el producto de los esfuerzos combinados de dos personas, es una cosa muy poco frecuente. Esta simple, pero efectiva, arma es un raro testamento de lo que en potencia poseyÛ tal alianza.
+@230  = ~√âsta es una de las primeras armas del hombre y data de tiempos remotos en que las primeras lanzas eran sencillas varas de madera afiladas. Cuando el hombre domin√≥ los metales, las puntas de lanza se fabricaron de hierro y acero. Llegados a este punto, los armeros comenzaron a experimentar con diferentes tipos de puntas, lo que les llev√≥ a descubrir ciertos tipos de armas de asta. Otro tipo de estudio llev√≥ a la integraci√≥n de la magia en las lanzas. Los chamanes tribales las hechizaban para poder golpear con m√°s facilidad y causar a sus rivales m√°s da√±o.
+Esta particular lanza consiste en un ceniciento asta y una punta afilada que alberga la apariencia de la artesan√≠a enana. Es interesante advertir que aunque la punta, y probablemente el asta tambi√©n, parece de manufactura enana, las runas encantadas en sendos asta y punta est√°n grabadas en letras √©lficas. Un trabajo como √©ste, el producto de los esfuerzos combinados de dos personas, es una cosa muy poco frecuente. Esta simple, pero efectiva, arma es un raro testamento de lo que en potencia posey√≥ tal alianza.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
   
 GAC0: +2 
-DaÒo: 1D6 + 2
-Tipo de DaÒo: perforante
+Da√±o: 1D6 + 2
+Tipo de Da√±o: perforante
 Peso: 3
 Factor de Velocidad: 4
 Tipo de Talento: Lanza 
 Tipo: A dos manos
 Requiere: 5 Fuerza
 ~
-@231  = ~La lanza, una de las primeras armas utilizadas por el hombre primitivo, empezÛ siendo un asta de madera o una simple vara a la que se sacaba punta. Cuando el hombre llegÛ a dominar los metales, las puntas de lanza se hicieron de hierro y acero. Llegados a este punto, los armeros comenzaron a experimentar con diferentes tipos de puntas, lo que les llevÛ a descubrir ciertos tipos de armas de asta.
+@231  = ~La lanza, una de las primeras armas utilizadas por el hombre primitivo, empez√≥ siendo un asta de madera o una simple vara a la que se sacaba punta. Cuando el hombre lleg√≥ a dominar los metales, las puntas de lanza se hicieron de hierro y acero. Llegados a este punto, los armeros comenzaron a experimentar con diferentes tipos de puntas, lo que les llev√≥ a descubrir ciertos tipos de armas de asta.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-DaÒo: 1D6
-Tipo de DaÒo: perforante
+Da√±o: 1D6
+Tipo de Da√±o: perforante
 Peso: 5
 Factor de Velocidad: 6
 Tipo de Talento: Lanza 
@@ -70,13 +70,13 @@ Tipo: A dos manos
 Requiere: 5 Fuerza
 ~
 
-@237  = ~La mayorÌa de los garrotes son palos recios de madera, estrechos en la empuÒadura y m·s anchos en los extremos. Esta sencilla herramienta se ha utilizado desde que el hombre comenzÛ a utilizar herramientas. Todo el mundo puede encontrar una buena pieza de recia madera con la que golpear, de ahÌ el amplio uso de los garrotes.
+@237  = ~La mayor√≠a de los garrotes son palos recios de madera, estrechos en la empu√±adura y m√°s anchos en los extremos. Esta sencilla herramienta se ha utilizado desde que el hombre comenz√≥ a utilizar herramientas. Todo el mundo puede encontrar una buena pieza de recia madera con la que golpear, de ah√≠ el amplio uso de los garrotes.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
 GAC0: +2 
-DaÒo: 1D6 +2
-Tipo de DaÒo: contundente
+Da√±o: 1D6 +2
+Tipo de Da√±o: contundente
 Peso: 1
 Factor de Velocidad: 1
 Tipo de Talento: Palo
@@ -86,17 +86,17 @@ Requiere: 5 Fuerza
 
 @269  = ~Regalo de Mielikki, Cimitarra +3
 
-Mielikki es la diosa de los bosques, las criaturas del bosque, drÌadas y de la estaciÛn otoÒal. TambiÈn es llamada la SeÒora del Bosque, y como muchos otros dioses, a veces da regalos a sus fieles seguidores. Esta hoja elegantemente curvada, que brilla tenuemente con un suave resplandor verde p·lido, es uno de esos regalos. Magistralmente equilibrada y bendecida con sendos hechizos protectores y ofensivos, esta hoja es verdaderamente una belleza para ser contemplada y esgrimida.  
+Mielikki es la diosa de los bosques, las criaturas del bosque, dr√≠adas y de la estaci√≥n oto√±al. Tambi√©n es llamada la Se√±ora del Bosque, y como muchos otros dioses, a veces da regalos a sus fieles seguidores. Esta hoja elegantemente curvada, que brilla tenuemente con un suave resplandor verde p√°lido, es uno de esos regalos. Magistralmente equilibrada y bendecida con sendos hechizos protectores y ofensivos, esta hoja es verdaderamente una belleza para ser contemplada y esgrimida.  
 
-Esta cimitarra le fue dada originalmente a la exploradora y clÈriga Lorraine que encontrasteis rescatando a Amber de las garras del hechicero Ymmyrt. Cuando Lorraine cayÛ en batalla, cogisteis el arma de su cuerpo sin vida.
+Esta cimitarra le fue dada originalmente a la exploradora y cl√©riga Lorraine que encontrasteis rescatando a Amber de las garras del hechicero Ymmyrt. Cuando Lorraine cay√≥ en batalla, cogisteis el arma de su cuerpo sin vida.
   
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
 Habilidad Equipada: Armadura de la fe dos veces al dia
 Habilidad de Combate: Enredar al objetivo cuando el golpe es exitoso
-DaÒo: 1D8 +3
+Da√±o: 1D8 +3
 GAC0: +3
-Tipo de DaÒo: cortante
+Tipo de Da√±o: cortante
 Peso: 3
 Factor de Velocidad: 3
 Tipo de Talento: Cimitarra/Wakizashi/Ninja-To
@@ -105,138 +105,138 @@ Requiere: 6 Fuerza
 ~
 @270  = ~Regalo de Mielikki, Cimitarra +4
 
-Mielikki es la diosa de los bosques, las criaturas del bosque, drÌadas y de la estaciÛn otoÒal. TambiÈn es llamada la SeÒora del Bosque, y como muchos otros dioses, a veces da regalos a sus fieles seguidores. Esta hoja elegantemente curvada, que brilla tenuemente con un suave resplandor verde p·lido, es uno de esos regalos. Magistralmente equilibrada y bendecida con sendos hechizos protectores y ofensivos, esta hoja es verdaderamente una belleza para ser contemplada y esgrimida.  
+Mielikki es la diosa de los bosques, las criaturas del bosque, dr√≠adas y de la estaci√≥n oto√±al. Tambi√©n es llamada la Se√±ora del Bosque, y como muchos otros dioses, a veces da regalos a sus fieles seguidores. Esta hoja elegantemente curvada, que brilla tenuemente con un suave resplandor verde p√°lido, es uno de esos regalos. Magistralmente equilibrada y bendecida con sendos hechizos protectores y ofensivos, esta hoja es verdaderamente una belleza para ser contemplada y esgrimida.  
 
-Esta cimitarra le fue dada originalmente a la exploradora y clÈriga Lorraine que encontrasteis rescatando a Amber de las garras del hechicero Ymmyrt. Cuando Lorraine cayÛ en batalla, cogisteis el arma de su cuerpo sin vida. Desde entonces Cespenar ha mejorado los encantamientos, haciendola incluso m·s formidable.
+Esta cimitarra le fue dada originalmente a la exploradora y cl√©riga Lorraine que encontrasteis rescatando a Amber de las garras del hechicero Ymmyrt. Cuando Lorraine cay√≥ en batalla, cogisteis el arma de su cuerpo sin vida. Desde entonces Cespenar ha mejorado los encantamientos, haciendola incluso m√°s formidable.
   
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
 Habilidad Equipada: Armadura de la fe dos veces al dia
 Habilidad de Combate: Enredar al objetivo cuando el golpe es exitoso
-DaÒo: 1D8 +4
+Da√±o: 1D8 +4
 GAC0: +4
-Tipo de DaÒo: cortante
+Tipo de Da√±o: cortante
 Peso: 3
 Factor de Velocidad: 3
 Tipo de Talento: Cimitarra/Wakizashi/Ninja-To
 Tipo: A una mano
 Requiere: 6 Fuerza
 ~
-@276  = ~Este contenedor de forma extraÒa est· lleno de polvos pixi. El fino polvo brillante ha sido extraÌdo cuidadosamente de pixis vivos y m·gicamente preservado en esta caja.
+@276  = ~Este contenedor de forma extra√±a est√° lleno de polvos pixi. El fino polvo brillante ha sido extra√≠do cuidadosamente de pixis vivos y m√°gicamente preservado en esta caja.
 
-Es bien conocido que el polvo de pixies tiene la capacidad de volver a uno invisible cu·ndo es rociado en ellos. Parece que hay bastante polvo como para varias rociadas.
+Es bien conocido que el polvo de pixies tiene la capacidad de volver a uno invisible cu√°ndo es rociado en ellos. Parece que hay bastante polvo como para varias rociadas.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-Habilidad Especial (un uso):  Todas las criaturas en un area de 10 se volver·n invisibles durante 12 horas.
+Habilidad Especial (un uso):  Todas las criaturas en un area de 10 se volver√°n invisibles durante 12 horas.
 ~
-@284  = ~Cuando se lanza la pociÛn se rompe con el impacto y una nube de vapores soporÌferos inducen al sueÒo a toda desafortunada criatura que se encuentre dentro del area de efecto. 
+@284  = ~Cuando se lanza la poci√≥n se rompe con el impacto y una nube de vapores sopor√≠feros inducen al sue√±o a toda desafortunada criatura que se encuentre dentro del area de efecto. 
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
 Efecto: Dormir a menos que se salve contra aliento
 Alcance: 15 metros
-¡rea de efecto: radio de 8 metros
-DuraciÛn: 2 turnos
+√Årea de efecto: radio de 8 metros
+Duraci√≥n: 2 turnos
 ~
-@302  = ~Este anillo m·gico ha sido creado por Ymmyrt para facilitar el manejo de las exÛticas criaturas, y a menudo m·s bien reacias, utilizadas como sujetos de sus experimentos.
+@302  = ~Este anillo m√°gico ha sido creado por Ymmyrt para facilitar el manejo de las ex√≥ticas criaturas, y a menudo m√°s bien reacias, utilizadas como sujetos de sus experimentos.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
 Habilidades Especiales: Hechizar Monstruo una vez al dia
 ~
-@304  = ~Esta t˙nica ha sido especialmente diseÒada por Ymmyrt y provista con diversos encantamientos menores necesarios en su oficio de manipular a diversas criaturas exÛticas. Adem·s de proteger al portador de diversas formas de daÒo fÌsico, tambiÈn provee alguna protecciÛn contra la magia hostil y encierra algunos hechizos protectores. Debido a su inusual naturaleza especializada, sÛlo puede ser usada por magos no especializados en cualquier escuela de magia.
+@304  = ~Esta t√∫nica ha sido especialmente dise√±ada por Ymmyrt y provista con diversos encantamientos menores necesarios en su oficio de manipular a diversas criaturas ex√≥ticas. Adem√°s de proteger al portador de diversas formas de da√±o f√≠sico, tambi√©n provee alguna protecci√≥n contra la magia hostil y encierra algunos hechizos protectores. Debido a su inusual naturaleza especializada, s√≥lo puede ser usada por magos no especializados en cualquier escuela de magia.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-BonificaciÛn a la Clase de Armadura: +1
-Resistencia M·gica: +5
+Bonificaci√≥n a la Clase de Armadura: +1
+Resistencia M√°gica: +5
 Peso: 4
-Habilidades Especiales: ProtecciÛn contra el mal, ProtecciÛn de la petrificaciÛn y Escudo una vez al dia
+Habilidades Especiales: Protecci√≥n contra el mal, Protecci√≥n de la petrificaci√≥n y Escudo una vez al dia
 ~
-@310  = ~Las bandanas elegantes como Èsta son las favoritas de piratas y ladrones en todas partes. Es una parte esencial de su atractivo y encanto ˙nico. TambiÈn proporciona la gran elegancia necesaria para ocultar apropiadamente penosas lesiones con aplomo.
+@310  = ~Las bandanas elegantes como √©sta son las favoritas de piratas y ladrones en todas partes. Es una parte esencial de su atractivo y encanto √∫nico. Tambi√©n proporciona la gran elegancia necesaria para ocultar apropiadamente penosas lesiones con aplomo.
   
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
   
 Habilidad Equipada: +1 Carisma
-Especial:  Proteccion contra ataques crÌticos
+Especial:  Proteccion contra ataques cr√≠ticos
 ~
-@311  = ~Las bandanas elegantes como Èsta son las favoritas de piratas y ladrones en todas partes. Es una parte esencial de su atractivo y encanto ˙nico. TambiÈn proporciona la gran elegancia necesaria para ocultar apropiadamente penosas lesiones con aplomo.
+@311  = ~Las bandanas elegantes como √©sta son las favoritas de piratas y ladrones en todas partes. Es una parte esencial de su atractivo y encanto √∫nico. Tambi√©n proporciona la gran elegancia necesaria para ocultar apropiadamente penosas lesiones con aplomo.
   
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
   
 Habilidad Equipada: +1 Carisma
-Especial: Proteccion contra ataques crÌticos
+Especial: Proteccion contra ataques cr√≠ticos
 ~
-@313  = ~Estos exquisitos guantes est·n hechos del ante m·s delgado de cuero de cabritilla y encantados para hacer el tacto del toque del portador ligero y suave como una pluma. Nadie sabe el propÛsito original de estos guantes, pero los miembros de los bajos fondos pronto se dieron cuenta de que son una excelente ayuda en la dificultosa tarea de transferir pertenencias.
+@313  = ~Estos exquisitos guantes est√°n hechos del ante m√°s delgado de cuero de cabritilla y encantados para hacer el tacto del toque del portador ligero y suave como una pluma. Nadie sabe el prop√≥sito original de estos guantes, pero los miembros de los bajos fondos pronto se dieron cuenta de que son una excelente ayuda en la dificultosa tarea de transferir pertenencias.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
 Habilidad Equipada: +15	Robar
 ~
-@315  = ~El cuero de draco no es f·cil de trabajar, pero esta vez el cuero de la bestia venenosa se ha doblegado a la virtuosa habilidad de Rashryn y ha elaborado una t˙nica de cuero de mucho estilo y altamente funcional. Incluso despuÈs de su muerte, algo de la naturaleza del draco permanece en esta t˙nica. No puede contar con el suave murmullo de una delicada t˙nica de lana o de seda, o puede verse de un tono verde peculiarmente atractivo, pero a su portador se le proteger· significativamente tanto del ·cido como del veneno. El cuero, aunque da la impresiÛn de una suavidad asombrosa, tambiÈn est· encantado con hechizos protectores que ofrecen protecciÛn a los golpes del enemigo.
+@315  = ~El cuero de draco no es f√°cil de trabajar, pero esta vez el cuero de la bestia venenosa se ha doblegado a la virtuosa habilidad de Rashryn y ha elaborado una t√∫nica de cuero de mucho estilo y altamente funcional. Incluso despu√©s de su muerte, algo de la naturaleza del draco permanece en esta t√∫nica. No puede contar con el suave murmullo de una delicada t√∫nica de lana o de seda, o puede verse de un tono verde peculiarmente atractivo, pero a su portador se le proteger√° significativamente tanto del √°cido como del veneno. El cuero, aunque da la impresi√≥n de una suavidad asombrosa, tambi√©n est√° encantado con hechizos protectores que ofrecen protecci√≥n a los golpes del enemigo.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
 Habilidades Equipadas:
 Clase de Armadura: +1
-Resistencia al ·cido: bonificaciÛn +20
-Resistencia al veneno: bonificaciÛn +20
+Resistencia al √°cido: bonificaci√≥n +20
+Resistencia al veneno: bonificaci√≥n +20
 
 ~
-@317  = ~El cuero de draco no es f·cil de trabajar, pero esta vez el cuero de la bestia venenosa se ha doblegado a la virtuosa habilidad de Rashryn y ha elaborado una t˙nica de cuero de mucho estilo y altamente funcional. Incluso despuÈs de su muerte, algo de la naturaleza del draco permanece en esta t˙nica. No puede contar con el suave murmullo de una delicada t˙nica de lana o de seda, o puede verse de un tono verde peculiarmente atractivo, pero a su portador se le proteger· significativamente tanto del ·cido como del veneno. El cuero, aunque da la impresiÛn de una suavidad asombrosa, tambiÈn est· encantado con hechizos protectores que ofrecen protecciÛn a los golpes del enemigo.
+@317  = ~El cuero de draco no es f√°cil de trabajar, pero esta vez el cuero de la bestia venenosa se ha doblegado a la virtuosa habilidad de Rashryn y ha elaborado una t√∫nica de cuero de mucho estilo y altamente funcional. Incluso despu√©s de su muerte, algo de la naturaleza del draco permanece en esta t√∫nica. No puede contar con el suave murmullo de una delicada t√∫nica de lana o de seda, o puede verse de un tono verde peculiarmente atractivo, pero a su portador se le proteger√° significativamente tanto del √°cido como del veneno. El cuero, aunque da la impresi√≥n de una suavidad asombrosa, tambi√©n est√° encantado con hechizos protectores que ofrecen protecci√≥n a los golpes del enemigo.
 
 Las esmeraldas cosidas para el cuero sirven para aumentar su magia protectora, mejorando su efecto considerablemente. 
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
 Habilidades Equipadas:
 Clase de Armadura: +2
-Resistencia al ·cido: bonificaciÛn +20
-Resistencia al veneno: bonificaciÛn +20
+Resistencia al √°cido: bonificaci√≥n +20
+Resistencia al veneno: bonificaci√≥n +20
 
 ~
-@319  = ~En las h·biles manos del sastre Rashryn, el suave pelaje que encontrasteis en la cripta de Ymmyrt ha sido transformado en una capa aun m·s lujosa. Una elaborada seda como forro interior y el broche de plata fina complementan perfectamente al espeso y brillante pelaje. Adem·s de ser muy confortable, la capa tambiÈn ofrece una protecciÛn consistente en contra del gÈlido frÌo.
+@319  = ~En las h√°biles manos del sastre Rashryn, el suave pelaje que encontrasteis en la cripta de Ymmyrt ha sido transformado en una capa aun m√°s lujosa. Una elaborada seda como forro interior y el broche de plata fina complementan perfectamente al espeso y brillante pelaje. Adem√°s de ser muy confortable, la capa tambi√©n ofrece una protecci√≥n consistente en contra del g√©lido fr√≠o.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-ProtecciÛn contra el frio: +50
+Protecci√≥n contra el frio: +50
 Carisma: +1
 
 ~
-@320  = ~EntropÌa
-Este espada abisal +2 de acero verde es una de las armas favoritas de Haer'Dalis. Esta espada corta es capaz de infligir tres puntos adicionales de daÒo venenoso si el blanco falla un lanzamiento de salvaciÛn. Esta espada sÛlo puede ser usada por Haer'Dalis.
+@320  = ~Entrop√≠a
+Este espada abisal +2 de acero verde es una de las armas favoritas de Haer'Dalis. Esta espada corta es capaz de infligir tres puntos adicionales de da√±o venenoso si el blanco falla un lanzamiento de salvaci√≥n. Esta espada s√≥lo puede ser usada por Haer'Dalis.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-Habilidades Especiales: 3 puntos de daÒo venenoso si el objetivo falla la tirada de salvaciÛn contra la Muerte
+Habilidades Especiales: 3 puntos de da√±o venenoso si el objetivo falla la tirada de salvaci√≥n contra la Muerte
 GAC0: +2
-DaÒo: 1D6 + 2
-Tipo de DaÒo: perforante
+Da√±o: 1D6 + 2
+Tipo de Da√±o: perforante
 Peso: 2
 Factor de Velocidad: 0
 Tipo de Talento: Espada corta
 Tipo: A una mano
 ~
 @321  = ~Espada del Caos
-Caos es una espada corta +2 usable sÛlo por Haer'Dalis. Cada vez que golpea un oponente, Èste pierde dos puntos de destreza (durante 30 segundos). Haer'Dalis prefiere utilizar Caos con su compaÒera: EntropÌa. Cuando utiliza las dos juntas, Haer'Dalis es un peligroso oponente.
+Caos es una espada corta +2 usable s√≥lo por Haer'Dalis. Cada vez que golpea un oponente, √©ste pierde dos puntos de destreza (durante 30 segundos). Haer'Dalis prefiere utilizar Caos con su compa√±era: Entrop√≠a. Cuando utiliza las dos juntas, Haer'Dalis es un peligroso oponente.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-Habilidades Especiales: Objetivo pierde dos puntos de destreza con cada golpe (duraciÛn: 30 segundos)
+Habilidades Especiales: Objetivo pierde dos puntos de destreza con cada golpe (duraci√≥n: 30 segundos)
 GAC0: +2
-DaÒo: 1D6 + 2
-Tipo de DaÒo: perforante
+Da√±o: 1D6 + 2
+Tipo de Da√±o: perforante
 Peso: 2
 Factor de Velocidad: 0
 Tipo de Talento: Espada corta
 Tipo: A una mano
 ~
-@323  = ~Amber usa tres pendientes en la oreja derecha y dos en la izquierda. Parecen hechos de oro y no tienen otros ornamentos, y se parecen a los que usan los marineros para la buena suerte. Amber no quiere quit·rselos, llam·ndoles sus "oro de emergencia". No podÈis m·s que preguntaros que tan mal se tienen que poner las cosas para que se los quite.
+@323  = ~Amber usa tres pendientes en la oreja derecha y dos en la izquierda. Parecen hechos de oro y no tienen otros ornamentos, y se parecen a los que usan los marineros para la buena suerte. Amber no quiere quit√°rselos, llam√°ndoles sus "oro de emergencia". No pod√©is m√°s que preguntaros que tan mal se tienen que poner las cosas para que se los quite.
 
-CARACTERÕSTICAS:
+CARACTER√çSTICAS:
 
-ProtecciÛn contra golpes crÌticos
+Protecci√≥n contra golpes cr√≠ticos
 
 ~
 @333 =~Amber left <CHARNAME> right after the events at the Throne of Bhaal. The experience in the Abyss and with its creatures had shown her that she still did not know who she was and which was the life she wanted to live. She went to search for Cadderly, the human she had learned to be her father.
